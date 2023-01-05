@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovementSM : MonoBehaviour
 {
     [SerializeField] Animator playerAnimator;
+    [SerializeField] GameObject graphics;
     public enum PlayerState
     {
         IDLE_Player,
@@ -16,9 +17,12 @@ public class PlayerMovementSM : MonoBehaviour
 
     [SerializeField] PlayerState currentState;
     [SerializeField] float walkSpeed = 5f;
+    [SerializeField] float sprintSpeed = 10f;
     Vector2 dirInput;
     bool sprintInput;
     Rigidbody2D rb2d;
+
+    bool right = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,14 +34,14 @@ public class PlayerMovementSM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        GetInput();
         OnStateUpdate();
     }
 
-    private void Move()
+    private void GetInput()
     {
         dirInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        rb2d.velocity = dirInput.normalized * walkSpeed;
+        //rb2d.velocity = dirInput.normalized * walkSpeed;
 
         if (dirInput != Vector2.zero)
         {
@@ -48,15 +52,14 @@ public class PlayerMovementSM : MonoBehaviour
             playerAnimator.SetBool("IsWalking", false);
         }
 
-        if (Input.GetButton("Sprint")) 
+        if (dirInput.x != 0)
         {
-            playerAnimator.SetBool("IsSprinting", true);
+            right = dirInput.x > 0;
+            graphics.transform.rotation = right ? Quaternion.identity : Quaternion.Euler(0, 180f, 0);
         }
-        else
-        {
-            playerAnimator.SetBool("IsSprinting", false);
-        }
-        /////// FIXER LE SPRINT 
+
+        sprintInput = Input.GetButton("Sprint");
+        playerAnimator.SetBool("IsSprinting", sprintInput);
 
     }
 
@@ -66,14 +69,18 @@ public class PlayerMovementSM : MonoBehaviour
         {
             case PlayerState.IDLE_Player:
                 break;
+
             case PlayerState.WALK_Player:
                 break;
+
             case PlayerState.SPRINT_Player:
                 break;
             case PlayerState.ATTACK1_Player:
+                playerAnimator.SetTrigger("Attack");
                 break;
             case PlayerState.DEATH_Player:
                 break;
+
             default:
                 break;
         }
@@ -83,13 +90,66 @@ public class PlayerMovementSM : MonoBehaviour
         switch (currentState)
         {
             case PlayerState.IDLE_Player:
+                playerAnimator.SetBool("IsSprinting", false);
+                //TO WALK
+                if (dirInput != Vector2.zero && !sprintInput)
+                {
+                    TransitionToState(PlayerState.WALK_Player);
+                }
+
+                //TO SPRINT
+                if (dirInput != Vector2.zero && sprintInput)
+                {
+                    TransitionToState(PlayerState.SPRINT_Player);
+                }
+
+                //TO ATTACK
+                if (Input.GetButtonDown("Attack"))
+                {
+                    TransitionToState(PlayerState.ATTACK1_Player);
+                }
                 break;
+
             case PlayerState.WALK_Player:
+                rb2d.velocity = dirInput.normalized * walkSpeed;
+                //TO IDLE
+                if (dirInput == Vector2.zero)
+                {
+                    TransitionToState(PlayerState.IDLE_Player);
+                }
+
+                //TO SPRINT
+                if (sprintInput)
+                {
+                    TransitionToState(PlayerState.SPRINT_Player);
+                }
+
+                //TO ATTACK
+                if (Input.GetButtonDown("Attack"))
+                {
+                    TransitionToState(PlayerState.ATTACK1_Player);
+                }
                 break;
 
             case PlayerState.SPRINT_Player:
+                rb2d.velocity = dirInput.normalized * sprintSpeed;
+                //TO IDLE
+                if (dirInput == Vector2.zero)
+                {
+                    TransitionToState(PlayerState.IDLE_Player);
+                }
+
+                //TO WALK
+                if (!sprintInput)
+                {
+                    TransitionToState(PlayerState.WALK_Player);
+                }
+
                 break;
             case PlayerState.ATTACK1_Player:
+
+                TransitionToState(PlayerState.IDLE_Player);
+
                 break;
             case PlayerState.DEATH_Player:
                 break;

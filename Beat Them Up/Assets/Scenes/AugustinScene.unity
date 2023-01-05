@@ -313,8 +313,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 134788973}
+  graphics: {fileID: 134788971}
   currentState: 0
   walkSpeed: 5
+  sprintSpeed: 10
 --- !u!1 &1839832276
 GameObject:
   m_ObjectHideFlags: 0
