@@ -23,6 +23,7 @@ public class PlayerMovementSM : MonoBehaviour
     Rigidbody2D rb2d;
 
     bool right = true;
+    [SerializeField] bool isDead;
     float playerHealth;
 
     // Start is called before the first frame update
@@ -40,7 +41,14 @@ public class PlayerMovementSM : MonoBehaviour
     {
         GetInput();
         OnStateUpdate();
+
+        //if (playerHealth <= 0)
+        //{
+            
+        //}
     }
+
+
 
     private void GetInput()
     {
@@ -67,7 +75,6 @@ public class PlayerMovementSM : MonoBehaviour
 
     }
 
- 
 
     void OnStateEnter()
     {
@@ -85,7 +92,7 @@ public class PlayerMovementSM : MonoBehaviour
                 playerAnimator.SetTrigger("Attack");
                 break;
             case PlayerState.DEATH_Player:
-                //playerAnimator.SetBool("IsDead", true);
+                isDead = true;
                 break;
 
             default:
@@ -118,7 +125,6 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO DEATH
                 if (playerHealth <= 0)
                 {
-                    
                     TransitionToState(PlayerState.DEATH_Player);
                 }
                 break;
@@ -147,7 +153,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO DEATH
                 if (playerHealth <= 0)
                 {
-                    
+
                     TransitionToState(PlayerState.DEATH_Player);
                 }
                 break;
@@ -169,7 +175,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO DEATH
                 if (playerHealth <= 0)
                 {
-                    
+
                     TransitionToState(PlayerState.DEATH_Player);
                 }
                 break;
@@ -179,8 +185,6 @@ public class PlayerMovementSM : MonoBehaviour
 
                 break;
             case PlayerState.DEATH_Player:
-
-                
                 break;
 
             default:

@@ -27,7 +27,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (playerCurrentHealth <= 0)
         {
-            animator.SetBool("IsDead", true);
+            animator.SetTrigger("IsDead");
+            Debug.Log("cc");
         }
     }
 }
