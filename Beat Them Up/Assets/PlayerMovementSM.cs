@@ -22,15 +22,19 @@ public class PlayerMovementSM : MonoBehaviour
     bool sprintInput;
     Rigidbody2D rb2d;
 
+    [SerializeField] public float playerMaxHealth = 100f;
+    [SerializeField] public float playerCurrentHealth;
+
     bool right = true;
-    float playerHealth;
+    [SerializeField] bool isDead;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        playerCurrentHealth = playerMaxHealth;
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
-        playerHealth = GetComponent<PlayerHealth>().playerCurrentHealth;
         OnStateEnter();
 
     }
@@ -40,7 +44,26 @@ public class PlayerMovementSM : MonoBehaviour
     {
         GetInput();
         OnStateUpdate();
+
     }
+
+    public void TakeDamage(float amout)
+    {
+        playerCurrentHealth -= amout;
+
+        if (playerCurrentHealth <= 0)
+        {
+            isDead = true;
+        }
+
+        if (isDead)
+        {
+            rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+
+            playerAnimator.SetTrigger("IsDead");
+        }
+    }
+
 
     private void GetInput()
     {
@@ -56,7 +79,7 @@ public class PlayerMovementSM : MonoBehaviour
             playerAnimator.SetBool("IsWalking", false);
         }
 
-        if (dirInput.x != 0)
+        if (dirInput.x != 0 && !isDead)
         {
             right = dirInput.x > 0;
             graphics.transform.rotation = right ? Quaternion.identity : Quaternion.Euler(0, 180f, 0);
@@ -67,7 +90,6 @@ public class PlayerMovementSM : MonoBehaviour
 
     }
 
- 
 
     void OnStateEnter()
     {
@@ -85,7 +107,7 @@ public class PlayerMovementSM : MonoBehaviour
                 playerAnimator.SetTrigger("Attack");
                 break;
             case PlayerState.DEATH_Player:
-                //playerAnimator.SetBool("IsDead", true);
+                isDead = true;
                 break;
 
             default:
@@ -116,9 +138,8 @@ public class PlayerMovementSM : MonoBehaviour
                 }
 
                 //TO DEATH
-                if (playerHealth <= 0)
+                if (isDead)
                 {
-                    
                     TransitionToState(PlayerState.DEATH_Player);
                 }
                 break;
@@ -145,9 +166,9 @@ public class PlayerMovementSM : MonoBehaviour
                 }
 
                 //TO DEATH
-                if (playerHealth <= 0)
+                if (isDead)
                 {
-                    
+
                     TransitionToState(PlayerState.DEATH_Player);
                 }
                 break;
@@ -167,9 +188,8 @@ public class PlayerMovementSM : MonoBehaviour
                 }
 
                 //TO DEATH
-                if (playerHealth <= 0)
+                if (isDead)
                 {
-                    
                     TransitionToState(PlayerState.DEATH_Player);
                 }
                 break;
@@ -180,7 +200,6 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
             case PlayerState.DEATH_Player:
 
-                
                 break;
 
             default:
