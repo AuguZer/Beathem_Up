@@ -23,12 +23,16 @@ public class PlayerMovementSM : MonoBehaviour
     Rigidbody2D rb2d;
 
     bool right = true;
+    float playerHealth;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
+        playerHealth = GetComponent<PlayerHealth>().playerCurrentHealth;
         OnStateEnter();
+
     }
 
     // Update is called once per frame
@@ -63,6 +67,8 @@ public class PlayerMovementSM : MonoBehaviour
 
     }
 
+ 
+
     void OnStateEnter()
     {
         switch (currentState)
@@ -79,6 +85,7 @@ public class PlayerMovementSM : MonoBehaviour
                 playerAnimator.SetTrigger("Attack");
                 break;
             case PlayerState.DEATH_Player:
+                //playerAnimator.SetBool("IsDead", true);
                 break;
 
             default:
@@ -90,7 +97,6 @@ public class PlayerMovementSM : MonoBehaviour
         switch (currentState)
         {
             case PlayerState.IDLE_Player:
-                playerAnimator.SetBool("IsSprinting", false);
                 //TO WALK
                 if (dirInput != Vector2.zero && !sprintInput)
                 {
@@ -108,7 +114,15 @@ public class PlayerMovementSM : MonoBehaviour
                 {
                     TransitionToState(PlayerState.ATTACK1_Player);
                 }
+
+                //TO DEATH
+                if (playerHealth <= 0)
+                {
+                    
+                    TransitionToState(PlayerState.DEATH_Player);
+                }
                 break;
+
 
             case PlayerState.WALK_Player:
                 rb2d.velocity = dirInput.normalized * walkSpeed;
@@ -129,6 +143,13 @@ public class PlayerMovementSM : MonoBehaviour
                 {
                     TransitionToState(PlayerState.ATTACK1_Player);
                 }
+
+                //TO DEATH
+                if (playerHealth <= 0)
+                {
+                    
+                    TransitionToState(PlayerState.DEATH_Player);
+                }
                 break;
 
             case PlayerState.SPRINT_Player:
@@ -145,6 +166,12 @@ public class PlayerMovementSM : MonoBehaviour
                     TransitionToState(PlayerState.WALK_Player);
                 }
 
+                //TO DEATH
+                if (playerHealth <= 0)
+                {
+                    
+                    TransitionToState(PlayerState.DEATH_Player);
+                }
                 break;
             case PlayerState.ATTACK1_Player:
 
@@ -152,7 +179,10 @@ public class PlayerMovementSM : MonoBehaviour
 
                 break;
             case PlayerState.DEATH_Player:
+
+                
                 break;
+
             default:
                 break;
         }
