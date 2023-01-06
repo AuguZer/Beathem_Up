@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 16e4d4a3a856d3f4284ff3e547f5d783
+guid: 0c218e96a0745c2409e3785c636b3443
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,967 +117,925 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_0
+      name: 81_Assets_BOSS_1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a820d1ab3f2e8849b6b56cb281315d2
-      internalID: -232185428
+      spriteID: c9ba81619b4c4474ca477c272f204f5a
+      internalID: -2049881557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_1
+      name: 81_Assets_BOSS_1_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 96
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bea857fedaca9b41bb57a80e9477a1d
-      internalID: 1494829920
+      spriteID: 5ecd68b9809aac5409b68be7b963d030
+      internalID: 1456251738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d190060a040dd8d469be4f449a688d1d
-      internalID: -1667717890
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_3
+      name: 81_Assets_BOSS_1_2
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11a911aa1327d6c4ca406a334f13b66c
-      internalID: -43817372
+      spriteID: c6006746e9fc3ce4e83059869b6e14bf
+      internalID: 915848669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_4
+      name: 81_Assets_BOSS_1_3
       rect:
         serializedVersion: 2
-        x: 256
+        x: 288
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dcd786605f38cf43a441df8f39e6ff4
-      internalID: 1429960467
+      spriteID: 59f59a3bad172af498af4a419fea32a4
+      internalID: -546214537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de2fbaa3daee2df44abcd3061679094e
-      internalID: -1971612207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_6
+      name: 81_Assets_BOSS_1_4
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77c7f358d22151045964ce0c20071663
-      internalID: -810091971
+      spriteID: 463b0134fa70cd94d8cc80c40c6189bc
+      internalID: 348561418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_7
+      name: 81_Assets_BOSS_1_5
       rect:
         serializedVersion: 2
-        x: 448
+        x: 480
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcc211a1607738c4698a4cda6cf48acd
-      internalID: 979631149
+      spriteID: c0fd2eee71875a1478aa6e2fad82ddca
+      internalID: -1722116430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_8
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d90563d07722c7489ddb0f327e9f2a1
-      internalID: 44144516
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_9
+      name: 81_Assets_BOSS_1_6
       rect:
         serializedVersion: 2
         x: 576
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d4ca3d9c6c23294e96cb0c49c58a2c8
-      internalID: -146330684
+      spriteID: 3d3eeafbf22529143ac0b9f4d84822d1
+      internalID: -1371673134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_10
+      name: 81_Assets_BOSS_1_7
       rect:
         serializedVersion: 2
-        x: 640
+        x: 672
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6019b59daad7fe4e999e3660848d972
-      internalID: 1712018029
+      spriteID: 5ef82020e40b8a6418c3ed469ac29775
+      internalID: -111749741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_11
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 067952eecfa1dd5479bad68afbeca131
-      internalID: 817974912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_12
+      name: 81_Assets_BOSS_1_8
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e5994fc4d61d94cac886e39478b12b
-      internalID: -1503469876
+      spriteID: ecd85e6ffa2c74f4f8bf76782aff999e
+      internalID: -950306016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_13
+      name: 81_Assets_BOSS_1_9
       rect:
         serializedVersion: 2
-        x: 832
+        x: 864
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86509dc959a37ef4887402c1ba53f0d0
-      internalID: 2074932566
+      spriteID: c7c589336e4db3740a5bba6305691550
+      internalID: -689540278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_14
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b7ee58ddb07e0bf4197acedad3df9513
-      internalID: -688230260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_15
+      name: 81_Assets_BOSS_1_10
       rect:
         serializedVersion: 2
         x: 960
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa248acddef571b48b1737f8a9ae2ca7
-      internalID: -1307471131
+      spriteID: ee52be704ca00c240be1d9d1600475af
+      internalID: -807850156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_16
+      name: 81_Assets_BOSS_1_11
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1056
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fc28905d748733409727f416b77860b
-      internalID: 1282070887
+      spriteID: 9240cc021667dbb489e6f7716c69f714
+      internalID: -1254899446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_17
-      rect:
-        serializedVersion: 2
-        x: 1088
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e6e5e5d22be8d342b4ce5a6b2d82f05
-      internalID: -1150654534
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_18
+      name: 81_Assets_BOSS_1_12
       rect:
         serializedVersion: 2
         x: 1152
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3141f6ce0707bbf4a81e93de57f98132
-      internalID: 601134312
+      spriteID: 1a217569f8af2d34fb3d87f61427a948
+      internalID: 1176394624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_19
+      name: 81_Assets_BOSS_1_13
       rect:
         serializedVersion: 2
-        x: 1216
+        x: 1248
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 577f26cdeda1f0c4dbcc8bbc6b6e83ed
-      internalID: -956495888
+      spriteID: 14be53e615db6f54a8e351b056a878fc
+      internalID: 2086996299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_20
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7cb4890e55fd244ca72ae89f33d6fe3
-      internalID: -2092661285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_21
+      name: 81_Assets_BOSS_1_14
       rect:
         serializedVersion: 2
         x: 1344
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e511038a49491546a83fc84b9a8fb1e
-      internalID: -1975732818
+      spriteID: 08c731252a8c968409e23333e9f1beae
+      internalID: 1411815100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_22
+      name: 81_Assets_BOSS_1_15
       rect:
         serializedVersion: 2
-        x: 1408
+        x: 1440
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2844ea221c723fa4db5cc9f9de31b7f6
-      internalID: -922001705
+      spriteID: 255049c1fe7a0cf44809a3cddab59197
+      internalID: -1825404820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_23
-      rect:
-        serializedVersion: 2
-        x: 1472
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0517e74cc2bafd143b2e1f32e3876aca
-      internalID: 1170370829
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_24
+      name: 81_Assets_BOSS_1_16
       rect:
         serializedVersion: 2
         x: 1536
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d375360600be52e4abc3c375865dafbe
-      internalID: 833404699
+      spriteID: fc4094c79247ad54a8db0de66ca3d174
+      internalID: 1757110606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_25
+      name: 81_Assets_BOSS_1_17
       rect:
         serializedVersion: 2
-        x: 1600
+        x: 1632
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1e1acf9822df864bb87065a5121e99b
-      internalID: -643005924
+      spriteID: db6e6ab91ab502b489dfdf6d22161509
+      internalID: 2140053730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_26
-      rect:
-        serializedVersion: 2
-        x: 1664
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ecb5b642d21e5eb42b9d5faea59c706b
-      internalID: 1908348947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_27
+      name: 81_Assets_BOSS_1_18
       rect:
         serializedVersion: 2
         x: 1728
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15b2eeb35e9906b45840c3ca12e3ed23
-      internalID: -103208872
+      spriteID: 725b6430b690eb34095014de2543fd53
+      internalID: 773934098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_28
+      name: 81_Assets_BOSS_1_19
       rect:
         serializedVersion: 2
-        x: 1792
+        x: 1824
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7c0c38c3fc9d054398f24cbe039d609
-      internalID: 1645894446
+      spriteID: f324a93e2eb62f04cadd632a73c77b34
+      internalID: 1802414026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_29
-      rect:
-        serializedVersion: 2
-        x: 1856
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 023ea8f058d88cc439a3bf7f072b98a4
-      internalID: 161002810
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_30
+      name: 81_Assets_BOSS_1_20
       rect:
         serializedVersion: 2
         x: 1920
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5327de876415876498e770a1fe490862
-      internalID: 2120532725
+      spriteID: a67f9191d726e5745aa091c05ca0ddc7
+      internalID: 323918843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_31
+      name: 81_Assets_BOSS_1_21
       rect:
         serializedVersion: 2
-        x: 1984
+        x: 2016
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ecf95a777521574a9ae0f4dc6eb6b6e
-      internalID: -1425305349
+      spriteID: 29b90e2368358874b9fe7220c17e7a50
+      internalID: 1207505063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_32
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59048e444006ab143b95de06264b41b5
-      internalID: 747739864
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_33
+      name: 81_Assets_BOSS_1_22
       rect:
         serializedVersion: 2
         x: 2112
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db33ca93cfb084b42bc2144627c35133
-      internalID: -951303803
+      spriteID: 50add90841eb46242bed1a51552f5aed
+      internalID: 207244626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_34
+      name: 81_Assets_BOSS_1_23
       rect:
         serializedVersion: 2
-        x: 2176
+        x: 2208
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bff162f402017034c9952fdb418160d7
-      internalID: 562868951
+      spriteID: 1399117aac77f8a44a0400aefedde3dc
+      internalID: -968761524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_35
-      rect:
-        serializedVersion: 2
-        x: 2240
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0227325b7b07b53469c9925f60ce00df
-      internalID: 1069111455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_36
+      name: 81_Assets_BOSS_1_24
       rect:
         serializedVersion: 2
         x: 2304
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71686d4e05ad7f049a70fc38f9c23544
-      internalID: 1799869185
+      spriteID: e2fec1d822accfe49961d6831fd168c8
+      internalID: 2080300840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_37
+      name: 81_Assets_BOSS_1_25
       rect:
         serializedVersion: 2
-        x: 2368
+        x: 2400
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.19}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1a6924e0c82a7646b1426258be00405
-      internalID: 110406799
+      spriteID: 69d05c74414c9fa488142763f66b215a
+      internalID: -1340493203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_38
-      rect:
-        serializedVersion: 2
-        x: 2432
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 689e6d516403b614084e84a13db956f1
-      internalID: 1640083611
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_39
+      name: 81_Assets_BOSS_1_26
       rect:
         serializedVersion: 2
         x: 2496
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.19}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 938c485b245226440b577f7637431265
-      internalID: 1016379068
+      spriteID: aa62f851c2af5f444b8a8a728e04d379
+      internalID: 1977799794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_40
+      name: 81_Assets_BOSS_1_27
       rect:
         serializedVersion: 2
-        x: 2560
+        x: 2592
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.19}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3edad346d876c64dae303e319f0897c
-      internalID: -1346983704
+      spriteID: cf5e91c43441188419cf04cfb610d34f
+      internalID: -1507563967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_41
-      rect:
-        serializedVersion: 2
-        x: 2624
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40c2d33217d6dcc4f8328297631843b1
-      internalID: -325950464
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_42
+      name: 81_Assets_BOSS_1_28
       rect:
         serializedVersion: 2
         x: 2688
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.19}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef32ec21cda4cbd4997606adf377e0ce
-      internalID: -641927472
+      spriteID: e957a58e31197ee49921f6d333e03ec2
+      internalID: 48398171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_43
+      name: 81_Assets_BOSS_1_29
       rect:
         serializedVersion: 2
-        x: 2752
+        x: 2784
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed0e13d7a87e1c84999020740fc14190
-      internalID: -204283023
+      spriteID: c68e813b7928cfd428c3e57ce77ea711
+      internalID: 1407828983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_44
-      rect:
-        serializedVersion: 2
-        x: 2816
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf2f0cbe19a00fe4e839c13d1ec168c1
-      internalID: 1748868505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_45
+      name: 81_Assets_BOSS_1_30
       rect:
         serializedVersion: 2
         x: 2880
         y: 0
-        width: 64
-        height: 64
+        width: 96
+        height: 96
       alignment: 9
-      pivot: {x: 0.5, y: 0.22}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88ba099918ea30f46a3d5b544f5091f4
-      internalID: -831154781
+      spriteID: cb86f0d08b53abc47bf8cb7dc1cababc
+      internalID: -379990421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_31
+      rect:
+        serializedVersion: 2
+        x: 2976
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c4c63a49345f14db2b55544e0cc1b8
+      internalID: -871526677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_32
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859ac848d7c823a4c9d019b0099aa4f0
+      internalID: -1792488279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_33
+      rect:
+        serializedVersion: 2
+        x: 3168
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c73f7c3ff8899144bf2961f4e06f727
+      internalID: 370558015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_34
+      rect:
+        serializedVersion: 2
+        x: 3264
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6599c2c6ec8fa544c90ea5d94033bc68
+      internalID: -1534885288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_35
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c4bb4f27525b7149b08df1717f7e8b3
+      internalID: -1837013474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_36
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10e4aa5556bdcbb4192d517aa22b00b1
+      internalID: 1159558447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_37
+      rect:
+        serializedVersion: 2
+        x: 3552
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd59972f1762a0408b8776aab3a6863
+      internalID: 883318934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_38
+      rect:
+        serializedVersion: 2
+        x: 3648
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 152dbc4605467b54186b9742a607f0f8
+      internalID: 1442478882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_39
+      rect:
+        serializedVersion: 2
+        x: 3744
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10cba52e279dbf4438ee35f7166f334e
+      internalID: 426071889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_40
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c4853b9a090934984a3460e87f3d90
+      internalID: 1186812727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_41
+      rect:
+        serializedVersion: 2
+        x: 3936
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e9c5f1d44508b4baea4752e28b2bde
+      internalID: 246948436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_42
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.17}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cedfec22114a084e9be080e4ddebbcb
+      internalID: 1238088868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 81_Assets_BOSS_1_43
+      rect:
+        serializedVersion: 2
+        x: 4128
+        y: 0
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.175}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 120b40a345c6e144d91e5c9de8dbc8a6
+      internalID: -316566442
       vertices: []
       indices: 
       edges: []
@@ -1093,52 +1051,50 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      90_Assets_ENEMY_2_0: -232185428
-      90_Assets_ENEMY_2_2: -1667717890
-      90_Assets_ENEMY_2_10: 1712018029
-      90_Assets_ENEMY_2_30: 2120532725
-      90_Assets_ENEMY_2_5: -1971612207
-      90_Assets_ENEMY_2_16: 1282070887
-      90_Assets_ENEMY_2_20: -2092661285
-      90_Assets_ENEMY_2_28: 1645894446
-      90_Assets_ENEMY_2_19: -956495888
-      90_Assets_ENEMY_2_1: 1494829920
-      90_Assets_ENEMY_2_27: -103208872
-      90_Assets_ENEMY_2_36: 1799869185
-      90_Assets_ENEMY_2_31: -1425305349
-      90_Assets_ENEMY_2_38: 1640083611
-      90_Assets_ENEMY_2_35: 1069111455
-      90_Assets_ENEMY_2_44: 1748868505
-      90_Assets_ENEMY_2_3: -43817372
-      90_Assets_ENEMY_2_17: -1150654534
-      90_Assets_ENEMY_2_24: 833404699
-      90_Assets_ENEMY_2_45: -831154781
-      90_Assets_ENEMY_2_18: 601134312
-      90_Assets_ENEMY_2_29: 161002810
-      90_Assets_ENEMY_2_14: -688230260
-      90_Assets_ENEMY_2_32: 747739864
-      90_Assets_ENEMY_2_39: 1016379068
-      90_Assets_ENEMY_2_6: -810091971
-      90_Assets_ENEMY_2_15: -1307471131
-      90_Assets_ENEMY_2_43: -204283023
-      90_Assets_ENEMY_2_26: 1908348947
-      90_Assets_ENEMY_2_34: 562868951
-      90_Assets_ENEMY_2_11: 817974912
-      90_Assets_ENEMY_2_37: 110406799
-      90_Assets_ENEMY_2_4: 1429960467
-      90_Assets_ENEMY_2_22: -922001705
-      90_Assets_ENEMY_2_23: 1170370829
-      90_Assets_ENEMY_2_13: 2074932566
-      90_Assets_ENEMY_2_40: -1346983704
-      90_Assets_ENEMY_2_33: -951303803
-      90_Assets_ENEMY_2_8: 44144516
-      90_Assets_ENEMY_2_7: 979631149
-      90_Assets_ENEMY_2_9: -146330684
-      90_Assets_ENEMY_2_41: -325950464
-      90_Assets_ENEMY_2_25: -643005924
-      90_Assets_ENEMY_2_42: -641927472
-      90_Assets_ENEMY_2_12: -1503469876
-      90_Assets_ENEMY_2_21: -1975732818
+      81_Assets_BOSS_1_11: -1254899446
+      81_Assets_BOSS_1_1: 1456251738
+      81_Assets_BOSS_1_40: 1186812727
+      81_Assets_BOSS_1_18: 773934098
+      81_Assets_BOSS_1_43: -316566442
+      81_Assets_BOSS_1_17: 2140053730
+      81_Assets_BOSS_1_20: 323918843
+      81_Assets_BOSS_1_3: -546214537
+      81_Assets_BOSS_1_14: 1411815100
+      81_Assets_BOSS_1_0: -2049881557
+      81_Assets_BOSS_1_5: -1722116430
+      81_Assets_BOSS_1_30: -379990421
+      81_Assets_BOSS_1_42: 1238088868
+      81_Assets_BOSS_1_22: 207244626
+      81_Assets_BOSS_1_28: 48398171
+      81_Assets_BOSS_1_29: 1407828983
+      81_Assets_BOSS_1_26: 1977799794
+      81_Assets_BOSS_1_27: -1507563967
+      81_Assets_BOSS_1_16: 1757110606
+      81_Assets_BOSS_1_7: -111749741
+      81_Assets_BOSS_1_32: -1792488279
+      81_Assets_BOSS_1_13: 2086996299
+      81_Assets_BOSS_1_23: -968761524
+      81_Assets_BOSS_1_4: 348561418
+      81_Assets_BOSS_1_37: 883318934
+      81_Assets_BOSS_1_35: -1837013474
+      81_Assets_BOSS_1_10: -807850156
+      81_Assets_BOSS_1_39: 426071889
+      81_Assets_BOSS_1_25: -1340493203
+      81_Assets_BOSS_1_9: -689540278
+      81_Assets_BOSS_1_12: 1176394624
+      81_Assets_BOSS_1_24: 2080300840
+      81_Assets_BOSS_1_2: 915848669
+      81_Assets_BOSS_1_31: -871526677
+      81_Assets_BOSS_1_15: -1825404820
+      81_Assets_BOSS_1_21: 1207505063
+      81_Assets_BOSS_1_8: -950306016
+      81_Assets_BOSS_1_34: -1534885288
+      81_Assets_BOSS_1_38: 1442478882
+      81_Assets_BOSS_1_36: 1159558447
+      81_Assets_BOSS_1_6: -1371673134
+      81_Assets_BOSS_1_33: 370558015
+      81_Assets_BOSS_1_19: 1802414026
+      81_Assets_BOSS_1_41: 246948436
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
