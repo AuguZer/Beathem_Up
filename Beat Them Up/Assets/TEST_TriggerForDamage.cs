@@ -22,7 +22,7 @@ public class TEST_TriggerForDamage : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            collision.gameObject.GetComponent<PlayerMovementSM>().TakeDamage(damage);
         }
     }
 }

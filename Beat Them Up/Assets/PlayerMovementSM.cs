@@ -22,16 +22,19 @@ public class PlayerMovementSM : MonoBehaviour
     bool sprintInput;
     Rigidbody2D rb2d;
 
+    [SerializeField] public float playerMaxHealth = 100f;
+    [SerializeField] public float playerCurrentHealth;
+
     bool right = true;
     [SerializeField] bool isDead;
-    float playerHealth;
+   
 
     // Start is called before the first frame update
     void Start()
     {
+        playerCurrentHealth = playerMaxHealth;
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
-        playerHealth = GetComponent<PlayerHealth>().playerCurrentHealth;
         OnStateEnter();
 
     }
@@ -42,13 +45,23 @@ public class PlayerMovementSM : MonoBehaviour
         GetInput();
         OnStateUpdate();
 
-        //if (playerHealth <= 0)
-        //{
-            
-        //}
     }
 
+    public void TakeDamage(float amout)
+    { 
+        playerCurrentHealth -= amout;
 
+        if (playerCurrentHealth <= 0 )
+        {
+            isDead = true;
+        }
+
+        if (isDead)
+        {
+            playerAnimator.SetTrigger("IsDead");
+        }
+    }
+      
 
     private void GetInput()
     {
@@ -123,7 +136,7 @@ public class PlayerMovementSM : MonoBehaviour
                 }
 
                 //TO DEATH
-                if (playerHealth <= 0)
+                if (isDead)
                 {
                     TransitionToState(PlayerState.DEATH_Player);
                 }
@@ -151,7 +164,7 @@ public class PlayerMovementSM : MonoBehaviour
                 }
 
                 //TO DEATH
-                if (playerHealth <= 0)
+                if (isDead)
                 {
 
                     TransitionToState(PlayerState.DEATH_Player);
@@ -173,7 +186,7 @@ public class PlayerMovementSM : MonoBehaviour
                 }
 
                 //TO DEATH
-                if (playerHealth <= 0)
+                if (isDead)
                 {
 
                     TransitionToState(PlayerState.DEATH_Player);
