@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 52_Assets_CHUCK_DEFEATED_0
+      name: OK.52_Assets_CHUCK_DEFEATED_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,20 +125,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.5, y: 0.145}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a0e11492a6c3384d8d1fd870147fc9a
-      internalID: 107017415
+      spriteID: 4757970b52886334b9a39248d8b671a7
+      internalID: 1860595539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 52_Assets_CHUCK_DEFEATED_1
+      name: OK.52_Assets_CHUCK_DEFEATED_1
       rect:
         serializedVersion: 2
         x: 48
@@ -146,20 +146,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.5, y: 0.145}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8536a7b4eabfe5041accedab6998145b
-      internalID: -1470578075
+      spriteID: 6356e871fcb68fa45a0562072b7011c0
+      internalID: -1931554294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 52_Assets_CHUCK_DEFEATED_2
+      name: OK.52_Assets_CHUCK_DEFEATED_2
       rect:
         serializedVersion: 2
         x: 96
@@ -167,20 +167,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.5, y: 0.145}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 444fd5b0de7ff84448852871929e3653
-      internalID: 621113188
+      spriteID: d053b38f2fb088044815f315ed079b21
+      internalID: 31199489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 52_Assets_CHUCK_DEFEATED_3
+      name: OK.52_Assets_CHUCK_DEFEATED_3
       rect:
         serializedVersion: 2
         x: 144
@@ -188,20 +188,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.5, y: 0.145}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d64b99a511d2f144892303127b7ef28
-      internalID: 1723225684
+      spriteID: 68499dc5dca7cdd4a95f8eaef2b454ae
+      internalID: -412839498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 52_Assets_CHUCK_DEFEATED_4
+      name: OK.52_Assets_CHUCK_DEFEATED_4
       rect:
         serializedVersion: 2
         x: 192
@@ -209,20 +209,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.5, y: 0.145}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4f56d81aaa80fc469289ccdc2f5d5c3
-      internalID: 1662157278
+      spriteID: ea1d93c7f2f499b4185b55eb3daf1f39
+      internalID: 1756915335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 52_Assets_CHUCK_DEFEATED_5
+      name: OK.52_Assets_CHUCK_DEFEATED_5
       rect:
         serializedVersion: 2
         x: 240
@@ -230,20 +230,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.5, y: 0.145}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59f42a8595822cb408a447d7c1f26673
-      internalID: 1869236756
+      spriteID: 5c8514c9b44cd3b48b3a055b20e6a42d
+      internalID: 1884888752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 52_Assets_CHUCK_DEFEATED_6
+      name: OK.52_Assets_CHUCK_DEFEATED_6
       rect:
         serializedVersion: 2
         x: 288
@@ -251,20 +251,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.5, y: 0.145}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e70b35f5eda2ee49824698ea90c7b37
-      internalID: 1884769726
+      spriteID: 6d701f7dcc5c4d3438b63bcefd56cefe
+      internalID: -541085174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 52_Assets_CHUCK_DEFEATED_7
+      name: OK.52_Assets_CHUCK_DEFEATED_7
       rect:
         serializedVersion: 2
         x: 336
@@ -272,20 +272,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.5, y: 0.145}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8340e357a9f3a440a531a14eebc3876
-      internalID: 73454064
+      spriteID: b4126d528d9438844b65ad40f4c9df66
+      internalID: 1798772444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 52_Assets_CHUCK_DEFEATED_8
+      name: OK.52_Assets_CHUCK_DEFEATED_8
       rect:
         serializedVersion: 2
         x: 384
@@ -293,20 +293,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.5, y: 0.145}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e1bae908718e71409c4b21532643cfa
-      internalID: 1049435425
+      spriteID: 8f838b190925e8240ae8f32f226c01da
+      internalID: 2090070026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 52_Assets_CHUCK_DEFEATED_9
+      name: OK.52_Assets_CHUCK_DEFEATED_9
       rect:
         serializedVersion: 2
         x: 432
@@ -314,14 +314,14 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.5, y: 0.145}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e09fff76d8e412f4eabbd0dee0a2618a
-      internalID: -903294445
+      spriteID: b27752d67cb5abc44a2e5016182838d2
+      internalID: 1787470973
       vertices: []
       indices: 
       edges: []
@@ -337,16 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      52_Assets_CHUCK_DEFEATED_8: 1049435425
-      52_Assets_CHUCK_DEFEATED_2: 621113188
-      52_Assets_CHUCK_DEFEATED_3: 1723225684
-      52_Assets_CHUCK_DEFEATED_0: 107017415
-      52_Assets_CHUCK_DEFEATED_9: -903294445
-      52_Assets_CHUCK_DEFEATED_1: -1470578075
-      52_Assets_CHUCK_DEFEATED_7: 73454064
-      52_Assets_CHUCK_DEFEATED_5: 1869236756
-      52_Assets_CHUCK_DEFEATED_6: 1884769726
-      52_Assets_CHUCK_DEFEATED_4: 1662157278
+      OK.52_Assets_CHUCK_DEFEATED_8: 2090070026
+      OK.52_Assets_CHUCK_DEFEATED_7: 1798772444
+      OK.52_Assets_CHUCK_DEFEATED_1: -1931554294
+      OK.52_Assets_CHUCK_DEFEATED_4: 1756915335
+      OK.52_Assets_CHUCK_DEFEATED_6: -541085174
+      OK.52_Assets_CHUCK_DEFEATED_3: -412839498
+      OK.52_Assets_CHUCK_DEFEATED_5: 1884888752
+      OK.52_Assets_CHUCK_DEFEATED_2: 31199489
+      OK.52_Assets_CHUCK_DEFEATED_0: 1860595539
+      OK.52_Assets_CHUCK_DEFEATED_9: 1787470973
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
