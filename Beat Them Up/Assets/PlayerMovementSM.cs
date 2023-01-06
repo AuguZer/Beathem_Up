@@ -27,7 +27,7 @@ public class PlayerMovementSM : MonoBehaviour
 
     bool right = true;
     [SerializeField] bool isDead;
-   
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,20 +48,22 @@ public class PlayerMovementSM : MonoBehaviour
     }
 
     public void TakeDamage(float amout)
-    { 
+    {
         playerCurrentHealth -= amout;
 
-        if (playerCurrentHealth <= 0 )
+        if (playerCurrentHealth <= 0)
         {
             isDead = true;
         }
 
         if (isDead)
         {
+            rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+
             playerAnimator.SetTrigger("IsDead");
         }
     }
-      
+
 
     private void GetInput()
     {
@@ -77,7 +79,7 @@ public class PlayerMovementSM : MonoBehaviour
             playerAnimator.SetBool("IsWalking", false);
         }
 
-        if (dirInput.x != 0)
+        if (dirInput.x != 0 && !isDead)
         {
             right = dirInput.x > 0;
             graphics.transform.rotation = right ? Quaternion.identity : Quaternion.Euler(0, 180f, 0);
@@ -188,7 +190,6 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO DEATH
                 if (isDead)
                 {
-
                     TransitionToState(PlayerState.DEATH_Player);
                 }
                 break;
@@ -198,6 +199,7 @@ public class PlayerMovementSM : MonoBehaviour
 
                 break;
             case PlayerState.DEATH_Player:
+
                 break;
 
             default:
