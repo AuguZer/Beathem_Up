@@ -29,6 +29,39 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] bool isDead;
 
 
+    //JUMP
+    [SerializeField] AnimationCurve jumpCurve;
+    [SerializeField] float jumpHeight = 3f;
+    [SerializeField] float jumpDuration = 3f;
+    Transform _graphics;
+    float jumpTimer;
+
+    private void Jump()
+    {
+        if (Input.GetButton("Jump"))
+        {
+            playerAnimator.SetTrigger("IsJumping");
+
+            //if (jumpTimer < jumpDuration)
+            //{
+            //    jumpTimer += Time.deltaTime;
+
+            //    float y = jumpCurve.Evaluate(jumpTimer / jumpDuration);
+
+            //    _graphics.localPosition = new Vector3(transform.localPosition.x, y * jumpHeight, transform.localPosition.z);
+
+            //}
+            //else
+            //{
+            //    jumpTimer = 0f;
+            //}
+        }
+    }
+
+    private void Awake()
+    {
+        _graphics = transform.Find("GRAPHICS");
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +77,7 @@ public class PlayerMovementSM : MonoBehaviour
     {
         GetInput();
         OnStateUpdate();
+        Jump();
 
     }
 
