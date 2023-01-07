@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: da931806220f8a6429499b98b818580e
+guid: 1b39ecf4c6d1daa43b9c1398d97f582f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_0
+      name: 92_Assets_ENEMY_1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a820d1ab3f2e8849b6b56cb281315d2
-      internalID: -232185428
+      spriteID: bfa3892d97541a044873f7f92e867723
+      internalID: 2051290208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_1
+      name: 92_Assets_ENEMY_1_1
       rect:
         serializedVersion: 2
         x: 64
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bea857fedaca9b41bb57a80e9477a1d
-      internalID: 1494829920
+      spriteID: 41a5ac7125f4f694ab254e5f9ed8bcf6
+      internalID: 1311918973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_2
+      name: 92_Assets_ENEMY_1_2
       rect:
         serializedVersion: 2
         x: 128
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d190060a040dd8d469be4f449a688d1d
-      internalID: -1667717890
+      spriteID: b9035224993ed574f942180597017cb4
+      internalID: 619402916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_3
+      name: 92_Assets_ENEMY_1_3
       rect:
         serializedVersion: 2
         x: 192
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11a911aa1327d6c4ca406a334f13b66c
-      internalID: -43817372
+      spriteID: 4a0011470f344f941a7d42a3c2e3f41a
+      internalID: 1483802077
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_4
+      name: 92_Assets_ENEMY_1_4
       rect:
         serializedVersion: 2
         x: 256
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dcd786605f38cf43a441df8f39e6ff4
-      internalID: 1429960467
+      spriteID: f7f65b5e305639448a9e6107c706bdce
+      internalID: -1970714940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_5
+      name: 92_Assets_ENEMY_1_5
       rect:
         serializedVersion: 2
         x: 320
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de2fbaa3daee2df44abcd3061679094e
-      internalID: -1971612207
+      spriteID: 0ed85b9097aae144ca828db0a355801c
+      internalID: -746769425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_6
+      name: 92_Assets_ENEMY_1_6
       rect:
         serializedVersion: 2
         x: 384
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77c7f358d22151045964ce0c20071663
-      internalID: -810091971
+      spriteID: 0acb72688e622fa49b70ade4f4ffd084
+      internalID: -142502766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_7
+      name: 92_Assets_ENEMY_1_7
       rect:
         serializedVersion: 2
         x: 448
@@ -278,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcc211a1607738c4698a4cda6cf48acd
-      internalID: 979631149
+      spriteID: 9f19724e096044b4d83ca9c7bd3c7960
+      internalID: 2098028759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_8
+      name: 92_Assets_ENEMY_1_8
       rect:
         serializedVersion: 2
         x: 512
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d90563d07722c7489ddb0f327e9f2a1
-      internalID: 44144516
+      spriteID: fa1939e6c0e6d21439094b5de5107033
+      internalID: 1569255342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_9
+      name: 92_Assets_ENEMY_1_9
       rect:
         serializedVersion: 2
         x: 576
@@ -320,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d4ca3d9c6c23294e96cb0c49c58a2c8
-      internalID: -146330684
+      spriteID: a99558fe9f4684346bb6e15cb4a1e824
+      internalID: 1287810702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_10
+      name: 92_Assets_ENEMY_1_10
       rect:
         serializedVersion: 2
         x: 640
@@ -341,14 +341,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6019b59daad7fe4e999e3660848d972
-      internalID: 1712018029
+      spriteID: 1f0907ac9dd6e99419edb183cf3e7a9e
+      internalID: -1995520835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_11
+      name: 92_Assets_ENEMY_1_11
       rect:
         serializedVersion: 2
         x: 704
@@ -362,14 +362,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 067952eecfa1dd5479bad68afbeca131
-      internalID: 817974912
+      spriteID: 674c75824c6327c4382fe919ad72aec4
+      internalID: 499867111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_12
+      name: 92_Assets_ENEMY_1_12
       rect:
         serializedVersion: 2
         x: 768
@@ -383,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e5994fc4d61d94cac886e39478b12b
-      internalID: -1503469876
+      spriteID: 81c8799f32ace7c498533c448f83d097
+      internalID: -384821594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_13
+      name: 92_Assets_ENEMY_1_13
       rect:
         serializedVersion: 2
         x: 832
@@ -404,14 +404,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86509dc959a37ef4887402c1ba53f0d0
-      internalID: 2074932566
+      spriteID: a289b261eb3d716418dfd02710ad71eb
+      internalID: 1594385672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_14
+      name: 92_Assets_ENEMY_1_14
       rect:
         serializedVersion: 2
         x: 896
@@ -425,14 +425,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7ee58ddb07e0bf4197acedad3df9513
-      internalID: -688230260
+      spriteID: 2c5c18a6d606ca64ba338dd7fbb550ac
+      internalID: -1569815457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_15
+      name: 92_Assets_ENEMY_1_15
       rect:
         serializedVersion: 2
         x: 960
@@ -446,14 +446,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa248acddef571b48b1737f8a9ae2ca7
-      internalID: -1307471131
+      spriteID: 31126a8ac8e90aa45b3e0c52c3e57117
+      internalID: 1906583102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_16
+      name: 92_Assets_ENEMY_1_16
       rect:
         serializedVersion: 2
         x: 1024
@@ -467,14 +467,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fc28905d748733409727f416b77860b
-      internalID: 1282070887
+      spriteID: 784dd3027f4e7e9489b9853a628b9c67
+      internalID: 388226034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_17
+      name: 92_Assets_ENEMY_1_17
       rect:
         serializedVersion: 2
         x: 1088
@@ -488,14 +488,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e6e5e5d22be8d342b4ce5a6b2d82f05
-      internalID: -1150654534
+      spriteID: c83974a4d0a4d5549b18abd9de98738b
+      internalID: -1423711367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_18
+      name: 92_Assets_ENEMY_1_18
       rect:
         serializedVersion: 2
         x: 1152
@@ -509,14 +509,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3141f6ce0707bbf4a81e93de57f98132
-      internalID: 601134312
+      spriteID: 7c28dc757b89a3a49bc62b1f7338c458
+      internalID: -1750808714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_19
+      name: 92_Assets_ENEMY_1_19
       rect:
         serializedVersion: 2
         x: 1216
@@ -530,14 +530,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 577f26cdeda1f0c4dbcc8bbc6b6e83ed
-      internalID: -956495888
+      spriteID: 017c751893ee1334aacc781aa381d4fe
+      internalID: -1497286327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_20
+      name: 92_Assets_ENEMY_1_20
       rect:
         serializedVersion: 2
         x: 1280
@@ -551,14 +551,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7cb4890e55fd244ca72ae89f33d6fe3
-      internalID: -2092661285
+      spriteID: 76a2b8a9c91275a43b67f7468a6a5123
+      internalID: 1614069376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_21
+      name: 92_Assets_ENEMY_1_21
       rect:
         serializedVersion: 2
         x: 1344
@@ -572,14 +572,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e511038a49491546a83fc84b9a8fb1e
-      internalID: -1975732818
+      spriteID: a4e5aec005a49914aa7069d0e707142d
+      internalID: 814164158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_22
+      name: 92_Assets_ENEMY_1_22
       rect:
         serializedVersion: 2
         x: 1408
@@ -593,14 +593,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2844ea221c723fa4db5cc9f9de31b7f6
-      internalID: -922001705
+      spriteID: 99e592b58640f8a44a179573b9a5da85
+      internalID: 1834830994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_23
+      name: 92_Assets_ENEMY_1_23
       rect:
         serializedVersion: 2
         x: 1472
@@ -614,14 +614,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0517e74cc2bafd143b2e1f32e3876aca
-      internalID: 1170370829
+      spriteID: ad593b6e6d23b394785b8fce73c9a148
+      internalID: 1915013984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_24
+      name: 92_Assets_ENEMY_1_24
       rect:
         serializedVersion: 2
         x: 1536
@@ -635,14 +635,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d375360600be52e4abc3c375865dafbe
-      internalID: 833404699
+      spriteID: 1551b68cb12454444ad64c2d67c0e61d
+      internalID: -1053508076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_25
+      name: 92_Assets_ENEMY_1_25
       rect:
         serializedVersion: 2
         x: 1600
@@ -656,14 +656,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1e1acf9822df864bb87065a5121e99b
-      internalID: -643005924
+      spriteID: 94e921c84a155f94fafb29dd26504f9c
+      internalID: -1052317528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_26
+      name: 92_Assets_ENEMY_1_26
       rect:
         serializedVersion: 2
         x: 1664
@@ -677,14 +677,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecb5b642d21e5eb42b9d5faea59c706b
-      internalID: 1908348947
+      spriteID: 611f54eb589d20342bed4d0ca3645ae3
+      internalID: -1779725901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_27
+      name: 92_Assets_ENEMY_1_27
       rect:
         serializedVersion: 2
         x: 1728
@@ -698,14 +698,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15b2eeb35e9906b45840c3ca12e3ed23
-      internalID: -103208872
+      spriteID: b3f657a53a852984fa16c84d249d81e5
+      internalID: -107717531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_28
+      name: 92_Assets_ENEMY_1_28
       rect:
         serializedVersion: 2
         x: 1792
@@ -719,14 +719,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7c0c38c3fc9d054398f24cbe039d609
-      internalID: 1645894446
+      spriteID: aca229a26ac6a1847b27540ff1f3bd7f
+      internalID: 1689142104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_29
+      name: 92_Assets_ENEMY_1_29
       rect:
         serializedVersion: 2
         x: 1856
@@ -740,14 +740,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 023ea8f058d88cc439a3bf7f072b98a4
-      internalID: 161002810
+      spriteID: ac8002cdcf6c58c48b67e17ad6d8c960
+      internalID: 565499115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_30
+      name: 92_Assets_ENEMY_1_30
       rect:
         serializedVersion: 2
         x: 1920
@@ -761,14 +761,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5327de876415876498e770a1fe490862
-      internalID: 2120532725
+      spriteID: a36f8748a29253f409061d61956275c0
+      internalID: -1931230447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_31
+      name: 92_Assets_ENEMY_1_31
       rect:
         serializedVersion: 2
         x: 1984
@@ -782,14 +782,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ecf95a777521574a9ae0f4dc6eb6b6e
-      internalID: -1425305349
+      spriteID: 0dbdf5c8cd8830b4f8bfdc4a3bb6d53b
+      internalID: 324638212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_32
+      name: 92_Assets_ENEMY_1_32
       rect:
         serializedVersion: 2
         x: 2048
@@ -803,14 +803,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59048e444006ab143b95de06264b41b5
-      internalID: 747739864
+      spriteID: b0e2e4607e015c74ba34471cdc3cfb2b
+      internalID: 1221317962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_33
+      name: 92_Assets_ENEMY_1_33
       rect:
         serializedVersion: 2
         x: 2112
@@ -824,14 +824,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db33ca93cfb084b42bc2144627c35133
-      internalID: -951303803
+      spriteID: efd9a5709131eb540bcb72bc71a25a57
+      internalID: -35956624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_34
+      name: 92_Assets_ENEMY_1_34
       rect:
         serializedVersion: 2
         x: 2176
@@ -845,14 +845,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bff162f402017034c9952fdb418160d7
-      internalID: 562868951
+      spriteID: b76267cd41548804f95c580e3d1382de
+      internalID: 1740856867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_35
+      name: 92_Assets_ENEMY_1_35
       rect:
         serializedVersion: 2
         x: 2240
@@ -866,14 +866,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0227325b7b07b53469c9925f60ce00df
-      internalID: 1069111455
+      spriteID: eddcbb0974b8cbc45b58acfbedb7653c
+      internalID: -1028776186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_36
+      name: 92_Assets_ENEMY_1_36
       rect:
         serializedVersion: 2
         x: 2304
@@ -887,14 +887,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71686d4e05ad7f049a70fc38f9c23544
-      internalID: 1799869185
+      spriteID: eb58bb04356f2424f8cf9f524f4719da
+      internalID: 441148306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_37
+      name: 92_Assets_ENEMY_1_37
       rect:
         serializedVersion: 2
         x: 2368
@@ -908,14 +908,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1a6924e0c82a7646b1426258be00405
-      internalID: 110406799
+      spriteID: 0ab12e79672dbd249bad389e9c6b1a23
+      internalID: -542448398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_38
+      name: 92_Assets_ENEMY_1_38
       rect:
         serializedVersion: 2
         x: 2432
@@ -929,14 +929,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 689e6d516403b614084e84a13db956f1
-      internalID: 1640083611
+      spriteID: adfd92a65f4b5c049801d100477478ca
+      internalID: 1404079230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_39
+      name: 92_Assets_ENEMY_1_39
       rect:
         serializedVersion: 2
         x: 2496
@@ -950,14 +950,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 938c485b245226440b577f7637431265
-      internalID: 1016379068
+      spriteID: 561542ee861ac3c49a7de42a5ad23b02
+      internalID: -687853879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_40
+      name: 92_Assets_ENEMY_1_40
       rect:
         serializedVersion: 2
         x: 2560
@@ -971,113 +971,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3edad346d876c64dae303e319f0897c
-      internalID: -1346983704
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_41
-      rect:
-        serializedVersion: 2
-        x: 2624
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40c2d33217d6dcc4f8328297631843b1
-      internalID: -325950464
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_42
-      rect:
-        serializedVersion: 2
-        x: 2688
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef32ec21cda4cbd4997606adf377e0ce
-      internalID: -641927472
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_43
-      rect:
-        serializedVersion: 2
-        x: 2752
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed0e13d7a87e1c84999020740fc14190
-      internalID: -204283023
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_44
-      rect:
-        serializedVersion: 2
-        x: 2816
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf2f0cbe19a00fe4e839c13d1ec168c1
-      internalID: 1748868505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 90_Assets_ENEMY_2_45
-      rect:
-        serializedVersion: 2
-        x: 2880
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88ba099918ea30f46a3d5b544f5091f4
-      internalID: -831154781
+      spriteID: 323e43b80c22b8245bad81140670ee1c
+      internalID: 1279168630
       vertices: []
       indices: 
       edges: []
@@ -1093,52 +988,47 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      90_Assets_ENEMY_2_0: -232185428
-      90_Assets_ENEMY_2_2: -1667717890
-      90_Assets_ENEMY_2_10: 1712018029
-      90_Assets_ENEMY_2_30: 2120532725
-      90_Assets_ENEMY_2_5: -1971612207
-      90_Assets_ENEMY_2_16: 1282070887
-      90_Assets_ENEMY_2_20: -2092661285
-      90_Assets_ENEMY_2_28: 1645894446
-      90_Assets_ENEMY_2_19: -956495888
-      90_Assets_ENEMY_2_1: 1494829920
-      90_Assets_ENEMY_2_27: -103208872
-      90_Assets_ENEMY_2_36: 1799869185
-      90_Assets_ENEMY_2_31: -1425305349
-      90_Assets_ENEMY_2_38: 1640083611
-      90_Assets_ENEMY_2_35: 1069111455
-      90_Assets_ENEMY_2_44: 1748868505
-      90_Assets_ENEMY_2_3: -43817372
-      90_Assets_ENEMY_2_17: -1150654534
-      90_Assets_ENEMY_2_24: 833404699
-      90_Assets_ENEMY_2_45: -831154781
-      90_Assets_ENEMY_2_18: 601134312
-      90_Assets_ENEMY_2_29: 161002810
-      90_Assets_ENEMY_2_14: -688230260
-      90_Assets_ENEMY_2_32: 747739864
-      90_Assets_ENEMY_2_39: 1016379068
-      90_Assets_ENEMY_2_6: -810091971
-      90_Assets_ENEMY_2_15: -1307471131
-      90_Assets_ENEMY_2_43: -204283023
-      90_Assets_ENEMY_2_26: 1908348947
-      90_Assets_ENEMY_2_34: 562868951
-      90_Assets_ENEMY_2_11: 817974912
-      90_Assets_ENEMY_2_37: 110406799
-      90_Assets_ENEMY_2_4: 1429960467
-      90_Assets_ENEMY_2_22: -922001705
-      90_Assets_ENEMY_2_23: 1170370829
-      90_Assets_ENEMY_2_13: 2074932566
-      90_Assets_ENEMY_2_40: -1346983704
-      90_Assets_ENEMY_2_33: -951303803
-      90_Assets_ENEMY_2_8: 44144516
-      90_Assets_ENEMY_2_7: 979631149
-      90_Assets_ENEMY_2_9: -146330684
-      90_Assets_ENEMY_2_41: -325950464
-      90_Assets_ENEMY_2_25: -643005924
-      90_Assets_ENEMY_2_42: -641927472
-      90_Assets_ENEMY_2_12: -1503469876
-      90_Assets_ENEMY_2_21: -1975732818
+      92_Assets_ENEMY_1_4: -1970714940
+      92_Assets_ENEMY_1_29: 565499115
+      92_Assets_ENEMY_1_16: 388226034
+      92_Assets_ENEMY_1_7: 2098028759
+      92_Assets_ENEMY_1_13: 1594385672
+      92_Assets_ENEMY_1_30: -1931230447
+      92_Assets_ENEMY_1_37: -542448398
+      92_Assets_ENEMY_1_36: 441148306
+      92_Assets_ENEMY_1_8: 1569255342
+      92_Assets_ENEMY_1_0: 2051290208
+      92_Assets_ENEMY_1_40: 1279168630
+      92_Assets_ENEMY_1_18: -1750808714
+      92_Assets_ENEMY_1_14: -1569815457
+      92_Assets_ENEMY_1_10: -1995520835
+      92_Assets_ENEMY_1_26: -1779725901
+      92_Assets_ENEMY_1_20: 1614069376
+      92_Assets_ENEMY_1_12: -384821594
+      92_Assets_ENEMY_1_22: 1834830994
+      92_Assets_ENEMY_1_5: -746769425
+      92_Assets_ENEMY_1_38: 1404079230
+      92_Assets_ENEMY_1_28: 1689142104
+      92_Assets_ENEMY_1_33: -35956624
+      92_Assets_ENEMY_1_25: -1052317528
+      92_Assets_ENEMY_1_1: 1311918973
+      92_Assets_ENEMY_1_27: -107717531
+      92_Assets_ENEMY_1_39: -687853879
+      92_Assets_ENEMY_1_34: 1740856867
+      92_Assets_ENEMY_1_9: 1287810702
+      92_Assets_ENEMY_1_19: -1497286327
+      92_Assets_ENEMY_1_15: 1906583102
+      92_Assets_ENEMY_1_2: 619402916
+      92_Assets_ENEMY_1_35: -1028776186
+      92_Assets_ENEMY_1_31: 324638212
+      92_Assets_ENEMY_1_17: -1423711367
+      92_Assets_ENEMY_1_11: 499867111
+      92_Assets_ENEMY_1_3: 1483802077
+      92_Assets_ENEMY_1_32: 1221317962
+      92_Assets_ENEMY_1_24: -1053508076
+      92_Assets_ENEMY_1_21: 814164158
+      92_Assets_ENEMY_1_23: 1915013984
+      92_Assets_ENEMY_1_6: -142502766
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
