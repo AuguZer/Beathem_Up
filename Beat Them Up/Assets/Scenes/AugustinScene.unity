@@ -319,24 +319,23 @@ MonoBehaviour:
   sprintSpeed: 10
   playerMaxHealth: 100
   playerCurrentHealth: 0
-  isDead: 0
   jumpCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 1.9074124
+      outSlope: 1.9074124
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.03508316
     - serializedVersion: 3
       time: 0.5
       value: 1
-      inSlope: 0.00472492
-      outSlope: 0.00472492
+      inSlope: 0.09870273
+      outSlope: 0.09870273
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
@@ -344,15 +343,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -1.9612415
-      outSlope: -1.9612415
+      inSlope: -2.8905115
+      outSlope: -2.8905115
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.060551405
+      inWeight: 0.069126725
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  jumpHeight: 1
+  jumpDuration: 1
 --- !u!1 &1619065770
 GameObject:
   m_ObjectHideFlags: 0

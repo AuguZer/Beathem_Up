@@ -26,7 +26,7 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] public float playerCurrentHealth;
 
     bool right = true;
-    [SerializeField] bool isDead;
+    bool isDead;
 
 
     //JUMP
@@ -35,32 +35,34 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] float jumpDuration = 3f;
     Transform _graphics;
     float jumpTimer;
+    CapsuleCollider2D cc2d;
+
 
     private void Jump()
     {
-        if (Input.GetButton("Jump"))
+       if(Input.GetButton("Jump"))
         {
-            playerAnimator.SetTrigger("IsJumping");
+            if (jumpTimer < jumpDuration)
+            {
+                jumpTimer += Time.deltaTime;
 
-            //if (jumpTimer < jumpDuration)
-            //{
-            //    jumpTimer += Time.deltaTime;
+                float y = jumpCurve.Evaluate(jumpTimer / jumpDuration);
 
-            //    float y = jumpCurve.Evaluate(jumpTimer / jumpDuration);
+                _graphics.position = new Vector3(transform.position.x, y * jumpHeight, transform.position.z);
 
-            //    _graphics.localPosition = new Vector3(transform.localPosition.x, y * jumpHeight, transform.localPosition.z);
-
-            //}
-            //else
-            //{
-            //    jumpTimer = 0f;
-            //}
+            }
+            else
+            {
+                jumpTimer = 0f;
+            }
         }
+        
+
     }
 
     private void Awake()
     {
-        _graphics = transform.Find("GRAPHICS");
+
     }
     // Start is called before the first frame update
     void Start()
@@ -69,6 +71,10 @@ public class PlayerMovementSM : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
         OnStateEnter();
+        cc2d = GetComponent<CapsuleCollider2D>();
+
+        _graphics = transform.Find("GRAPHICS");
+
 
     }
 
@@ -78,6 +84,7 @@ public class PlayerMovementSM : MonoBehaviour
         GetInput();
         OnStateUpdate();
         Jump();
+
 
     }
 
