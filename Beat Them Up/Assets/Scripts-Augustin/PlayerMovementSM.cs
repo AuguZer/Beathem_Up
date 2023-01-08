@@ -38,31 +38,9 @@ public class PlayerMovementSM : MonoBehaviour
     CapsuleCollider2D cc2d;
 
 
-    private void Jump()
-    {
-       if(Input.GetButton("Jump"))
-        {
-            if (jumpTimer < jumpDuration)
-            {
-                jumpTimer += Time.deltaTime;
-
-                float y = jumpCurve.Evaluate(jumpTimer / jumpDuration);
-
-                _graphics.position = new Vector3(transform.position.x, y * jumpHeight, transform.position.z);
-
-            }
-            else
-            {
-                jumpTimer = 0f;
-            }
-        }
-        
-
-    }
-
     private void Awake()
     {
-
+        _graphics = transform.Find("GRAPHICS");
     }
     // Start is called before the first frame update
     void Start()
@@ -73,7 +51,6 @@ public class PlayerMovementSM : MonoBehaviour
         OnStateEnter();
         cc2d = GetComponent<CapsuleCollider2D>();
 
-        _graphics = transform.Find("GRAPHICS");
 
 
     }
@@ -83,10 +60,27 @@ public class PlayerMovementSM : MonoBehaviour
     {
         GetInput();
         OnStateUpdate();
-        Jump();
-
+       
 
     }
+    private void Jump()
+    {
+
+            if (jumpTimer < jumpDuration)
+            {
+                jumpTimer += Time.deltaTime;
+                float y = jumpCurve.Evaluate(jumpTimer / jumpDuration);
+
+                _graphics.localPosition = new Vector3(transform.localPosition.x, y * jumpHeight, transform.localPosition.z);
+            }
+            else
+            {
+                jumpTimer = 0f;
+            }
+        
+
+    }
+
 
     public void TakeDamage(float amout)
     {
@@ -104,7 +98,6 @@ public class PlayerMovementSM : MonoBehaviour
             playerAnimator.SetTrigger("IsDead");
         }
     }
-
 
     private void GetInput()
     {
@@ -129,6 +122,11 @@ public class PlayerMovementSM : MonoBehaviour
         sprintInput = Input.GetButton("Sprint");
         playerAnimator.SetBool("IsSprinting", sprintInput);
 
+        if (Input.GetButtonDown("Jump"))
+        {
+            Debug.Log("cc");
+            Jump();
+        }
     }
 
 
