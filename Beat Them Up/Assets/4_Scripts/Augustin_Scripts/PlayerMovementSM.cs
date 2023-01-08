@@ -26,7 +26,7 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] public float playerCurrentHealth;
 
     bool right = true;
-    [SerializeField] bool isDead;
+    bool isDead;
 
 
     //JUMP
@@ -35,28 +35,8 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] float jumpDuration = 3f;
     Transform _graphics;
     float jumpTimer;
+    CapsuleCollider2D cc2d;
 
-    private void Jump()
-    {
-        if (Input.GetButton("Jump"))
-        {
-            playerAnimator.SetTrigger("IsJumping");
-
-            //if (jumpTimer < jumpDuration)
-            //{
-            //    jumpTimer += Time.deltaTime;
-
-            //    float y = jumpCurve.Evaluate(jumpTimer / jumpDuration);
-
-            //    _graphics.localPosition = new Vector3(transform.localPosition.x, y * jumpHeight, transform.localPosition.z);
-
-            //}
-            //else
-            //{
-            //    jumpTimer = 0f;
-            //}
-        }
-    }
 
     private void Awake()
     {
@@ -69,6 +49,9 @@ public class PlayerMovementSM : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
         OnStateEnter();
+        cc2d = GetComponent<CapsuleCollider2D>();
+
+
 
     }
 
@@ -77,9 +60,27 @@ public class PlayerMovementSM : MonoBehaviour
     {
         GetInput();
         OnStateUpdate();
-        Jump();
+       
 
     }
+    private void Jump()
+    {
+
+            if (jumpTimer < jumpDuration)
+            {
+                jumpTimer += Time.deltaTime;
+                float y = jumpCurve.Evaluate(jumpTimer / jumpDuration);
+
+                _graphics.localPosition = new Vector3(transform.localPosition.x, y * jumpHeight, transform.localPosition.z);
+            }
+            else
+            {
+                jumpTimer = 0f;
+            }
+        
+
+    }
+
 
     public void TakeDamage(float amout)
     {
@@ -97,7 +98,6 @@ public class PlayerMovementSM : MonoBehaviour
             playerAnimator.SetTrigger("IsDead");
         }
     }
-
 
     private void GetInput()
     {
@@ -122,6 +122,11 @@ public class PlayerMovementSM : MonoBehaviour
         sprintInput = Input.GetButton("Sprint");
         playerAnimator.SetBool("IsSprinting", sprintInput);
 
+        if (Input.GetButtonDown("Jump"))
+        {
+            Debug.Log("cc");
+            Jump();
+        }
     }
 
 
