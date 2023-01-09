@@ -16,19 +16,19 @@ public class PlayerMovementSM : MonoBehaviour
         JUMP_Player
     }
 
+    //PLAYER MOVEMENT & ANIMATION
     [SerializeField] PlayerState currentState;
     [SerializeField] float walkSpeed = 5f;
     [SerializeField] float sprintSpeed = 10f;
     Vector2 dirInput;
     bool sprintInput;
     Rigidbody2D rb2d;
+    bool right = true;
 
+    //HEALTH & DEATH
     [SerializeField] public float playerMaxHealth = 100f;
     [SerializeField] public float playerCurrentHealth;
-
-    bool right = true;
     bool isDead;
-    bool isJumping;
 
 
     //JUMP
@@ -37,8 +37,10 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] float jumpDuration = 3f;
     Transform _graphics;
     float jumpTimer;
+    bool isJumping;
 
-
+    //POINTS
+    [SerializeField] float playerCurrentPoints;
 
     private void Awake()
     {
@@ -48,6 +50,7 @@ public class PlayerMovementSM : MonoBehaviour
     void Start()
     {
         playerCurrentHealth = playerMaxHealth;
+        playerCurrentPoints = 0f;
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
         OnStateEnter();
@@ -63,21 +66,22 @@ public class PlayerMovementSM : MonoBehaviour
     }
     private void Jump()
     {
-
+        
         if (isJumping && jumpTimer < jumpDuration)
         {
             jumpTimer += Time.deltaTime;
             float y = jumpCurve.Evaluate(jumpTimer / jumpDuration);
 
             _graphics.localPosition = new Vector3(_graphics.transform.localPosition.x, y * jumpHeight, _graphics.transform.localPosition.z);
+            rb2d.constraints = RigidbodyConstraints2D.FreezePositionY;
         }
 
         if (jumpTimer > jumpDuration)
         {
             isJumping = false;
             jumpTimer = 0f;
+            rb2d.constraints = RigidbodyConstraints2D.None;
         }
-
     }
 
 
@@ -98,6 +102,20 @@ public class PlayerMovementSM : MonoBehaviour
         }
     }
 
+    public void TakeHealth(float amount)
+    {
+        playerCurrentHealth += amount;
+
+        if (playerCurrentHealth > playerMaxHealth)
+        {
+            playerCurrentHealth = playerMaxHealth;
+        }
+    }
+
+    public void TakePoints(float amount)
+    {
+        playerCurrentPoints += amount;
+    }
     private void GetInput()
     {
         dirInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -180,6 +198,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO JUMP
                 if (isJumping)
                 {
+                    
                     TransitionToState(PlayerState.JUMP_Player);
                 }
                 //TO DEATH
@@ -213,6 +232,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO JUMP
                 if (isJumping)
                 {
+                    
                     TransitionToState(PlayerState.JUMP_Player);
                 }
 
@@ -241,6 +261,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO JUMP
                 if (isJumping)
                 {
+                    
                     TransitionToState(PlayerState.JUMP_Player);
                 }
 
@@ -260,7 +281,14 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
 
             case PlayerState.JUMP_Player:
-           
+                if (sprintInput)
+                {
+                    rb2d.velocity = dirInput.normalized * sprintSpeed;
+                }
+                else
+                {
+                    rb2d.velocity = dirInput.normalized * walkSpeed;
+                }
                 //TO IDLE
                 if (!isJumping)
                 {
