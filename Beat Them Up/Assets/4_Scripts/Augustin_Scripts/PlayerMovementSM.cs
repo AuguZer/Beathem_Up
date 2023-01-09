@@ -136,7 +136,7 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.IDLE_Player:
                 break;
 
-            case PlayerState.WALK_Player:
+            case PlayerState.WALK_Player:  
                 break;
 
             case PlayerState.SPRINT_Player:
@@ -260,6 +260,7 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
 
             case PlayerState.JUMP_Player:
+           
                 //TO IDLE
                 if (!isJumping)
                 {
