@@ -12,7 +12,8 @@ public class PlayerMovementSM : MonoBehaviour
         WALK_Player,
         SPRINT_Player,
         ATTACK1_Player,
-        DEATH_Player
+        DEATH_Player,
+        JUMP_Player
     }
 
     [SerializeField] PlayerState currentState;
@@ -27,6 +28,7 @@ public class PlayerMovementSM : MonoBehaviour
 
     bool right = true;
     bool isDead;
+    bool isJumping;
 
 
     //JUMP
@@ -35,7 +37,7 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] float jumpDuration = 3f;
     Transform _graphics;
     float jumpTimer;
-    CapsuleCollider2D cc2d;
+
 
 
     private void Awake()
@@ -49,10 +51,6 @@ public class PlayerMovementSM : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
         OnStateEnter();
-        cc2d = GetComponent<CapsuleCollider2D>();
-
-
-
     }
 
     // Update is called once per frame
@@ -60,24 +58,25 @@ public class PlayerMovementSM : MonoBehaviour
     {
         GetInput();
         OnStateUpdate();
-       
+        Jump();
 
     }
     private void Jump()
     {
 
-            if (jumpTimer < jumpDuration)
-            {
-                jumpTimer += Time.deltaTime;
-                float y = jumpCurve.Evaluate(jumpTimer / jumpDuration);
+        if (isJumping && jumpTimer < jumpDuration)
+        {
+            jumpTimer += Time.deltaTime;
+            float y = jumpCurve.Evaluate(jumpTimer / jumpDuration);
 
-                _graphics.localPosition = new Vector3(transform.localPosition.x, y * jumpHeight, transform.localPosition.z);
-            }
-            else
-            {
-                jumpTimer = 0f;
-            }
-        
+            _graphics.localPosition = new Vector3(_graphics.transform.localPosition.x, y * jumpHeight, _graphics.transform.localPosition.z);
+        }
+
+        if (jumpTimer > jumpDuration)
+        {
+            isJumping = false;
+            jumpTimer = 0f;
+        }
 
     }
 
@@ -124,8 +123,8 @@ public class PlayerMovementSM : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("cc");
-            Jump();
+            isJumping = true;
+            playerAnimator.SetTrigger("IsJumping");
         }
     }
 
@@ -148,7 +147,9 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.DEATH_Player:
                 isDead = true;
                 break;
-
+            case PlayerState.JUMP_Player:
+                isJumping = true;
+                break;
             default:
                 break;
         }
@@ -176,6 +177,11 @@ public class PlayerMovementSM : MonoBehaviour
                     TransitionToState(PlayerState.ATTACK1_Player);
                 }
 
+                //TO JUMP
+                if (isJumping)
+                {
+                    TransitionToState(PlayerState.JUMP_Player);
+                }
                 //TO DEATH
                 if (isDead)
                 {
@@ -204,6 +210,12 @@ public class PlayerMovementSM : MonoBehaviour
                     TransitionToState(PlayerState.ATTACK1_Player);
                 }
 
+                //TO JUMP
+                if (isJumping)
+                {
+                    TransitionToState(PlayerState.JUMP_Player);
+                }
+
                 //TO DEATH
                 if (isDead)
                 {
@@ -226,6 +238,12 @@ public class PlayerMovementSM : MonoBehaviour
                     TransitionToState(PlayerState.WALK_Player);
                 }
 
+                //TO JUMP
+                if (isJumping)
+                {
+                    TransitionToState(PlayerState.JUMP_Player);
+                }
+
                 //TO DEATH
                 if (isDead)
                 {
@@ -238,9 +256,27 @@ public class PlayerMovementSM : MonoBehaviour
 
                 break;
             case PlayerState.DEATH_Player:
-
                 break;
 
+            case PlayerState.JUMP_Player:
+                //TO IDLE
+                if (!isJumping)
+                {
+                    TransitionToState(PlayerState.IDLE_Player);
+                }
+
+                //TO WALK
+                if (!isJumping)
+                {
+                    TransitionToState(PlayerState.WALK_Player);
+                }
+
+                //TO SPRINT
+                if (!isJumping)
+                {
+                    TransitionToState(PlayerState.SPRINT_Player);
+                }
+                break;
             default:
                 break;
         }
@@ -259,6 +295,9 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.ATTACK1_Player:
                 break;
             case PlayerState.DEATH_Player:
+                break;
+            case PlayerState.JUMP_Player:
+                isJumping = false;
                 break;
             default:
                 break;
