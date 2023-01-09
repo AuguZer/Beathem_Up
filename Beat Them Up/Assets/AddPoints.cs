@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthCan : MonoBehaviour
+public class AddPoints : MonoBehaviour
 {
-    
-    [SerializeField] float healthPoint = 5f;
+    [SerializeField] float points = 200f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +19,9 @@ public class HealthCan : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == ("Player"))
+        if (collision.gameObject.tag=="Player")
         {
-            collision.gameObject.GetComponent<PlayerMovementSM>().TakeHealth(healthPoint);
+            collision.gameObject.GetComponent<PlayerMovementSM>().TakePoints(points);
             Destroy(gameObject);
         }
     }
