@@ -256,6 +256,7 @@ public class PlayerMovementSM : MonoBehaviour
 
                 break;
             case PlayerState.DEATH_Player:
+                isJumping = false;
                 break;
 
             case PlayerState.JUMP_Player:
