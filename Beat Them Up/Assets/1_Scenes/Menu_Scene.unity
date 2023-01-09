@@ -807,9 +807,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 143660164}
+      - m_Target: {fileID: 143660163}
         m_TargetAssemblyTypeName: Scene_Loader, Assembly-CSharp
-        m_MethodName: NextLevel
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
