@@ -73,14 +73,15 @@ public class PlayerMovementSM : MonoBehaviour
             float y = jumpCurve.Evaluate(jumpTimer / jumpDuration);
 
             _graphics.localPosition = new Vector3(_graphics.transform.localPosition.x, y * jumpHeight, _graphics.transform.localPosition.z);
+            rb2d.constraints = RigidbodyConstraints2D.FreezePositionY;
         }
 
         if (jumpTimer > jumpDuration)
         {
             isJumping = false;
             jumpTimer = 0f;
+            rb2d.constraints = RigidbodyConstraints2D.None;
         }
-
     }
 
 
