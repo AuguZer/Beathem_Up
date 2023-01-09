@@ -16,19 +16,19 @@ public class PlayerMovementSM : MonoBehaviour
         JUMP_Player
     }
 
+    //PLAYER MOVEMENT & ANIMATION
     [SerializeField] PlayerState currentState;
     [SerializeField] float walkSpeed = 5f;
     [SerializeField] float sprintSpeed = 10f;
     Vector2 dirInput;
     bool sprintInput;
     Rigidbody2D rb2d;
+    bool right = true;
 
+    //HEALTH & DEATH
     [SerializeField] public float playerMaxHealth = 100f;
     [SerializeField] public float playerCurrentHealth;
-
-    bool right = true;
     bool isDead;
-    bool isJumping;
 
 
     //JUMP
@@ -37,8 +37,10 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] float jumpDuration = 3f;
     Transform _graphics;
     float jumpTimer;
+    bool isJumping;
 
-
+    //POINTS
+    [SerializeField] float playerCurrentPoints;
 
     private void Awake()
     {
@@ -48,6 +50,7 @@ public class PlayerMovementSM : MonoBehaviour
     void Start()
     {
         playerCurrentHealth = playerMaxHealth;
+        playerCurrentPoints = 0f;
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
         OnStateEnter();
@@ -108,6 +111,10 @@ public class PlayerMovementSM : MonoBehaviour
         }
     }
 
+    public void TakePoints(float amount)
+    {
+        playerCurrentPoints += amount;
+    }
     private void GetInput()
     {
         dirInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
