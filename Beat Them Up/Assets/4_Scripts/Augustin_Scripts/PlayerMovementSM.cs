@@ -63,7 +63,7 @@ public class PlayerMovementSM : MonoBehaviour
     }
     private void Jump()
     {
-
+        
         if (isJumping && jumpTimer < jumpDuration)
         {
             jumpTimer += Time.deltaTime;
@@ -95,6 +95,16 @@ public class PlayerMovementSM : MonoBehaviour
             rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
 
             playerAnimator.SetTrigger("IsDead");
+        }
+    }
+
+    public void TakeHealth(float amount)
+    {
+        playerCurrentHealth += amount;
+
+        if (playerCurrentHealth > playerMaxHealth)
+        {
+            playerCurrentHealth = playerMaxHealth;
         }
     }
 
@@ -180,6 +190,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO JUMP
                 if (isJumping)
                 {
+                    
                     TransitionToState(PlayerState.JUMP_Player);
                 }
                 //TO DEATH
@@ -213,6 +224,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO JUMP
                 if (isJumping)
                 {
+                    
                     TransitionToState(PlayerState.JUMP_Player);
                 }
 
@@ -241,6 +253,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO JUMP
                 if (isJumping)
                 {
+                    
                     TransitionToState(PlayerState.JUMP_Player);
                 }
 
@@ -260,7 +273,14 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
 
             case PlayerState.JUMP_Player:
-           
+                if (sprintInput)
+                {
+                    rb2d.velocity = dirInput.normalized * sprintSpeed;
+                }
+                else
+                {
+                    rb2d.velocity = dirInput.normalized * walkSpeed;
+                }
                 //TO IDLE
                 if (!isJumping)
                 {
