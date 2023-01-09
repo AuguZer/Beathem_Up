@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TEST_TriggerForDamage : MonoBehaviour
 {
-    [SerializeField] GameObject player;
     [SerializeField] float damage = 50f;
     // Start is called before the first frame update
     void Start()
