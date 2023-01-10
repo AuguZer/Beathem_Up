@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     float Enemycurrentspeed;
     [SerializeField] Rigidbody2D rb2d;
-    Vector2 dirInput;
+    
 
     
     bool IsWalking;
@@ -42,7 +42,9 @@ public class EnemyAI : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Idle_Enemy_Regular:
+
                 Enemycurrentspeed = enemySpeed;
+
                 rb2d.velocity = Vector2.zero;
 
                 break;
