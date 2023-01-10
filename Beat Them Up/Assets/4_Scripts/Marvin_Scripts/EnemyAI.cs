@@ -42,7 +42,9 @@ public class EnemyAI : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Idle_Enemy_Regular:
+
                 Enemycurrentspeed = enemySpeed;
+
                 rb2d.velocity = Vector2.zero;
 
                 break;

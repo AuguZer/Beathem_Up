@@ -6,7 +6,8 @@ public class EnemyDetector : MonoBehaviour
 {
     [SerializeField] GameObject player;
     CircleCollider2D cc2D;
-    [SerializeField] float detectionRadius = 10f;
+    [SerializeField] float detectionRadius = 2f;
+    [SerializeField] LayerMask detectionLayer;
 
 
 
@@ -20,7 +21,7 @@ public class EnemyDetector : MonoBehaviour
         if (collision.gameObject.tag =="Player")
 
         {
-              Physics2D.OverlapCircle(transform.position, detectionRadius);
+              Physics2D.OverlapCircle(transform.position, detectionRadius,detectionLayer);
 
            
 
