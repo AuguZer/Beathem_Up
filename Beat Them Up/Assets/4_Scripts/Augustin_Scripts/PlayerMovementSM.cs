@@ -11,9 +11,10 @@ public class PlayerMovementSM : MonoBehaviour
         IDLE_Player,
         WALK_Player,
         SPRINT_Player,
-        ATTACK1_Player,
+        ATTACK_Player,
         DEATH_Player,
-        JUMP_Player
+        JUMP_Player,
+       
     }
 
     //PLAYER MOVEMENT & ANIMATION
@@ -42,6 +43,12 @@ public class PlayerMovementSM : MonoBehaviour
     //POINTS
     [SerializeField] float playerCurrentPoints;
 
+    //ATTACK
+    int attackNumber = 0;
+    bool isAttacking;
+    float t;
+    float attackCoolDown = 2f;
+
     private void Awake()
     {
         _graphics = transform.Find("GRAPHICS");
@@ -62,6 +69,7 @@ public class PlayerMovementSM : MonoBehaviour
         GetInput();
         OnStateUpdate();
         Jump();
+        Attack();
 
     }
     private void Jump()
@@ -116,6 +124,20 @@ public class PlayerMovementSM : MonoBehaviour
     {
         playerCurrentPoints += amount;
     }
+
+    private void Attack()
+    {
+        if (isAttacking)
+        {
+            playerAnimator.SetInteger("AttackNumber", attackNumber);
+
+            if (attackNumber >= 5)
+            {
+                attackNumber = 1;
+            }
+        }
+    }
+
     private void GetInput()
     {
         dirInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -144,6 +166,13 @@ public class PlayerMovementSM : MonoBehaviour
             isJumping = true;
             playerAnimator.SetTrigger("IsJumping");
         }
+
+        if (Input.GetButtonDown("Attack"))
+        {
+            attackNumber += 1;
+            isAttacking = true;
+            playerAnimator.SetTrigger("Attack");
+        }
     }
 
 
@@ -159,8 +188,8 @@ public class PlayerMovementSM : MonoBehaviour
 
             case PlayerState.SPRINT_Player:
                 break;
-            case PlayerState.ATTACK1_Player:
-                playerAnimator.SetTrigger("Attack");
+            case PlayerState.ATTACK_Player:
+                isAttacking = true;
                 break;
             case PlayerState.DEATH_Player:
                 isDead = true;
@@ -168,6 +197,7 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.JUMP_Player:
                 isJumping = true;
                 break;
+           
             default:
                 break;
         }
@@ -190,9 +220,9 @@ public class PlayerMovementSM : MonoBehaviour
                 }
 
                 //TO ATTACK
-                if (Input.GetButtonDown("Attack"))
+                if (isAttacking)
                 {
-                    TransitionToState(PlayerState.ATTACK1_Player);
+                    TransitionToState(PlayerState.ATTACK_Player);
                 }
 
                 //TO JUMP
@@ -224,9 +254,10 @@ public class PlayerMovementSM : MonoBehaviour
                 }
 
                 //TO ATTACK
-                if (Input.GetButtonDown("Attack"))
+                if (isAttacking)
                 {
-                    TransitionToState(PlayerState.ATTACK1_Player);
+                   
+                    TransitionToState(PlayerState.ATTACK_Player);
                 }
 
                 //TO JUMP
@@ -271,11 +302,13 @@ public class PlayerMovementSM : MonoBehaviour
                     TransitionToState(PlayerState.DEATH_Player);
                 }
                 break;
-            case PlayerState.ATTACK1_Player:
+
+            case PlayerState.ATTACK_Player:
 
                 TransitionToState(PlayerState.IDLE_Player);
 
                 break;
+
             case PlayerState.DEATH_Player:
                 isJumping = false;
                 break;
@@ -322,7 +355,7 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
             case PlayerState.SPRINT_Player:
                 break;
-            case PlayerState.ATTACK1_Player:
+            case PlayerState.ATTACK_Player:
                 break;
             case PlayerState.DEATH_Player:
                 break;
