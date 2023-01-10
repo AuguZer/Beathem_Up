@@ -14,7 +14,7 @@ public class PlayerMovementSM : MonoBehaviour
         ATTACK_Player,
         DEATH_Player,
         JUMP_Player,
-       
+
     }
 
     //PLAYER MOVEMENT & ANIMATION
@@ -74,7 +74,7 @@ public class PlayerMovementSM : MonoBehaviour
     }
     private void Jump()
     {
-        
+
         if (isJumping && jumpTimer < jumpDuration)
         {
             jumpTimer += Time.deltaTime;
@@ -183,13 +183,14 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.IDLE_Player:
                 break;
 
-            case PlayerState.WALK_Player:  
+            case PlayerState.WALK_Player:
+                rb2d.velocity = dirInput.normalized * walkSpeed;
                 break;
 
             case PlayerState.SPRINT_Player:
+                rb2d.velocity = dirInput.normalized * sprintSpeed;
                 break;
             case PlayerState.ATTACK_Player:
-                isAttacking = true;
                 break;
             case PlayerState.DEATH_Player:
                 isDead = true;
@@ -197,7 +198,7 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.JUMP_Player:
                 isJumping = true;
                 break;
-           
+
             default:
                 break;
         }
@@ -228,7 +229,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO JUMP
                 if (isJumping)
                 {
-                    
+
                     TransitionToState(PlayerState.JUMP_Player);
                 }
                 //TO DEATH
@@ -256,14 +257,12 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO ATTACK
                 if (isAttacking)
                 {
-                   
                     TransitionToState(PlayerState.ATTACK_Player);
                 }
 
                 //TO JUMP
                 if (isJumping)
                 {
-                    
                     TransitionToState(PlayerState.JUMP_Player);
                 }
 
@@ -292,7 +291,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO JUMP
                 if (isJumping)
                 {
-                    
+
                     TransitionToState(PlayerState.JUMP_Player);
                 }
 
@@ -304,9 +303,12 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
 
             case PlayerState.ATTACK_Player:
-
-                TransitionToState(PlayerState.IDLE_Player);
-
+                rb2d.velocity = dirInput.normalized * walkSpeed*.5f;
+                //TO IDLE
+                if (dirInput == Vector2.zero)
+                {
+                    TransitionToState(PlayerState.IDLE_Player);
+                }
                 break;
 
             case PlayerState.DEATH_Player:
@@ -356,6 +358,7 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.SPRINT_Player:
                 break;
             case PlayerState.ATTACK_Player:
+                isAttacking = false;
                 break;
             case PlayerState.DEATH_Player:
                 break;
