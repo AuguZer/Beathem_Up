@@ -48,8 +48,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000008940697, y: 0.3}
-  m_Size: {x: 0.37308103, y: 0.6}
+  m_Offset: {x: 0, y: 0.3}
+  m_Size: {x: 0.5, y: 0.5}
   m_Direction: 0
 --- !u!50 &7352570458218325149
 Rigidbody2D:
@@ -126,6 +126,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   jumpHeight: 1
   jumpDuration: 1
+  playerCurrentPoints: 0
 --- !u!1 &7352570458313925702
 GameObject:
   m_ObjectHideFlags: 0
