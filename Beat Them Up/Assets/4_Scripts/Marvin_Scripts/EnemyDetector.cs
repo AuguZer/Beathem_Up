@@ -6,8 +6,7 @@ public class EnemyDetector : MonoBehaviour
 {
     [SerializeField] GameObject player;
     
-    [SerializeField] float detectionRadius = 2f;
-    [SerializeField] LayerMask detectionLayer;
+    
 
     EnemyIA enemyIA;
 
