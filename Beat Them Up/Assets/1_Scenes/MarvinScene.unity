@@ -132,6 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 37585502}
+  - component: {fileID: 37585503}
+  - component: {fileID: 37585504}
   m_Layer: 0
   m_Name: Player Detector
   m_TagString: Untagged
@@ -154,6 +156,35 @@ Transform:
   m_Father: {fileID: 1307387617}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &37585503
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37585498}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
+--- !u!114 &37585504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37585498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd43655215cdd64aa88a6a2943dbceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1442019697}
 --- !u!1 &322715522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,10 +1080,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1442019697}
-  detectionRadius: 10
-  detectionLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &1307387623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,7 +1115,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.48406288}
   serializedVersion: 2
-  m_Radius: 1.0084922
+  m_Radius: 5
 --- !u!1 &1442019697 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7352570458218325123, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
