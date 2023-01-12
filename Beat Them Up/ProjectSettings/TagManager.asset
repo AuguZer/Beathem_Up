@@ -14,10 +14,10 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - 
-  - 
-  - 
-  - 
+  - Collectibles
+  - Play Instructions
+  - Destructibles
+  - carryable
   - 
   - 
   - 
@@ -44,4 +44,25 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 881043657
+    locked: 0
+  - name: "Barri\xE8re"
+    uniqueID: 1461816679
+    locked: 0
+  - name: Machine
+    uniqueID: 4280818251
+    locked: 0
+  - name: Instruction
+    uniqueID: 2416674597
+    locked: 0
+  - name: Collectibles
+    uniqueID: 3402527163
+    locked: 0
+  - name: Destructibles
+    uniqueID: 601628655
+    locked: 0
+  - name: carryable
+    uniqueID: 1149685679
+    locked: 0
+  - name: Ennemy
+    uniqueID: 818439819
     locked: 0
