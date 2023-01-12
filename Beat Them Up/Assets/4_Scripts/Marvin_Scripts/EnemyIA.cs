@@ -88,6 +88,9 @@ public class EnemyIA : MonoBehaviour
                 break;
             case EnemyState.Walk:
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Enemycurrentspeed * Time.deltaTime);
+
+
+
                 if (!playerDetected)
                 {
                     TransitionToState(EnemyState.Idle);
