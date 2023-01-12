@@ -44,6 +44,7 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] float playerCurrentPoints;
 
     //ATTACK
+    [SerializeField] float attackSpeed = 2.5f;
     int attackNumber = 0;
     bool isAttacking;
     float t;
@@ -131,9 +132,9 @@ public class PlayerMovementSM : MonoBehaviour
         {
             playerAnimator.SetInteger("AttackNumber", attackNumber);
 
-            if (attackNumber >= 5)
+            if (attackNumber == 4)
             {
-                attackNumber = 1;
+                attackNumber = 0;
             }
         }
     }
@@ -160,6 +161,10 @@ public class PlayerMovementSM : MonoBehaviour
 
         sprintInput = Input.GetButton("Sprint");
         playerAnimator.SetBool("IsSprinting", sprintInput);
+        if (sprintInput && Input.GetButtonDown("Attack"))
+        {
+            isAttacking = false;
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -169,8 +174,8 @@ public class PlayerMovementSM : MonoBehaviour
 
         if (Input.GetButtonDown("Attack"))
         {
-            attackNumber += 1;
             isAttacking = true;
+            attackNumber += 1;
             playerAnimator.SetTrigger("Attack");
         }
     }
@@ -303,11 +308,23 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
 
             case PlayerState.ATTACK_Player:
-                rb2d.velocity = dirInput.normalized * walkSpeed*.5f;
+                rb2d.velocity = dirInput.normalized * attackSpeed;
                 //TO IDLE
                 if (dirInput == Vector2.zero)
                 {
                     TransitionToState(PlayerState.IDLE_Player);
+                }
+
+                //TO WALK
+                if (!isAttacking && dirInput != Vector2.zero)
+                {
+                    TransitionToState(PlayerState.WALK_Player);
+                }
+
+                //TO SPRINT
+                if (sprintInput)
+                {
+                    TransitionToState(PlayerState.SPRINT_Player);
                 }
                 break;
 
@@ -356,6 +373,7 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.WALK_Player:
                 break;
             case PlayerState.SPRINT_Player:
+                isAttacking = false;
                 break;
             case PlayerState.ATTACK_Player:
                 isAttacking = false;
