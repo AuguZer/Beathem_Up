@@ -12,7 +12,7 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] float EnemyDamage = 5f;
     [SerializeField] Animator animator;
     [SerializeField] EnemyState currentState;
-    Transform target;
+    bool target = false;
 
 
     float Enemycurrentspeed;
@@ -25,7 +25,7 @@ public class EnemyIA : MonoBehaviour
     bool IsDead;
     bool playerDetected = false;
 
-    Vector2 dirInput;
+    Vector2 enemyDir;
     bool sprintInput;
     bool right = true;
 
@@ -40,6 +40,8 @@ public class EnemyIA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        Target();
         currentState = EnemyState.Idle;
         OnStateEnter();
     }
@@ -48,7 +50,8 @@ public class EnemyIA : MonoBehaviour
     void Update()
     {
         OnStateUpdate();
-        GetInput();
+        Move();
+       
     }
 
     private void OnStateEnter()
@@ -59,7 +62,7 @@ public class EnemyIA : MonoBehaviour
                 break;
             case EnemyState.Walk:
                 Enemycurrentspeed = enemySpeed;
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime);
+               
                 animator.SetBool("IsWalking", true);
                 break;
             case EnemyState.Attack:
@@ -84,6 +87,7 @@ public class EnemyIA : MonoBehaviour
                 }
                 break;
             case EnemyState.Walk:
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Enemycurrentspeed * Time.deltaTime);
                 if (!playerDetected)
                 {
                     TransitionToState(EnemyState.Idle);
@@ -129,33 +133,53 @@ public class EnemyIA : MonoBehaviour
     public void PlayerDetected()
     {
         playerDetected = true;
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 3 * Time.deltaTime);
+
     }
 
     public void PlayerUndetected()
     {
         playerDetected = false;
+        target = false;
     }
 
-    private void GetInput()
+   
+     void Target()
     {
-        dirInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        //rb2d.velocity = dirInput.normalized * walkSpeed;
-
-        if (dirInput != Vector2.zero)
+       
+        if (playerDetected)
         {
-            animator.SetBool("IsWalking", true);
+            target = true;
+        }
+    }
+
+    void Move ()
+    {
+        if (playerDetected)
+        {
+            target = true;
+        }
+        enemyDir = player.transform.position - transform.position;
+
+
+        if (enemyDir.x < 0)
+        {
+            right = false;
+        }
+
+        if (enemyDir.x > 0)
+        {
+            right = true;
+        }
+
+        if (right)
+        {
+            graphics.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else
         {
-            animator.SetBool("IsWalking", false);
-        }
-
-        if (dirInput.x != 0 && !IsDead)
-        {
-            right = dirInput.x > 0;
-            graphics.transform.rotation = right ? Quaternion.identity : Quaternion.Euler(0, 180f, 0);
+            graphics.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
     }
+
 }
