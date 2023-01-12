@@ -49,7 +49,7 @@ public class PlayerMovementSM : MonoBehaviour
     bool isAttacking;
     float t;
     float attackCoolDown = 2f;
-
+    bool isResetting;
     private void Awake()
     {
         _graphics = transform.Find("GRAPHICS");
@@ -137,6 +137,7 @@ public class PlayerMovementSM : MonoBehaviour
                 attackNumber = 0;
             }
         }
+
     }
 
     private void GetInput()
@@ -172,7 +173,7 @@ public class PlayerMovementSM : MonoBehaviour
             playerAnimator.SetTrigger("IsJumping");
         }
 
-        if (Input.GetButtonDown("Attack"))
+        if (Input.GetButtonDown("Attack") && !sprintInput)
         {
             isAttacking = true;
             attackNumber += 1;
@@ -196,6 +197,13 @@ public class PlayerMovementSM : MonoBehaviour
                 rb2d.velocity = dirInput.normalized * sprintSpeed;
                 break;
             case PlayerState.ATTACK_Player:
+                if (!isResetting)
+                {
+                    isResetting = true;
+                    StartCoroutine(AttackReset());
+                }
+                StartCoroutine(AttackCD());
+
                 break;
             case PlayerState.DEATH_Player:
                 isDead = true;
@@ -309,23 +317,7 @@ public class PlayerMovementSM : MonoBehaviour
 
             case PlayerState.ATTACK_Player:
                 rb2d.velocity = dirInput.normalized * attackSpeed;
-                //TO IDLE
-                if (dirInput == Vector2.zero)
-                {
-                    TransitionToState(PlayerState.IDLE_Player);
-                }
 
-                //TO WALK
-                if (!isAttacking && dirInput != Vector2.zero)
-                {
-                    TransitionToState(PlayerState.WALK_Player);
-                }
-
-                //TO SPRINT
-                if (sprintInput)
-                {
-                    TransitionToState(PlayerState.SPRINT_Player);
-                }
                 break;
 
             case PlayerState.DEATH_Player:
@@ -377,6 +369,7 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
             case PlayerState.ATTACK_Player:
                 isAttacking = false;
+
                 break;
             case PlayerState.DEATH_Player:
                 break;
@@ -392,5 +385,50 @@ public class PlayerMovementSM : MonoBehaviour
         OnStateExit();
         currentState = nextState;
         OnStateEnter();
+    }
+
+    IEnumerator AttackReset()
+    {
+        float t = 0;
+        float attackDuration = 1.5f;
+
+        while (t < attackDuration)
+        {
+            t += Time.deltaTime;
+
+            if (Input.GetButtonDown("Attack"))
+            {
+                t = 0;
+            }
+
+            yield return null;
+        }
+
+        attackNumber = 0;
+        isResetting = false;
+
+    }
+
+    IEnumerator AttackCD()
+    {
+        yield return new WaitForSeconds(.3f);
+
+        //TO IDLE
+        if (dirInput == Vector2.zero)
+        {
+            TransitionToState(PlayerState.IDLE_Player);
+        }
+
+        //TO WALK
+        if (dirInput != Vector2.zero)
+        {
+            TransitionToState(PlayerState.WALK_Player);
+        }
+
+        //TO SPRINT
+        if (sprintInput)
+        {
+            TransitionToState(PlayerState.SPRINT_Player);
+        }
     }
 }
