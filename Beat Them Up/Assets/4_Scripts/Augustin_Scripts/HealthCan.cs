@@ -9,9 +9,10 @@ public class HealthCan : MonoBehaviour
     
     [SerializeField] Animator canAnimator;
 
-    [SerializeField] float canDuration = 3f;
+    [SerializeField] float canDuration = 5f;
+    [SerializeField] float canDestroy = 10f;
     float t;
-    bool willDestroy;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +25,12 @@ public class HealthCan : MonoBehaviour
 
         if (t > canDuration)
         {
-            willDestroy = true;
+            canAnimator.SetBool("WillDestroy", true);
         }
 
-        if (willDestroy)
+        if (t > canDestroy)
         {
-
+            Destroy(gameObject);
         }
         
     }
