@@ -149,6 +149,8 @@ public class EnemyIA : MonoBehaviour
      void Target()
     {
        
+
+
         if (playerDetected)
         {
             target = true;
