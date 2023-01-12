@@ -147,6 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoint: 20
+  canAnimator: {fileID: 6476009131206530073}
+  canDuration: 5
+  canDestroy: 10
 --- !u!1 &6476009131206530076
 GameObject:
   m_ObjectHideFlags: 0

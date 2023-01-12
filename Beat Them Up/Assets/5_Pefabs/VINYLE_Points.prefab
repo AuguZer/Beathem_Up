@@ -63,6 +63,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 200
+  collectAnimator: {fileID: 5685102034406937609}
+  collectDuration: 5
+  collectDestroy: 10
 --- !u!1 &5685102032950571162
 GameObject:
   m_ObjectHideFlags: 0

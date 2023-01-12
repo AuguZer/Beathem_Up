@@ -263,3 +263,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 50
+  collectAnimator: {fileID: 5949690672725475077}
+  collectDuration: 5
+  collectDestroy: 10
