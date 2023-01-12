@@ -31,6 +31,10 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] public float playerCurrentHealth;
     bool isDead;
 
+    //POWER
+    [SerializeField] public float playerMaxPower = 100f;
+    [SerializeField] public float playerCurrentPower = 100f;
+
 
     //JUMP
     [SerializeField] AnimationCurve jumpCurve;
@@ -58,6 +62,7 @@ public class PlayerMovementSM : MonoBehaviour
     void Start()
     {
         playerCurrentHealth = playerMaxHealth;
+        playerCurrentPower = 0f;
         playerCurrentPoints = 0f;
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
@@ -124,6 +129,17 @@ public class PlayerMovementSM : MonoBehaviour
     public void TakePoints(float amount)
     {
         playerCurrentPoints += amount;
+    }
+
+    public void TakePower (float amount)
+    {
+        playerCurrentPower += amount;
+
+        if (playerCurrentPower > playerMaxPower)
+        {
+            playerCurrentPower = playerMaxPower;
+        }
+
     }
 
     private void Attack()
