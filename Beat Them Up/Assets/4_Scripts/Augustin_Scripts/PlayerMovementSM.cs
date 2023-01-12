@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class PlayerMovementSM : MonoBehaviour
 {
@@ -54,6 +55,13 @@ public class PlayerMovementSM : MonoBehaviour
     float t;
     float attackCoolDown = 2f;
     bool isResetting;
+
+    //UI
+    [SerializeField] GameObject healthSlider;
+    [SerializeField] GameObject pwSlider;
+    Slider lifeSlider;
+    Slider powerSlider;
+
     private void Awake()
     {
         _graphics = transform.Find("GRAPHICS");
@@ -67,6 +75,17 @@ public class PlayerMovementSM : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
         OnStateEnter();
+
+        //UI
+        //---- LIFE BAR ----
+        lifeSlider = healthSlider.GetComponent<Slider>();
+        lifeSlider.maxValue = playerMaxHealth;
+        lifeSlider.value = playerCurrentHealth;
+
+        //---- POWER BAR ----
+        powerSlider = pwSlider.GetComponent<Slider>();
+        powerSlider.maxValue = playerMaxPower;
+        powerSlider.value = playerCurrentPower;
     }
 
     // Update is called once per frame
@@ -103,6 +122,8 @@ public class PlayerMovementSM : MonoBehaviour
     {
         playerCurrentHealth -= amout;
 
+        lifeSlider.value = playerCurrentHealth;
+
         if (playerCurrentHealth <= 0)
         {
             isDead = true;
@@ -120,6 +141,8 @@ public class PlayerMovementSM : MonoBehaviour
     {
         playerCurrentHealth += amount;
 
+        lifeSlider.value = playerCurrentHealth;
+
         if (playerCurrentHealth > playerMaxHealth)
         {
             playerCurrentHealth = playerMaxHealth;
@@ -134,6 +157,8 @@ public class PlayerMovementSM : MonoBehaviour
     public void TakePower (float amount)
     {
         playerCurrentPower += amount;
+
+        powerSlider.value = playerCurrentPower;
 
         if (playerCurrentPower > playerMaxPower)
         {
