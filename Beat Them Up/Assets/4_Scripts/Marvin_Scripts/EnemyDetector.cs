@@ -5,29 +5,36 @@ using UnityEngine;
 public class EnemyDetector : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    CircleCollider2D cc2D;
-    [SerializeField] float detectionRadius = 10f;
+    
+    
 
-
+    EnemyIA enemyIA;
 
     private void Start()
     {
-        cc2D = GetComponent<CircleCollider2D>();
+        enemyIA = GetComponent<EnemyIA>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+
         if (collision.gameObject.tag =="Player")
 
         {
-              Physics2D.OverlapCircle(transform.position, detectionRadius);
 
-           
 
-            Debug.Log("Detecté");
+            enemyIA.PlayerDetected();
+            
 
             
         }
     }
-    
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            gameObject.GetComponent<EnemyIA>().PlayerUndetected();
+        }
+    }
+
 }

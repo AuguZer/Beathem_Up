@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class PlayerMovementSM : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class PlayerMovementSM : MonoBehaviour
         ATTACK_Player,
         DEATH_Player,
         JUMP_Player,
-       
+
     }
 
     //PLAYER MOVEMENT & ANIMATION
@@ -31,6 +32,10 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] public float playerCurrentHealth;
     bool isDead;
 
+    //POWER
+    [SerializeField] public float playerMaxPower = 100f;
+    [SerializeField] public float playerCurrentPower = 100f;
+
 
     //JUMP
     [SerializeField] AnimationCurve jumpCurve;
@@ -44,10 +49,18 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] float playerCurrentPoints;
 
     //ATTACK
+    [SerializeField] float attackSpeed = 2.5f;
     int attackNumber = 0;
     bool isAttacking;
     float t;
     float attackCoolDown = 2f;
+    bool isResetting;
+
+    //UI
+    [SerializeField] GameObject healthSlider;
+    [SerializeField] GameObject pwSlider;
+    Slider lifeSlider;
+    Slider powerSlider;
 
     private void Awake()
     {
@@ -57,10 +70,22 @@ public class PlayerMovementSM : MonoBehaviour
     void Start()
     {
         playerCurrentHealth = playerMaxHealth;
+        playerCurrentPower = 0f;
         playerCurrentPoints = 0f;
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
         OnStateEnter();
+
+        //UI
+        //---- LIFE BAR ----
+        lifeSlider = healthSlider.GetComponent<Slider>();
+        lifeSlider.maxValue = playerMaxHealth;
+        lifeSlider.value = playerCurrentHealth;
+
+        //---- POWER BAR ----
+        powerSlider = pwSlider.GetComponent<Slider>();
+        powerSlider.maxValue = playerMaxPower;
+        powerSlider.value = playerCurrentPower;
     }
 
     // Update is called once per frame
@@ -74,7 +99,7 @@ public class PlayerMovementSM : MonoBehaviour
     }
     private void Jump()
     {
-        
+
         if (isJumping && jumpTimer < jumpDuration)
         {
             jumpTimer += Time.deltaTime;
@@ -97,6 +122,8 @@ public class PlayerMovementSM : MonoBehaviour
     {
         playerCurrentHealth -= amout;
 
+        lifeSlider.value = playerCurrentHealth;
+
         if (playerCurrentHealth <= 0)
         {
             isDead = true;
@@ -114,6 +141,8 @@ public class PlayerMovementSM : MonoBehaviour
     {
         playerCurrentHealth += amount;
 
+        lifeSlider.value = playerCurrentHealth;
+
         if (playerCurrentHealth > playerMaxHealth)
         {
             playerCurrentHealth = playerMaxHealth;
@@ -125,17 +154,31 @@ public class PlayerMovementSM : MonoBehaviour
         playerCurrentPoints += amount;
     }
 
+    public void TakePower (float amount)
+    {
+        playerCurrentPower += amount;
+
+        powerSlider.value = playerCurrentPower;
+
+        if (playerCurrentPower > playerMaxPower)
+        {
+            playerCurrentPower = playerMaxPower;
+        }
+
+    }
+
     private void Attack()
     {
         if (isAttacking)
         {
             playerAnimator.SetInteger("AttackNumber", attackNumber);
 
-            if (attackNumber >= 5)
+            if (attackNumber == 4)
             {
-                attackNumber = 1;
+                attackNumber = 0;
             }
         }
+
     }
 
     private void GetInput()
@@ -160,6 +203,10 @@ public class PlayerMovementSM : MonoBehaviour
 
         sprintInput = Input.GetButton("Sprint");
         playerAnimator.SetBool("IsSprinting", sprintInput);
+        if (sprintInput && Input.GetButtonDown("Attack"))
+        {
+            isAttacking = false;
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -167,10 +214,10 @@ public class PlayerMovementSM : MonoBehaviour
             playerAnimator.SetTrigger("IsJumping");
         }
 
-        if (Input.GetButtonDown("Attack"))
+        if (Input.GetButtonDown("Attack") && !sprintInput)
         {
-            attackNumber += 1;
             isAttacking = true;
+            attackNumber += 1;
             playerAnimator.SetTrigger("Attack");
         }
     }
@@ -183,13 +230,21 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.IDLE_Player:
                 break;
 
-            case PlayerState.WALK_Player:  
+            case PlayerState.WALK_Player:
+                rb2d.velocity = dirInput.normalized * walkSpeed;
                 break;
 
             case PlayerState.SPRINT_Player:
+                rb2d.velocity = dirInput.normalized * sprintSpeed;
                 break;
             case PlayerState.ATTACK_Player:
-                isAttacking = true;
+                if (!isResetting)
+                {
+                    isResetting = true;
+                    StartCoroutine(AttackReset());
+                }
+                StartCoroutine(AttackCD());
+
                 break;
             case PlayerState.DEATH_Player:
                 isDead = true;
@@ -197,7 +252,7 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.JUMP_Player:
                 isJumping = true;
                 break;
-           
+
             default:
                 break;
         }
@@ -228,7 +283,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO JUMP
                 if (isJumping)
                 {
-                    
+
                     TransitionToState(PlayerState.JUMP_Player);
                 }
                 //TO DEATH
@@ -256,14 +311,12 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO ATTACK
                 if (isAttacking)
                 {
-                   
                     TransitionToState(PlayerState.ATTACK_Player);
                 }
 
                 //TO JUMP
                 if (isJumping)
                 {
-                    
                     TransitionToState(PlayerState.JUMP_Player);
                 }
 
@@ -292,7 +345,7 @@ public class PlayerMovementSM : MonoBehaviour
                 //TO JUMP
                 if (isJumping)
                 {
-                    
+
                     TransitionToState(PlayerState.JUMP_Player);
                 }
 
@@ -304,8 +357,7 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
 
             case PlayerState.ATTACK_Player:
-
-                TransitionToState(PlayerState.IDLE_Player);
+                rb2d.velocity = dirInput.normalized * attackSpeed;
 
                 break;
 
@@ -354,8 +406,11 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.WALK_Player:
                 break;
             case PlayerState.SPRINT_Player:
+                isAttacking = false;
                 break;
             case PlayerState.ATTACK_Player:
+                isAttacking = false;
+
                 break;
             case PlayerState.DEATH_Player:
                 break;
@@ -371,5 +426,50 @@ public class PlayerMovementSM : MonoBehaviour
         OnStateExit();
         currentState = nextState;
         OnStateEnter();
+    }
+
+    IEnumerator AttackReset()
+    {
+        float t = 0;
+        float attackDuration = 1.5f;
+
+        while (t < attackDuration)
+        {
+            t += Time.deltaTime;
+
+            if (Input.GetButtonDown("Attack"))
+            {
+                t = 0;
+            }
+
+            yield return null;
+        }
+
+        attackNumber = 0;
+        isResetting = false;
+
+    }
+
+    IEnumerator AttackCD()
+    {
+        yield return new WaitForSeconds(.3f);
+
+        //TO IDLE
+        if (dirInput == Vector2.zero)
+        {
+            TransitionToState(PlayerState.IDLE_Player);
+        }
+
+        //TO WALK
+        if (dirInput != Vector2.zero)
+        {
+            TransitionToState(PlayerState.WALK_Player);
+        }
+
+        //TO SPRINT
+        if (sprintInput)
+        {
+            TransitionToState(PlayerState.SPRINT_Player);
+        }
     }
 }

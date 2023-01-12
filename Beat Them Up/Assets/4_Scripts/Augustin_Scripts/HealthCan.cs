@@ -6,15 +6,32 @@ public class HealthCan : MonoBehaviour
 {
     
     [SerializeField] float healthPoint = 5f;
+    
+    [SerializeField] Animator canAnimator;
+
+    [SerializeField] float canDuration = 5f;
+    [SerializeField] float canDestroy = 10f;
+    float t;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+        t += Time.deltaTime;
+
+        if (t > canDuration)
+        {
+            canAnimator.SetBool("WillDestroy", true);
+        }
+
+        if (t > canDestroy)
+        {
+            Destroy(gameObject);
+        }
         
     }
 

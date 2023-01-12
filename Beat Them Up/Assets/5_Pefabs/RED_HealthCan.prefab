@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 90019cac0346ad24cb0ec39f06687a96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -146,9 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d17c8e8327f1646bc5d3ccf60c115b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canAnimator: {fileID: 6476009131206530073}
-  canGraphics: {fileID: 6476009131206530076}
   healthPoint: 20
+  canAnimator: {fileID: 6476009131206530073}
+  canDuration: 5
+  canDestroy: 10
 --- !u!1 &6476009131206530076
 GameObject:
   m_ObjectHideFlags: 0
