@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyDetector : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    
-    
+
+
 
     EnemyIA enemyIA;
 
@@ -17,15 +17,14 @@ public class EnemyDetector : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag =="Player")
+        if (collision.gameObject.tag == "Player")
 
         {
 
-
             enemyIA.PlayerDetected();
-            
 
-            
+
+
         }
     }
 
@@ -33,8 +32,10 @@ public class EnemyDetector : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameObject.GetComponent<EnemyIA>().PlayerUndetected();
+            enemyIA.PlayerUndetected();
         }
-    }
 
+        
+
+    }
 }
