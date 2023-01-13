@@ -24,6 +24,7 @@ public class EnemyIA : MonoBehaviour
     bool IsAttacking;
     bool IsDead;
     bool playerDetected = false;
+    bool Attacked = false;
 
     Vector2 enemyDir;
     bool sprintInput;
@@ -40,7 +41,7 @@ public class EnemyIA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         Target();
         currentState = EnemyState.Idle;
         OnStateEnter();
@@ -51,7 +52,8 @@ public class EnemyIA : MonoBehaviour
     {
         OnStateUpdate();
         Move();
-       
+        Attack();
+
     }
 
     private void OnStateEnter()
@@ -62,7 +64,7 @@ public class EnemyIA : MonoBehaviour
                 break;
             case EnemyState.Walk:
                 Enemycurrentspeed = enemySpeed;
-               
+
                 animator.SetBool("IsWalking", true);
                 break;
             case EnemyState.Attack:
@@ -89,14 +91,13 @@ public class EnemyIA : MonoBehaviour
             case EnemyState.Walk:
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Enemycurrentspeed * Time.deltaTime);
 
-
-
                 if (!playerDetected)
                 {
                     TransitionToState(EnemyState.Idle);
                 }
                 break;
             case EnemyState.Attack:
+
                 break;
             case EnemyState.Dead:
                 break;
@@ -145,10 +146,10 @@ public class EnemyIA : MonoBehaviour
         target = false;
     }
 
-   
-     void Target()
+
+    void Target()
     {
-       
+
 
 
         if (playerDetected)
@@ -157,7 +158,7 @@ public class EnemyIA : MonoBehaviour
         }
     }
 
-    void Move ()
+    void Move()
     {
         if (playerDetected)
         {
@@ -185,6 +186,14 @@ public class EnemyIA : MonoBehaviour
             graphics.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
+    }
+
+    void Attack()
+    {
+        if (playerDetected && Vector2.Distance(transform.position, player.transform.position) >= 0.5f)
+        {
+            IsAttacking = true;
+        }
     }
 
 }
