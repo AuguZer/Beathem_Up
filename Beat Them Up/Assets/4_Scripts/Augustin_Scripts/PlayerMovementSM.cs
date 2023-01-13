@@ -189,19 +189,23 @@ public class PlayerMovementSM : MonoBehaviour
 
         if (holdInput)
         {
-            playerAnimator.SetLayerWeight(1, 1f);
             isHolding = true;
-
+            playerAnimator.SetLayerWeight(1, 1f);
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
             playerAnimator.SetTrigger("Throw");
-            //playerAnimator.SetLayerWeight(1, 0f);
-            //playerAnimator.SetLayerWeight(0, 1f);
             isHolding = false;
+            StartCoroutine(ThrowReset());
         }
 
+    }
 
+    IEnumerator ThrowReset()
+    {
+        yield return new WaitForSeconds(.5f);
+        playerAnimator.SetLayerWeight(0, 1f);
+        playerAnimator.SetLayerWeight(1, 0f);
     }
 
     private void GetInput()
