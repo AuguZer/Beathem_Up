@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 public class PlayerMovementSM : MonoBehaviour
 {
@@ -52,9 +52,11 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] float attackSpeed = 2.5f;
     int attackNumber = 0;
     bool isAttacking;
-    float t;
-    float attackCoolDown = 2f;
     bool isResetting;
+
+    //HOLD
+    bool holdInput;
+    [SerializeField] bool isHolding;
 
     //UI
     [SerializeField] GameObject healthSlider;
@@ -94,6 +96,7 @@ public class PlayerMovementSM : MonoBehaviour
         GetInput();
         OnStateUpdate();
         Jump();
+        Hold();
         Attack();
 
     }
@@ -154,7 +157,7 @@ public class PlayerMovementSM : MonoBehaviour
         playerCurrentPoints += amount;
     }
 
-    public void TakePower (float amount)
+    public void TakePower(float amount)
     {
         playerCurrentPower += amount;
 
@@ -181,6 +184,30 @@ public class PlayerMovementSM : MonoBehaviour
 
     }
 
+    private void Hold()
+    {
+
+        if (holdInput)
+        {
+            isHolding = true;
+            playerAnimator.SetLayerWeight(1, 1f);
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            playerAnimator.SetTrigger("Throw");
+            isHolding = false;
+            StartCoroutine(ThrowReset());
+        }
+
+    }
+
+    IEnumerator ThrowReset()
+    {
+        yield return new WaitForSeconds(.5f);
+        playerAnimator.SetLayerWeight(0, 1f);
+        playerAnimator.SetLayerWeight(1, 0f);
+    }
+
     private void GetInput()
     {
         dirInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -201,25 +228,30 @@ public class PlayerMovementSM : MonoBehaviour
             graphics.transform.rotation = right ? Quaternion.identity : Quaternion.Euler(0, 180f, 0);
         }
 
+        //SPRINT
         sprintInput = Input.GetButton("Sprint");
         playerAnimator.SetBool("IsSprinting", sprintInput);
         if (sprintInput && Input.GetButtonDown("Attack"))
         {
             isAttacking = false;
         }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            isJumping = true;
-            playerAnimator.SetTrigger("IsJumping");
-        }
-
+        //ATTACK
         if (Input.GetButtonDown("Attack") && !sprintInput)
         {
             isAttacking = true;
             attackNumber += 1;
             playerAnimator.SetTrigger("Attack");
         }
+
+        //JUMP
+        if (Input.GetButtonDown("Jump"))
+        {
+            isJumping = true;
+            playerAnimator.SetTrigger("IsJumping");
+        }
+
+        //HOLD
+        holdInput = Input.GetButtonDown("Hold");
     }
 
 
