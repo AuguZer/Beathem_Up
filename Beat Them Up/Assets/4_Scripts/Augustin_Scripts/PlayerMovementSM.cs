@@ -56,7 +56,9 @@ public class PlayerMovementSM : MonoBehaviour
 
     //HOLD
     bool holdInput;
-    [SerializeField] bool isHolding;
+    bool _canBeHold;
+    [SerializeField] GameObject _pickUpPrefab;
+    [SerializeField] int holdCount;
 
     //UI
     [SerializeField] GameObject healthSlider;
@@ -77,6 +79,10 @@ public class PlayerMovementSM : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
         OnStateEnter();
+
+        holdCount = 0;
+        ////HOLD
+        //_canBeHold = _pickUpPrefab.GetComponent<PickUpItems>().canBeHold;
 
         //UI
         //---- LIFE BAR ----
@@ -184,19 +190,20 @@ public class PlayerMovementSM : MonoBehaviour
 
     }
 
-    private void Hold()
+    public void Hold()
     {
-
-        if (holdInput)
+        if (_canBeHold & Input.GetButtonDown("Hold") & holdCount == 0)
         {
-            isHolding = true;
+            holdCount++;
             playerAnimator.SetLayerWeight(1, 1f);
+
         }
-        if (Input.GetKeyDown(KeyCode.N))
+        if (!_canBeHold & Input.GetButtonDown("Hold") & holdCount == 1)
         {
             playerAnimator.SetTrigger("Throw");
-            isHolding = false;
             StartCoroutine(ThrowReset());
+
+            holdCount = 0;
         }
 
     }
@@ -252,6 +259,19 @@ public class PlayerMovementSM : MonoBehaviour
 
         //HOLD
         holdInput = Input.GetButtonDown("Hold");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Items")
+        {
+            _canBeHold = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _canBeHold = false;
     }
 
 

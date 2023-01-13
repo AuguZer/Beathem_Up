@@ -10,7 +10,7 @@ public class PickUpItems : MonoBehaviour
     SpriteRenderer sprite;
 
 
-    bool canBeHold;
+    public bool canBeHold;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +27,7 @@ public class PickUpItems : MonoBehaviour
 
     private void Follow()
     {
+        canBeHold = true;
         sprite.sortingOrder = 1;
         transform.SetParent(point.transform);
         transform.position = point.transform.position;
@@ -36,7 +37,7 @@ public class PickUpItems : MonoBehaviour
     {
         if (canBeHold)
         {
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetButtonDown("Hold"))
             {
                 Follow();
             }
