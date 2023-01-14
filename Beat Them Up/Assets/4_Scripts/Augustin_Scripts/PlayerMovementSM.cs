@@ -206,12 +206,6 @@ public class PlayerMovementSM : MonoBehaviour
         }
     }
 
-    IEnumerator ThrowReset()
-    {
-        yield return new WaitForSeconds(.5f);
-        playerAnimator.SetLayerWeight(0, 1f);
-        playerAnimator.SetLayerWeight(1, 0f);
-    }
 
     private void GetInput()
     {
@@ -496,7 +490,6 @@ public class PlayerMovementSM : MonoBehaviour
         isResetting = false;
 
     }
-
     IEnumerator AttackCD()
     {
         yield return new WaitForSeconds(.3f);
@@ -518,5 +511,11 @@ public class PlayerMovementSM : MonoBehaviour
         {
             TransitionToState(PlayerState.SPRINT_Player);
         }
+    }
+    IEnumerator ThrowReset()
+    {
+        yield return new WaitForSeconds(.5f);
+        playerAnimator.SetLayerWeight(0, 1f);
+        playerAnimator.SetLayerWeight(1, 0f);
     }
 }
