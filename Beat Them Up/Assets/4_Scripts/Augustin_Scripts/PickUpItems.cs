@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class PickUpItems : MonoBehaviour
 {
-    [SerializeField] GameObject point;
-    [SerializeField] GameObject endPoint;
+    [SerializeField] GameObject holdPoint;
     [SerializeField] GameObject graphics;
-
-    Vector2 startPos;
-    Vector2 endPos;
-
 
     SpriteRenderer sprite;
 
@@ -22,8 +17,6 @@ public class PickUpItems : MonoBehaviour
         sprite = graphics.GetComponent<SpriteRenderer>();
         sprite.sortingOrder = 0;
 
-        startPos = point.transform.position;
-        endPos = endPoint.transform.position;
 
 
 
@@ -33,23 +26,20 @@ public class PickUpItems : MonoBehaviour
     void Update()
     {
         IsHolded();
-        Throw();
+       
     }
 
 
     private void Throw()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            transform.position = Vector2.Lerp(startPos, endPos, 20f);
-        }
+      
     }
 
     private void Follow()
     {
         sprite.sortingOrder = 1;
-        transform.SetParent(point.transform);
-        transform.position = point.transform.position;
+        transform.SetParent(holdPoint.transform);
+        transform.position = holdPoint.transform.position;
     }
 
     private void IsHolded()
