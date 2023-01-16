@@ -75,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdPoint: {fileID: 0}
   graphics: {fileID: 5518959433518695357}
-  player: {fileID: 0}
+  player: {fileID: 7352570458218325123, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
   canBeHold: 0
 --- !u!50 &594866996
 Rigidbody2D:
