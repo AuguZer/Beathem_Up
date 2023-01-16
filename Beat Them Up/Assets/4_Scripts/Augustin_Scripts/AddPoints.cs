@@ -38,7 +38,7 @@ public class AddPoints : MonoBehaviour
     {
         if (collision.gameObject.tag=="Player")
         {
-            collision.gameObject.GetComponent<PlayerMovementSM>().TakePoints(points);
+            collision.gameObject.GetComponent<PlayerMovementSM>().TakePoints(points); 
             Destroy(gameObject);
         }
     }
