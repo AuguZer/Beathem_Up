@@ -208,10 +208,11 @@ public class PlayerMovementSM : MonoBehaviour
         }
         if (!_canBeHold & Input.GetButtonDown("Hold") & holdCount == 1)
         {
-            
             rb2dPickUp.isKinematic = false;
             playerAnimator.SetTrigger("Throw");
             _sprite.sortingOrder = 0;
+            throwed = true;
+            StartCoroutine(ThrowTime());
 
             if (!right)
             {
@@ -220,11 +221,6 @@ public class PlayerMovementSM : MonoBehaviour
             if (right)
             {
                 rb2dPickUp.AddForce(transform.right * throwSpeed, ForceMode2D.Impulse);
-            }
-
-            if (throwed)
-            {
-                rb2d.velocity = Vector2.zero;
             }
 
             StartCoroutine(ThrowReset());
@@ -236,6 +232,9 @@ public class PlayerMovementSM : MonoBehaviour
         {
             _pickUpPrefab.transform.SetParent(null);
         }
+
+        rb2dPickUp.gravityScale = rb2dPickUp.isKinematic ? rb2dPickUp.gravityScale = 0f : rb2dPickUp.gravityScale = 2f;
+
     }
 
 
@@ -549,5 +548,12 @@ public class PlayerMovementSM : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         playerAnimator.SetLayerWeight(0, 1f);
         playerAnimator.SetLayerWeight(1, 0f);
+    }
+    IEnumerator ThrowTime()
+    {
+        yield return new WaitForSeconds(2f);
+
+        throwed = false;
+        rb2dPickUp.isKinematic = true;
     }
 }
