@@ -219,6 +219,7 @@ MonoBehaviour:
   jumpDuration: 1
   playerCurrentPoints: 0
   attackSpeed: 2.5
+  hitBox: {fileID: 2017746918}
   _pickUpPrefab: {fileID: 0}
   _pickUpGraphics: {fileID: 0}
   holdCount: 0
