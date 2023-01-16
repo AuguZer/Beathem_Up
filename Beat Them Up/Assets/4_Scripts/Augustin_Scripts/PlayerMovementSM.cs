@@ -202,6 +202,7 @@ public class PlayerMovementSM : MonoBehaviour
         if (_canBeHold & Input.GetButtonDown("Hold") & holdCount == 0)
         {
             rb2dPickUp.isKinematic = true;
+            rb2dPickUp.constraints = RigidbodyConstraints2D.None;
             holdCount++;
             playerAnimator.SetLayerWeight(1, 1f);
 
@@ -551,9 +552,10 @@ public class PlayerMovementSM : MonoBehaviour
     }
     IEnumerator ThrowTime()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.5f);
 
         throwed = false;
         rb2dPickUp.isKinematic = true;
+        rb2dPickUp.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }
