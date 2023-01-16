@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class EnemyIA : MonoBehaviour
 {
+    [Header("OverlapCircle Parameters")]
+    Transform detectorOrigin;
+    public Vector2 detectorSize = Vector2.one;
+    public Vector2 detectorOriginOffset = Vector2.zero;
+
+    public float detectionRadius = .7f;
+    public LayerMask detectorLayerMask;
+
+
+
+
+    [Header("Info Enemy")]
     [SerializeField] GameObject graphics;
     [SerializeField] GameObject hitbox;
     [SerializeField] GameObject player;
@@ -12,28 +24,32 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] float EnemyHealth = 100f;
     [SerializeField] float EnemyDamage = 5f;
     [SerializeField] float AttackZone = .5f;
-    [SerializeField] float AttackTimer ;
+    [SerializeField] float AttackTimer;
     [SerializeField] float AttackDelay = 3f;
     [SerializeField] Animator animator;
-    [SerializeField] EnemyState currentState;
-    bool target = false;
-
-
-    float Enemycurrentspeed;
     [SerializeField] Rigidbody2D rb2d;
+    [SerializeField] EnemyState currentState;
+    float Enemycurrentspeed;
+    Vector2 enemyDir;
 
 
 
+
+    [Header("Bool Enemy")]
+    bool target = false;
     bool IsWalking;
     bool IsAttacking;
     bool IsDead;
     bool playerDetected = false;
     bool Attacked = false;
-
-    Vector2 enemyDir;
     bool sprintInput;
     bool right = true;
-    
+
+    [Header("Gizmo parameters")]
+    public Color gizmoIdleColor = Color.green;
+    public Color gizmoDetectedColor = Color.red;
+    public bool showGizmos = true;
+
 
     public enum EnemyState
 
@@ -47,7 +63,7 @@ public class EnemyIA : MonoBehaviour
     void Start()
     {
 
-        
+
         currentState = EnemyState.Idle;
         OnStateEnter();
     }
@@ -78,6 +94,20 @@ public class EnemyIA : MonoBehaviour
                 //animator.SetBool("IsAttacking", true);
                 hitbox.SetActive(true);
                 animator.SetTrigger("IsAttacking");
+
+                Collider2D player = Physics2D.OverlapCircle(hitbox.transform.position, detectionRadius, detectorLayerMask);
+
+                
+                if (player != null)
+                {
+                    player.GetComponent<PlayerHealth>().TakeDamage(EnemyDamage);
+                
+                    // CREATE PARTICLE
+                    //GameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
+
+                }
+                StartCoroutine(ReloadAttack());
+
                 break;
             case EnemyState.Dead:
 
@@ -98,10 +128,10 @@ public class EnemyIA : MonoBehaviour
                 }
 
                 // TO ATTACK
-                
-                
-               
-              
+
+
+
+
 
 
                 if (playerDetected && Vector2.Distance(transform.position, player.transform.position) <= AttackZone)
@@ -120,7 +150,7 @@ public class EnemyIA : MonoBehaviour
                 }
 
                 // TO ATTACK
-                if (Vector2.Distance(transform.position, player.transform.position) <= 1f)
+                if (Vector2.Distance(transform.position, player.transform.position) <= AttackZone)
                 {
                     TransitionToState(EnemyState.Attack);
                 }
@@ -129,10 +159,7 @@ public class EnemyIA : MonoBehaviour
             case EnemyState.Attack:
 
 
-                if (!playerDetected)
-                {
-                    TransitionToState(EnemyState.Idle);
-                }
+
 
                 break;
             case EnemyState.Dead:
@@ -154,6 +181,7 @@ public class EnemyIA : MonoBehaviour
             case EnemyState.Attack:
                 hitbox.SetActive(false);
                 animator.SetBool("IsAttacking", false);
+
                 break;
             case EnemyState.Dead:
                 break;
@@ -185,17 +213,17 @@ public class EnemyIA : MonoBehaviour
     }
 
 
-   public void Target()
+    public void Target()
     {
 
 
         if (playerDetected)
         {
             target = true;
-            
+
         }
 
-       
+
 
         if (AttackTimer >= AttackDelay)
         {
@@ -237,15 +265,37 @@ public class EnemyIA : MonoBehaviour
             graphics.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
-      
+
 
 
 
     }
-  //  IEnumerator ReloadAttack()
-    //{
-   //     yield return;
 
-    //}
+
+    private void OnDrawGizmos()
+    {
+        if (showGizmos && detectorOrigin != null)
+        {
+            Gizmos.color = gizmoIdleColor;
+            if (playerDetected)
+            {
+                Gizmos.color = gizmoDetectedColor;
+                Gizmos.DrawCube((Vector2)detectorOrigin.position + detectorOriginOffset, detectorSize);
+            }
+        }
+    }
+
+
+    IEnumerator ReloadAttack()
+    {
+
+
+        yield return new WaitForSeconds(3f);
+
+        TransitionToState(EnemyState.Idle);
+
+
+
+    }
 
 }
