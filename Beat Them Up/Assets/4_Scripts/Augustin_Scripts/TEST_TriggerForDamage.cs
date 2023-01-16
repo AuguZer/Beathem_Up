@@ -4,24 +4,37 @@ using UnityEngine;
 
 public class TEST_TriggerForDamage : MonoBehaviour
 {
-    [SerializeField] float damage = 50f;
+    //[SerializeField] float damage = 50f;
+    [SerializeField] float objHealth;
+    [SerializeField] float objMaxHealth = 100f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        objHealth = objMaxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (objHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        collision.gameObject.GetComponent<PlayerMovementSM>().TakeDamage(damage);
+    //    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "PlayerHitBox")
         {
-            collision.gameObject.GetComponent<PlayerMovementSM>().TakeDamage(damage);
+            objHealth -= 50f;
         }
     }
 }

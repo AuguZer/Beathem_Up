@@ -50,6 +50,7 @@ public class PlayerMovementSM : MonoBehaviour
 
     //ATTACK
     [SerializeField] float attackSpeed = 2.5f;
+    [SerializeField] GameObject hitBox;
     int attackNumber = 0;
     bool isAttacking;
     bool isResetting;
@@ -188,11 +189,17 @@ public class PlayerMovementSM : MonoBehaviour
         if (isAttacking)
         {
             playerAnimator.SetInteger("AttackNumber", attackNumber);
+            hitBox.SetActive(true);
 
             if (attackNumber == 4)
             {
                 attackNumber = 0;
             }
+        }
+
+        if (!isAttacking)
+        {
+            hitBox.SetActive(false);
         }
 
     }
