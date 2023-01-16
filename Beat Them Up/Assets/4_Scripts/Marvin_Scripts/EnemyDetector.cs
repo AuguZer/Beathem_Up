@@ -5,9 +5,7 @@ using UnityEngine;
 public class EnemyDetector : MonoBehaviour
 {
     [SerializeField] GameObject player;
-
-
-
+    Animator animator;
     EnemyIA enemyIA;
 
     private void Start()
@@ -27,7 +25,19 @@ public class EnemyDetector : MonoBehaviour
 
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
 
+
+
+
+        if (collision.gameObject.tag == "Player")
+
+        {
+            enemyIA.Target();
+        }
+       
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -35,7 +45,7 @@ public class EnemyDetector : MonoBehaviour
             enemyIA.PlayerUndetected();
         }
 
-        
+
 
     }
 }
