@@ -55,9 +55,11 @@ public class PlayerMovementSM : MonoBehaviour
     bool isResetting;
 
     //HOLD
-    bool holdInput;
-    [SerializeField] bool isHolding;
-
+ 
+    bool _canBeHold;
+    [SerializeField] GameObject _pickUpPrefab;
+    [SerializeField] int holdCount;
+    bool throwed;
     //UI
     [SerializeField] GameObject healthSlider;
     [SerializeField] GameObject pwSlider;
@@ -77,6 +79,8 @@ public class PlayerMovementSM : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
         OnStateEnter();
+
+        holdCount = 0;
 
         //UI
         //---- LIFE BAR ----
@@ -184,29 +188,24 @@ public class PlayerMovementSM : MonoBehaviour
 
     }
 
-    private void Hold()
+    public void Hold()
     {
-
-        if (holdInput)
+        if (_canBeHold & Input.GetButtonDown("Hold") & holdCount == 0)
         {
-            isHolding = true;
+            holdCount++;
             playerAnimator.SetLayerWeight(1, 1f);
+
         }
-        if (Input.GetKeyDown(KeyCode.N))
+        if (!_canBeHold & Input.GetButtonDown("Hold") & holdCount == 1)
         {
+            throwed = true; 
             playerAnimator.SetTrigger("Throw");
-            isHolding = false;
             StartCoroutine(ThrowReset());
+
+            holdCount = 0;
         }
-
     }
 
-    IEnumerator ThrowReset()
-    {
-        yield return new WaitForSeconds(.5f);
-        playerAnimator.SetLayerWeight(0, 1f);
-        playerAnimator.SetLayerWeight(1, 0f);
-    }
 
     private void GetInput()
     {
@@ -249,9 +248,19 @@ public class PlayerMovementSM : MonoBehaviour
             isJumping = true;
             playerAnimator.SetTrigger("IsJumping");
         }
+    }
 
-        //HOLD
-        holdInput = Input.GetButtonDown("Hold");
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Items")
+        {
+            _canBeHold = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _canBeHold = false;
     }
 
 
@@ -481,7 +490,6 @@ public class PlayerMovementSM : MonoBehaviour
         isResetting = false;
 
     }
-
     IEnumerator AttackCD()
     {
         yield return new WaitForSeconds(.3f);
@@ -503,5 +511,11 @@ public class PlayerMovementSM : MonoBehaviour
         {
             TransitionToState(PlayerState.SPRINT_Player);
         }
+    }
+    IEnumerator ThrowReset()
+    {
+        yield return new WaitForSeconds(.5f);
+        playerAnimator.SetLayerWeight(0, 1f);
+        playerAnimator.SetLayerWeight(1, 0f);
     }
 }
