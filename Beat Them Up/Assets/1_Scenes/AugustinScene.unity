@@ -380,27 +380,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5518959432889218028, guid: f0d57a982a733f54d93db689977f0ebc, type: 3}
   m_PrefabInstance: {fileID: 5518959433378676956}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &594866996
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &655919519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5518959433518695357, guid: f0d57a982a733f54d93db689977f0ebc, type: 3}
+  m_PrefabInstance: {fileID: 5518959433378676956}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 594866992}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &840505200
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1619065771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1407,25 +1391,13 @@ PrefabInstance:
       value: PLANT_PICKUP
       objectReference: {fileID: 0}
     - target: {fileID: 5518959432889218029, guid: f0d57a982a733f54d93db689977f0ebc, type: 3}
-      propertyPath: point
-      value: 
-      objectReference: {fileID: 1972205231}
-    - target: {fileID: 5518959432889218029, guid: f0d57a982a733f54d93db689977f0ebc, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 949930827}
     - target: {fileID: 5518959432889218029, guid: f0d57a982a733f54d93db689977f0ebc, type: 3}
-      propertyPath: endPoint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5518959432889218029, guid: f0d57a982a733f54d93db689977f0ebc, type: 3}
       propertyPath: holdPoint
       value: 
       objectReference: {fileID: 1972205231}
-    - target: {fileID: 5518959432889218029, guid: f0d57a982a733f54d93db689977f0ebc, type: 3}
-      propertyPath: throwSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5518959432889218031, guid: f0d57a982a733f54d93db689977f0ebc, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1479,10 +1451,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1972205231, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 7352570458218325122, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1543,5 +1511,9 @@ PrefabInstance:
       propertyPath: _pickUpPrefab
       value: 
       objectReference: {fileID: 594866992}
+    - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+      propertyPath: _pickUpGraphics
+      value: 
+      objectReference: {fileID: 655919519}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}

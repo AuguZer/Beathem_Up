@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1972205232}
   m_Layer: 0
   m_Name: HOLD_POINT
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,6 +163,7 @@ MonoBehaviour:
   attackSpeed: 2.5
   _pickUpPrefab: {fileID: 0}
   holdCount: 0
+  throwSpeed: 10
   healthSlider: {fileID: 0}
   pwSlider: {fileID: 0}
 --- !u!1 &7352570458313925702
