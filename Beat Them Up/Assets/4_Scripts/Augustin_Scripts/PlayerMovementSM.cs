@@ -55,11 +55,16 @@ public class PlayerMovementSM : MonoBehaviour
     bool isResetting;
 
     //HOLD
- 
+
     bool _canBeHold;
     [SerializeField] GameObject _pickUpPrefab;
+    [SerializeField] GameObject _pickUpGraphics;
     [SerializeField] int holdCount;
+    [SerializeField] float throwSpeed = 5f;
     bool throwed;
+    Rigidbody2D rb2dPickUp;
+    SpriteRenderer _sprite;
+
     //UI
     [SerializeField] GameObject healthSlider;
     [SerializeField] GameObject pwSlider;
@@ -78,9 +83,13 @@ public class PlayerMovementSM : MonoBehaviour
         playerCurrentPoints = 0f;
         rb2d = GetComponent<Rigidbody2D>();
         currentState = PlayerState.IDLE_Player;
+        _sprite = _pickUpGraphics.GetComponent<SpriteRenderer>();
         OnStateEnter();
 
+        //HOLD
+        rb2dPickUp = _pickUpPrefab.GetComponent<Rigidbody2D>();
         holdCount = 0;
+
 
         //UI
         //---- LIFE BAR ----
@@ -192,18 +201,41 @@ public class PlayerMovementSM : MonoBehaviour
     {
         if (_canBeHold & Input.GetButtonDown("Hold") & holdCount == 0)
         {
+            rb2dPickUp.isKinematic = true;
+            rb2dPickUp.constraints = RigidbodyConstraints2D.None;
             holdCount++;
             playerAnimator.SetLayerWeight(1, 1f);
 
         }
         if (!_canBeHold & Input.GetButtonDown("Hold") & holdCount == 1)
         {
-            throwed = true; 
+            rb2dPickUp.isKinematic = false;
             playerAnimator.SetTrigger("Throw");
+            _sprite.sortingOrder = 0;
+            throwed = true;
+            StartCoroutine(ThrowTime());
+
+            if (!right)
+            {
+                rb2dPickUp.AddForce(-transform.right * throwSpeed, ForceMode2D.Impulse);
+            }
+            if (right)
+            {
+                rb2dPickUp.AddForce(transform.right * throwSpeed, ForceMode2D.Impulse);
+            }
+
             StartCoroutine(ThrowReset());
 
             holdCount = 0;
         }
+
+        if (holdCount == 0)
+        {
+            _pickUpPrefab.transform.SetParent(null);
+        }
+
+        rb2dPickUp.gravityScale = rb2dPickUp.isKinematic ? rb2dPickUp.gravityScale = 0f : rb2dPickUp.gravityScale = 2f;
+
     }
 
 
@@ -514,8 +546,16 @@ public class PlayerMovementSM : MonoBehaviour
     }
     IEnumerator ThrowReset()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3f);
         playerAnimator.SetLayerWeight(0, 1f);
         playerAnimator.SetLayerWeight(1, 0f);
+    }
+    IEnumerator ThrowTime()
+    {
+        yield return new WaitForSeconds(.5f);
+
+        throwed = false;
+        rb2dPickUp.isKinematic = true;
+        rb2dPickUp.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }
