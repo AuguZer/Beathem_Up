@@ -148,13 +148,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37585498}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: 0.63, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.07000017, y: 0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1307387617}
-  m_RootOrder: 1
+  m_Father: {fileID: 980943217}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &37585504
 MonoBehaviour:
@@ -286,6 +286,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1972205231, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7352570458218325122, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -334,12 +338,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: PLAYER
       objectReference: {fileID: 0}
+    - target: {fileID: 7352570458218325123, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7352570458218325148, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7352570458218325149, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+      propertyPath: playerCurrentHealth
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7352570458313925699, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
@@ -349,6 +361,10 @@ PrefabInstance:
     - target: {fileID: 7352570458313925699, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: m_SortingLayerID
       value: 881043657
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352570458313925702, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
@@ -717,7 +733,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 37585502}
+  - {fileID: 1141927661}
   m_Father: {fileID: 1307387617}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -923,14 +941,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1141927661}
-  - component: {fileID: 1141927662}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1141927661
 Transform:
   m_ObjectHideFlags: 0
@@ -938,40 +955,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141927660}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.065, y: -0.004, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.06500006, y: 0.45, z: 0}
+  m_LocalScale: {x: 0.1221875, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1307387617}
-  m_RootOrder: 2
+  m_Father: {fileID: 980943217}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1141927662
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141927660}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.2390933, y: 0.45645052}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.34792805, y: 0.34792745}
-  m_EdgeRadius: 0
 --- !u!1 &1190798989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,8 +1081,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 980943217}
-  - {fileID: 37585502}
-  - {fileID: 1141927661}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1161,6 +1150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65714bb5f476bef49b7ff407bffec923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectorSize: {x: 1, y: 1}
+  detectorOriginOffset: {x: 0, y: 0}
+  detectionRadius: 0.7
+  detectorLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   graphics: {fileID: 980943216}
   hitbox: {fileID: 1141927660}
   player: {fileID: 1442019697}
@@ -1171,8 +1166,11 @@ MonoBehaviour:
   AttackTimer: 0
   AttackDelay: 3
   animator: {fileID: 980943219}
-  currentState: 0
   rb2d: {fileID: 1307387619}
+  currentState: 0
+  gizmoIdleColor: {r: 0, g: 1, b: 0, a: 1}
+  gizmoDetectedColor: {r: 1, g: 0, b: 0, a: 1}
+  showGizmos: 1
 --- !u!58 &1307387624
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1194,3 +1192,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7352570458218325123, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
   m_PrefabInstance: {fileID: 363205720}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1442019702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442019697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ecb016c0b1c214eb43eb8b42067067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMaxHealth: 100
+  playerCurrentHealth: 100
+  animator: {fileID: 0}
