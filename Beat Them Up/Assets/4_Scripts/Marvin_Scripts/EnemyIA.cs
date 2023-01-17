@@ -5,10 +5,7 @@ using UnityEngine;
 public class EnemyIA : MonoBehaviour
 {
     [Header("OverlapCircle Parameters")]
-    Transform detectorOrigin;
-    public Vector2 detectorSize = Vector2.one;
-    public Vector2 detectorOriginOffset = Vector2.zero;
-
+   
     public float detectionRadius = .7f;
     public LayerMask detectorLayerMask;
 
@@ -22,6 +19,7 @@ public class EnemyIA : MonoBehaviour
 
     [SerializeField] float enemySpeed = 3f;
     [SerializeField] float EnemyHealth = 100f;
+    [SerializeField] float EnemyCurrentHealth = 100f;
     [SerializeField] float EnemyDamage = 5f;
     [SerializeField] float AttackZone = .5f;
     [SerializeField] float AttackTimer;
@@ -31,6 +29,8 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] EnemyState currentState;
     float Enemycurrentspeed;
     Vector2 enemyDir;
+
+    
 
 
 
@@ -45,10 +45,7 @@ public class EnemyIA : MonoBehaviour
     bool sprintInput;
     bool right = true;
 
-    [Header("Gizmo parameters")]
-    public Color gizmoIdleColor = Color.green;
-    public Color gizmoDetectedColor = Color.red;
-    public bool showGizmos = true;
+    
 
 
     public enum EnemyState
@@ -110,7 +107,7 @@ public class EnemyIA : MonoBehaviour
 
                 break;
             case EnemyState.Dead:
-
+                IsDead = true;
                 break;
             default:
                 break;
@@ -129,14 +126,14 @@ public class EnemyIA : MonoBehaviour
 
                 // TO ATTACK
 
-
-
-
-
-
                 if (playerDetected && Vector2.Distance(transform.position, player.transform.position) <= AttackZone)
                 {
                     TransitionToState(EnemyState.Attack);
+                }
+
+                if (IsDead)
+                {
+                    TransitionToState(EnemyState.Dead);
                 }
 
                 break;
@@ -155,14 +152,32 @@ public class EnemyIA : MonoBehaviour
                     TransitionToState(EnemyState.Attack);
                 }
 
+                if (IsDead)
+                {
+                    TransitionToState(EnemyState.Dead);
+                }
+
                 break;
             case EnemyState.Attack:
+                if (!playerDetected)
+                {
+                    TransitionToState(EnemyState.Idle);
+                }
 
 
-
-
+                if (IsDead)
+                {
+                    TransitionToState(EnemyState.Dead);
+                }
                 break;
             case EnemyState.Dead:
+
+
+                if (IsDead)
+                {
+                    TransitionToState(EnemyState.Dead);
+                }
+
                 break;
             default:
                 break;
@@ -271,26 +286,36 @@ public class EnemyIA : MonoBehaviour
 
     }
 
-
-    private void OnDrawGizmos()
+    public void TakeDamage(float amount)
     {
-        if (showGizmos && detectorOrigin != null)
+        EnemyCurrentHealth -= amount;
+
+        if (EnemyCurrentHealth <= 0)
         {
-            Gizmos.color = gizmoIdleColor;
-            if (playerDetected)
-            {
-                Gizmos.color = gizmoDetectedColor;
-                Gizmos.DrawCube((Vector2)detectorOrigin.position + detectorOriginOffset, detectorSize);
-            }
+            IsDead = true;
         }
+
+        if (IsDead)
+        {
+            animator.SetTrigger("IsDead");
+
+            rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+
+           
+
+            
+        }
+
+
     }
+    
 
 
     IEnumerator ReloadAttack()
     {
 
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
         TransitionToState(EnemyState.Idle);
 

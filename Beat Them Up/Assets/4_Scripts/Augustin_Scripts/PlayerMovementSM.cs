@@ -18,7 +18,7 @@ public class PlayerMovementSM : MonoBehaviour
 
     }
 
-    //PLAYER MOVEMENT & ANIMATION
+    [Header("MOVEMENT")]
     [SerializeField] PlayerState currentState;
     [SerializeField] float walkSpeed = 5f;
     [SerializeField] float sprintSpeed = 10f;
@@ -27,46 +27,47 @@ public class PlayerMovementSM : MonoBehaviour
     Rigidbody2D rb2d;
     bool right = true;
 
-    //HEALTH & DEATH
+    [Header("LIFE")]
     [SerializeField] public float playerMaxHealth = 100f;
     [SerializeField] public float playerCurrentHealth;
     bool isDead;
 
-    //POWER
+    [Header("POWER")]
     [SerializeField] public float playerMaxPower = 100f;
     [SerializeField] public float playerCurrentPower = 100f;
 
 
-    //JUMP
+    [Header("JUMP")]
     [SerializeField] AnimationCurve jumpCurve;
     [SerializeField] float jumpHeight = 3f;
     [SerializeField] float jumpDuration = 3f;
+    [SerializeField] GameObject psJump;
+    [SerializeField] GameObject psLand;
+    [SerializeField] Animator shadowAnimator;
     Transform _graphics;
     float jumpTimer;
     bool isJumping;
 
-    //POINTS
+    [Header("POINTS")]
     [SerializeField] float playerCurrentPoints;
 
-    //ATTACK
+    [Header("ATTACK")]
     [SerializeField] float attackSpeed = 2.5f;
     [SerializeField] GameObject hitBox;
     int attackNumber = 0;
     bool isAttacking;
     bool isResetting;
 
-    //HOLD
-
+    [Header("HOLD")]
     bool _canBeHold;
     [SerializeField] GameObject _pickUpPrefab;
     [SerializeField] GameObject _pickUpGraphics;
     [SerializeField] int holdCount;
     [SerializeField] float throwSpeed = 5f;
-    bool throwed;
     Rigidbody2D rb2dPickUp;
     SpriteRenderer _sprite;
 
-    //UI
+    [Header("UI")]
     [SerializeField] GameObject healthSlider;
     [SerializeField] GameObject pwSlider;
     Slider lifeSlider;
@@ -86,6 +87,10 @@ public class PlayerMovementSM : MonoBehaviour
         currentState = PlayerState.IDLE_Player;
         _sprite = _pickUpGraphics.GetComponent<SpriteRenderer>();
         OnStateEnter();
+
+        hitBox.SetActive(false);
+        psJump.SetActive(false);
+        psLand.SetActive(false);
 
         //HOLD
         rb2dPickUp = _pickUpPrefab.GetComponent<Rigidbody2D>();
@@ -111,7 +116,6 @@ public class PlayerMovementSM : MonoBehaviour
         OnStateUpdate();
         Jump();
         Hold();
-        Attack();
 
     }
     private void Jump()
@@ -124,6 +128,9 @@ public class PlayerMovementSM : MonoBehaviour
 
             _graphics.localPosition = new Vector3(_graphics.transform.localPosition.x, y * jumpHeight, _graphics.transform.localPosition.z);
             rb2d.constraints = RigidbodyConstraints2D.FreezePositionY;
+            psJump.SetActive(true);
+            psLand.SetActive(false);
+            
         }
 
         if (jumpTimer > jumpDuration)
@@ -131,7 +138,10 @@ public class PlayerMovementSM : MonoBehaviour
             isJumping = false;
             jumpTimer = 0f;
             rb2d.constraints = RigidbodyConstraints2D.None;
+            psJump.SetActive(false);
+            psLand.SetActive(true);
         }
+
     }
 
 
@@ -186,22 +196,16 @@ public class PlayerMovementSM : MonoBehaviour
 
     private void Attack()
     {
-        if (isAttacking)
-        {
-            playerAnimator.SetInteger("AttackNumber", attackNumber);
-            hitBox.SetActive(true);
+        isAttacking = true;
+        attackNumber += 1;
+        playerAnimator.SetInteger("AttackNumber", attackNumber);
 
-            if (attackNumber == 4)
-            {
-                attackNumber = 0;
-            }
+        if (attackNumber == 4)
+        {
+            attackNumber = 0;
         }
 
-        if (!isAttacking)
-        {
-            hitBox.SetActive(false);
-        }
-
+        playerAnimator.SetTrigger("Attack");
     }
 
     public void Hold()
@@ -219,7 +223,7 @@ public class PlayerMovementSM : MonoBehaviour
             rb2dPickUp.isKinematic = false;
             playerAnimator.SetTrigger("Throw");
             _sprite.sortingOrder = 0;
-            throwed = true;
+           
             StartCoroutine(ThrowTime());
 
             if (!right)
@@ -276,9 +280,7 @@ public class PlayerMovementSM : MonoBehaviour
         //ATTACK
         if (Input.GetButtonDown("Attack") && !sprintInput)
         {
-            isAttacking = true;
-            attackNumber += 1;
-            playerAnimator.SetTrigger("Attack");
+            Attack();
         }
 
         //JUMP
@@ -286,6 +288,8 @@ public class PlayerMovementSM : MonoBehaviour
         {
             isJumping = true;
             playerAnimator.SetTrigger("IsJumping");
+            shadowAnimator.SetTrigger("JUMP");
+
         }
     }
 
@@ -318,6 +322,7 @@ public class PlayerMovementSM : MonoBehaviour
                 rb2d.velocity = dirInput.normalized * sprintSpeed;
                 break;
             case PlayerState.ATTACK_Player:
+                hitBox.SetActive(true);
                 if (!isResetting)
                 {
                     isResetting = true;
@@ -331,6 +336,7 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
             case PlayerState.JUMP_Player:
                 isJumping = true;
+                isAttacking = false;
                 break;
 
             default:
@@ -490,6 +496,7 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
             case PlayerState.ATTACK_Player:
                 isAttacking = false;
+                hitBox.SetActive(false);
 
                 break;
             case PlayerState.DEATH_Player:
@@ -561,7 +568,6 @@ public class PlayerMovementSM : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
 
-        throwed = false;
         rb2dPickUp.isKinematic = true;
         rb2dPickUp.constraints = RigidbodyConstraints2D.FreezeAll;
     }
