@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2017746920}
   m_Layer: 6
   m_Name: HITBOX
-  m_TagString: Untagged
+  m_TagString: PlayerHitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.68409157, y: 0.53750056}
