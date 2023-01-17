@@ -126,14 +126,14 @@ public class EnemyIA : MonoBehaviour
 
                 // TO ATTACK
 
-
-
-
-
-
                 if (playerDetected && Vector2.Distance(transform.position, player.transform.position) <= AttackZone)
                 {
                     TransitionToState(EnemyState.Attack);
+                }
+
+                if (IsDead)
+                {
+                    TransitionToState(EnemyState.Dead);
                 }
 
                 break;
@@ -152,14 +152,32 @@ public class EnemyIA : MonoBehaviour
                     TransitionToState(EnemyState.Attack);
                 }
 
+                if (IsDead)
+                {
+                    TransitionToState(EnemyState.Dead);
+                }
+
                 break;
             case EnemyState.Attack:
+                if (!playerDetected)
+                {
+                    TransitionToState(EnemyState.Idle);
+                }
 
 
-
-
+                if (IsDead)
+                {
+                    TransitionToState(EnemyState.Dead);
+                }
                 break;
             case EnemyState.Dead:
+
+
+                if (IsDead)
+                {
+                    TransitionToState(EnemyState.Dead);
+                }
+
                 break;
             default:
                 break;
@@ -279,11 +297,13 @@ public class EnemyIA : MonoBehaviour
 
         if (IsDead)
         {
-            rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
-
             animator.SetTrigger("IsDead");
 
-            Destroy(player);
+            rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+
+           
+
+            
         }
 
 
