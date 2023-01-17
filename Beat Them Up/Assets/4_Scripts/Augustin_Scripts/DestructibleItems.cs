@@ -10,16 +10,22 @@ public class DestructibleItems : MonoBehaviour
 
     [SerializeField] Animator destAnimator;
 
+    [SerializeField] GameObject [] spawnPoint;
+    [SerializeField] GameObject [] _cans;
+
+    bool distrib = true;
+
     // Start is called before the first frame update
     void Start()
     {
         itemCurrentHealth = itemMaxHealth;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,11 +34,19 @@ public class DestructibleItems : MonoBehaviour
         {
             destAnimator.SetTrigger("HIT");
             itemCurrentHealth -= damageTaken;
+
+            if (distrib)
+            {
+            int i = Random.Range(0, _cans.Length);
+            int s = Random.Range(0, spawnPoint.Length);
+            GameObject go = Instantiate(_cans[i], spawnPoint[s].transform.position, transform.rotation);
+            }
         }
 
         if (itemCurrentHealth <= 0)
         {
-            destAnimator.SetBool("DEAD", true);
+            distrib = false;
+            destAnimator.SetBool("BROKEN", true);
         }
     }
 }
