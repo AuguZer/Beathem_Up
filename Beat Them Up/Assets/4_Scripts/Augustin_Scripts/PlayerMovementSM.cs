@@ -188,13 +188,13 @@ public class PlayerMovementSM : MonoBehaviour
     {
         if (isAttacking)
         {
-            playerAnimator.SetInteger("AttackNumber", attackNumber);
-            hitBox.SetActive(true);
+            //playerAnimator.SetInteger("AttackNumber", attackNumber);
+            //hitBox.SetActive(true);
 
-            if (attackNumber == 4)
-            {
-                attackNumber = 0;
-            }
+            //if (attackNumber == 4)
+            //{
+            //    attackNumber = 0;
+            //}
         }
 
         if (!isAttacking)
@@ -278,6 +278,14 @@ public class PlayerMovementSM : MonoBehaviour
         {
             isAttacking = true;
             attackNumber += 1;
+            playerAnimator.SetInteger("AttackNumber", attackNumber);
+            hitBox.SetActive(true);
+
+            if (attackNumber == 4)
+            {
+                attackNumber = 0;
+            }
+
             playerAnimator.SetTrigger("Attack");
         }
 
