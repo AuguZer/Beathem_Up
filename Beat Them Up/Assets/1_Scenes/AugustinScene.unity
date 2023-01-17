@@ -593,6 +593,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929921717}
   m_CullTransparentMesh: 1
+--- !u!95 &1112152272 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1112152272, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+  m_PrefabInstance: {fileID: 7352570458448696109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1151367762
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,11 +711,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1233814264 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1233814264, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
-  m_PrefabInstance: {fileID: 7352570458448696109}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1443594462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,10 +1649,6 @@ PrefabInstance:
       value: PLAYER
       objectReference: {fileID: 0}
     - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
-      propertyPath: psLand
-      value: 
-      objectReference: {fileID: 1233814264}
-    - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: pwSlider
       value: 
       objectReference: {fileID: 2074838644}
@@ -1664,6 +1660,10 @@ PrefabInstance:
       propertyPath: _pickUpPrefab
       value: 
       objectReference: {fileID: 1564128206}
+    - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+      propertyPath: shadowAnimator
+      value: 
+      objectReference: {fileID: 1112152272}
     - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: _pickUpGraphics
       value: 

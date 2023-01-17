@@ -43,6 +43,7 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] float jumpDuration = 3f;
     [SerializeField] GameObject psJump;
     [SerializeField] GameObject psLand;
+    [SerializeField] Animator shadowAnimator;
     Transform _graphics;
     float jumpTimer;
     bool isJumping;
@@ -129,6 +130,7 @@ public class PlayerMovementSM : MonoBehaviour
             rb2d.constraints = RigidbodyConstraints2D.FreezePositionY;
             psJump.SetActive(true);
             psLand.SetActive(false);
+            
         }
 
         if (jumpTimer > jumpDuration)
@@ -286,7 +288,8 @@ public class PlayerMovementSM : MonoBehaviour
         {
             isJumping = true;
             playerAnimator.SetTrigger("IsJumping");
-           
+            shadowAnimator.SetTrigger("JUMP");
+
         }
     }
 
