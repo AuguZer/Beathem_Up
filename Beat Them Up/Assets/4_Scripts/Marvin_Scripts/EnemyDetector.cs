@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDetector : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    Animator animator;
+    
     EnemyIA enemyIA;
 
     private void Start()
@@ -31,11 +31,10 @@ public class EnemyDetector : MonoBehaviour
 
 
 
-        if (collision.gameObject.tag == "Player")
+        //if (collision.gameObject.tag == "Player")
 
-        {
-            enemyIA.Target();
-        }
+        //{
+        //}
        
     }
     private void OnTriggerExit2D(Collider2D collision)
