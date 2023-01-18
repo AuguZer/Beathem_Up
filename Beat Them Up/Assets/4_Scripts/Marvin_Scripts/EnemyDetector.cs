@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDetector : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    Animator animator;
+    
     EnemyIA enemyIA;
 
     private void Start()
