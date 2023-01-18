@@ -21,7 +21,7 @@ TagManager:
   - Collectibles
   - Play Instructions
   - Destructibles
-  - carryable
+  - Carryable
   - "Barri\xE8re"
   - 
   - 
@@ -43,11 +43,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 881043657
+    locked: 0
+  - name: Destructibles
+    uniqueID: 601628655
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 881043657
+  - name: Carryable
+    uniqueID: 1149685679
     locked: 0
   - name: "Barri\xE8re"
     uniqueID: 1461816679
@@ -60,12 +66,6 @@ TagManager:
     locked: 0
   - name: Collectibles
     uniqueID: 3402527163
-    locked: 0
-  - name: Destructibles
-    uniqueID: 601628655
-    locked: 0
-  - name: carryable
-    uniqueID: 1149685679
     locked: 0
   - name: Ennemy
     uniqueID: 818439819

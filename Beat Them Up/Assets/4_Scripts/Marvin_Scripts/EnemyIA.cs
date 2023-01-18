@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyIA : MonoBehaviour
 {
     [Header("OverlapCircle Parameters")]
-   
+
     public float detectionRadius = .7f;
     public LayerMask detectorLayerMask;
 
@@ -22,30 +22,30 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] float EnemyCurrentHealth = 100f;
     [SerializeField] float EnemyDamage = 5f;
     [SerializeField] float AttackZone = .5f;
-    [SerializeField] float AttackTimer;
-    [SerializeField] float AttackDelay = 3f;
+
     [SerializeField] Animator animator;
     [SerializeField] Rigidbody2D rb2d;
     [SerializeField] EnemyState currentState;
     float Enemycurrentspeed;
     Vector2 enemyDir;
 
-    
+    Collider2D playerCollider;
+
 
 
 
 
     [Header("Bool Enemy")]
     bool target = false;
-    bool IsWalking;
-    bool IsAttacking;
+
     bool IsDead;
     bool playerDetected = false;
-    bool Attacked = false;
-    bool sprintInput;
+    // bool IsWalking;
+
+
     bool right = true;
 
-    
+
 
 
     public enum EnemyState
@@ -70,7 +70,6 @@ public class EnemyIA : MonoBehaviour
     {
         OnStateUpdate();
         Move();
-        Target();
 
 
     }
@@ -80,29 +79,16 @@ public class EnemyIA : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Idle:
-                AttackTimer = 0f;
+
                 break;
             case EnemyState.Walk:
                 Enemycurrentspeed = enemySpeed;
 
                 animator.SetBool("IsWalking", true);
+
                 break;
             case EnemyState.Attack:
-                //animator.SetBool("IsAttacking", true);
-                hitbox.SetActive(true);
-                animator.SetTrigger("IsAttacking");
 
-                Collider2D player = Physics2D.OverlapCircle(hitbox.transform.position, detectionRadius, detectorLayerMask);
-
-                
-                if (player != null)
-                {
-                    player.GetComponent<PlayerHealth>().TakeDamage(EnemyDamage);
-                
-                    // CREATE PARTICLE
-                    //GameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
-
-                }
                 StartCoroutine(ReloadAttack());
 
                 break;
@@ -138,19 +124,23 @@ public class EnemyIA : MonoBehaviour
 
                 break;
             case EnemyState.Walk:
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Enemycurrentspeed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
 
                 // TO IDLE
                 if (!playerDetected)
                 {
+
                     TransitionToState(EnemyState.Idle);
                 }
+
+
 
                 // TO ATTACK
                 if (Vector2.Distance(transform.position, player.transform.position) <= AttackZone)
                 {
                     TransitionToState(EnemyState.Attack);
                 }
+
 
                 if (IsDead)
                 {
@@ -159,11 +149,13 @@ public class EnemyIA : MonoBehaviour
 
                 break;
             case EnemyState.Attack:
-                if (!playerDetected)
-                {
-                    TransitionToState(EnemyState.Idle);
-                }
+                
 
+                if (playerDetected && Vector2.Distance(transform.position, player.transform.position) > AttackZone)
+                {
+                    
+                    TransitionToState(EnemyState.Walk);
+                }
 
                 if (IsDead)
                 {
@@ -189,11 +181,13 @@ public class EnemyIA : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Idle:
+                animator.SetBool("Idle", false);
                 break;
             case EnemyState.Walk:
                 animator.SetBool("IsWalking", false);
                 break;
             case EnemyState.Attack:
+                StopAllCoroutines();
                 hitbox.SetActive(false);
                 animator.SetBool("IsAttacking", false);
 
@@ -210,7 +204,9 @@ public class EnemyIA : MonoBehaviour
     private void TransitionToState(EnemyState nextstate)
     {
         OnStateExit();
+        Debug.Log("From" + currentState);
         currentState = nextstate;
+        Debug.Log("To" + currentState);
         OnStateEnter();
     }
 
@@ -228,28 +224,7 @@ public class EnemyIA : MonoBehaviour
     }
 
 
-    public void Target()
-    {
 
-
-        if (playerDetected)
-        {
-            target = true;
-
-        }
-
-
-
-        if (AttackTimer >= AttackDelay)
-        {
-            TransitionToState(EnemyState.Attack);
-
-        }
-
-
-
-
-    }
 
     void Move()
 
@@ -288,6 +263,8 @@ public class EnemyIA : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+
+
         EnemyCurrentHealth -= amount;
 
         if (EnemyCurrentHealth <= 0)
@@ -295,27 +272,46 @@ public class EnemyIA : MonoBehaviour
             IsDead = true;
         }
 
+
+
+
         if (IsDead)
         {
             animator.SetTrigger("IsDead");
 
             rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
 
-           
-
-            
         }
 
 
     }
-    
+
 
 
     IEnumerator ReloadAttack()
     {
 
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
+
+        //animator.SetBool("IsAttacking", true);
+        hitbox.SetActive(true);
+        animator.SetTrigger("IsAttacking");
+
+        playerCollider = Physics2D.OverlapCircle(hitbox.transform.position, detectionRadius, detectorLayerMask);
+
+
+
+        if (playerCollider != null ) 
+                {
+            playerCollider.GetComponent<PlayerMovementSM>().TakeDamage(EnemyDamage);
+
+            // CREATE PARTICLE
+            //GameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
+
+        }
+
+        yield return new WaitForSeconds(1f);
 
         TransitionToState(EnemyState.Idle);
 

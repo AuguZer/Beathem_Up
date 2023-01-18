@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4543068671814125277}
   - component: {fileID: 4543068671814125278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SHADOW_CAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4543068672057714176}
   - component: {fileID: 4543068672057714177}
   - component: {fileID: 4543068672057714178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GREEN_HealthCan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 4543068672093026730}
   - component: {fileID: 4543068672093026731}
   - component: {fileID: 4543068672093026732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GREEN_CAN_GRAPHICS
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestructibleItems : MonoBehaviour
+public class CanMachine : MonoBehaviour
 {
     [SerializeField] float itemCurrentHealth;
     [SerializeField] float itemMaxHealth = 100f;
@@ -32,6 +32,7 @@ public class DestructibleItems : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerHitBox")
         {
+            Debug.Log("cc");
             destAnimator.SetTrigger("HIT");
             itemCurrentHealth -= damageTaken;
 

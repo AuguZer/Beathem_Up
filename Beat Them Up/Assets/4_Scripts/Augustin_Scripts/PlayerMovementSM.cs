@@ -128,9 +128,10 @@ public class PlayerMovementSM : MonoBehaviour
 
             _graphics.localPosition = new Vector3(_graphics.transform.localPosition.x, y * jumpHeight, _graphics.transform.localPosition.z);
             rb2d.constraints = RigidbodyConstraints2D.FreezePositionY;
+            rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
             psJump.SetActive(true);
             psLand.SetActive(false);
-            
+
         }
 
         if (jumpTimer > jumpDuration)
@@ -138,41 +139,48 @@ public class PlayerMovementSM : MonoBehaviour
             isJumping = false;
             jumpTimer = 0f;
             rb2d.constraints = RigidbodyConstraints2D.None;
+            rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
             psJump.SetActive(false);
             psLand.SetActive(true);
         }
 
     }
-
-
     public void TakeDamage(float amout)
     {
         playerCurrentHealth -= amout;
 
-        lifeSlider.value = playerCurrentHealth;
 
-        if (playerCurrentHealth <= 0)
+        if (lifeSlider != null)
         {
-            isDead = true;
-        }
+            lifeSlider.value = playerCurrentHealth;
 
-        if (isDead)
-        {
-            rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+            if (playerCurrentHealth <= 0)
+            {
+                isDead = true;
+            }
 
-            playerAnimator.SetTrigger("IsDead");
+            if (isDead)
+            {
+                rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+
+                playerAnimator.SetTrigger("IsDead");
+            }
         }
     }
 
     public void TakeHealth(float amount)
     {
+
         playerCurrentHealth += amount;
 
-        lifeSlider.value = playerCurrentHealth;
-
-        if (playerCurrentHealth > playerMaxHealth)
+        if (lifeSlider != null)
         {
-            playerCurrentHealth = playerMaxHealth;
+            lifeSlider.value = playerCurrentHealth;
+
+            if (playerCurrentHealth > playerMaxHealth)
+            {
+                playerCurrentHealth = playerMaxHealth;
+            }
         }
     }
 
@@ -185,12 +193,16 @@ public class PlayerMovementSM : MonoBehaviour
     {
         playerCurrentPower += amount;
 
-        powerSlider.value = playerCurrentPower;
-
-        if (playerCurrentPower > playerMaxPower)
+        if (powerSlider != null)
         {
-            playerCurrentPower = playerMaxPower;
+            powerSlider.value = playerCurrentPower;
+
+            if (playerCurrentPower > playerMaxPower)
+            {
+                playerCurrentPower = playerMaxPower;
+            }
         }
+
 
     }
 
@@ -223,7 +235,7 @@ public class PlayerMovementSM : MonoBehaviour
             rb2dPickUp.isKinematic = false;
             playerAnimator.SetTrigger("Throw");
             _sprite.sortingOrder = 0;
-           
+
             StartCoroutine(ThrowTime());
 
             if (!right)
@@ -303,8 +315,12 @@ public class PlayerMovementSM : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _canBeHold = false;
+        if (collision.gameObject.tag == "Items")
+        {
+            _canBeHold = false;
+        }
     }
+
 
 
     void OnStateEnter()
