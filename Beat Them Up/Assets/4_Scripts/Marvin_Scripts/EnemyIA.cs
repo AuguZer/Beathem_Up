@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyIA : MonoBehaviour
 {
     [Header("OverlapCircle Parameters")]
-   
+
     public float detectionRadius = .7f;
     public LayerMask detectorLayerMask;
 
@@ -22,7 +22,7 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] float EnemyCurrentHealth = 100f;
     [SerializeField] float EnemyDamage = 5f;
     [SerializeField] float AttackZone = .5f;
-    
+
     [SerializeField] Animator animator;
     [SerializeField] Rigidbody2D rb2d;
     [SerializeField] EnemyState currentState;
@@ -35,17 +35,17 @@ public class EnemyIA : MonoBehaviour
 
 
 
-   [Header("Bool Enemy")]
+    [Header("Bool Enemy")]
     bool target = false;
-    
+
     bool IsDead;
     bool playerDetected = false;
-   // bool IsWalking;
-   
-    
+    // bool IsWalking;
+
+
     bool right = true;
 
-    
+
 
 
     public enum EnemyState
@@ -79,7 +79,7 @@ public class EnemyIA : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Idle:
-                
+
                 break;
             case EnemyState.Walk:
                 Enemycurrentspeed = enemySpeed;
@@ -88,22 +88,7 @@ public class EnemyIA : MonoBehaviour
 
                 break;
             case EnemyState.Attack:
-                //animator.SetBool("IsAttacking", true);
-                hitbox.SetActive(true);
-                animator.SetTrigger("IsAttacking");
 
-                 playerCollider = Physics2D.OverlapCircle(hitbox.transform.position, detectionRadius, detectorLayerMask);
-
-                
-                
-                if (playerCollider != null)
-                {
-                    playerCollider.GetComponent<PlayerMovementSM>().TakeDamage(EnemyDamage);
-                
-                    // CREATE PARTICLE
-                    //GameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
-
-                }
                 StartCoroutine(ReloadAttack());
 
                 break;
@@ -144,18 +129,18 @@ public class EnemyIA : MonoBehaviour
                 // TO IDLE
                 if (!playerDetected)
                 {
-                    
+
                     TransitionToState(EnemyState.Idle);
                 }
 
-                
+
 
                 // TO ATTACK
                 if (Vector2.Distance(transform.position, player.transform.position) <= AttackZone)
                 {
                     TransitionToState(EnemyState.Attack);
                 }
-                
+
 
                 if (IsDead)
                 {
@@ -166,6 +151,11 @@ public class EnemyIA : MonoBehaviour
             case EnemyState.Attack:
                 
 
+                if (playerDetected && Vector2.Distance(transform.position, player.transform.position) > AttackZone)
+                {
+                    
+                    TransitionToState(EnemyState.Walk);
+                }
 
                 if (IsDead)
                 {
@@ -197,6 +187,7 @@ public class EnemyIA : MonoBehaviour
                 animator.SetBool("IsWalking", false);
                 break;
             case EnemyState.Attack:
+                StopAllCoroutines();
                 hitbox.SetActive(false);
                 animator.SetBool("IsAttacking", false);
 
@@ -233,7 +224,7 @@ public class EnemyIA : MonoBehaviour
     }
 
 
-    
+
 
     void Move()
 
@@ -294,14 +285,33 @@ public class EnemyIA : MonoBehaviour
 
 
     }
-    
+
 
 
     IEnumerator ReloadAttack()
     {
 
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
+
+        //animator.SetBool("IsAttacking", true);
+        hitbox.SetActive(true);
+        animator.SetTrigger("IsAttacking");
+
+        playerCollider = Physics2D.OverlapCircle(hitbox.transform.position, detectionRadius, detectorLayerMask);
+
+
+
+        if (playerCollider != null ) 
+                {
+            playerCollider.GetComponent<PlayerMovementSM>().TakeDamage(EnemyDamage);
+
+            // CREATE PARTICLE
+            //GameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
+
+        }
+
+        yield return new WaitForSeconds(1f);
 
         TransitionToState(EnemyState.Idle);
 

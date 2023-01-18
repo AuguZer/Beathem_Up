@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65714bb5f476bef49b7ff407bffec923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 0.7
+  detectionRadius: 1
   detectorLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -297,7 +297,7 @@ MonoBehaviour:
   EnemyHealth: 100
   EnemyCurrentHealth: 100
   EnemyDamage: 5
-  AttackZone: 0.5
+  AttackZone: 1
   animator: {fileID: 932652161969121185}
   rb2d: {fileID: 932652162733719601}
   currentState: 0
@@ -316,4 +316,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.48406288}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 5
