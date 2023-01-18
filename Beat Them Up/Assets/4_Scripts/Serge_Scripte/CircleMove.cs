@@ -13,11 +13,11 @@ public class CircleMove : MonoBehaviour
 
     [SerializeField] RotationControls controls;
 
-
     Vector2 dirMove;
 
-
     Rigidbody2D rb2d;
+
+    public float damage = 20;
 
     private void Start()
     {
@@ -71,12 +71,12 @@ public class CircleMove : MonoBehaviour
 
                 float dirRot = 0;
 
-                if (Input.GetKey(KeyCode.K) && !Input.GetKey(KeyCode.J))
+                if (Input.GetKey(KeyCode.M) && !Input.GetKey(KeyCode.L))
                 {
                     dirRot = 1;
                 }
 
-                if (Input.GetKey(KeyCode.J) && !Input.GetKey(KeyCode.K))
+                if (Input.GetKey(KeyCode.L) && !Input.GetKey(KeyCode.M))
                 {
                     dirRot = -1;
                 }
