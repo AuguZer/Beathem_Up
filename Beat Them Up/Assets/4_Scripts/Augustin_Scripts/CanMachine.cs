@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestructibleItems : MonoBehaviour
+public class CanMachine : MonoBehaviour
 {
     [SerializeField] float itemCurrentHealth;
     [SerializeField] float itemMaxHealth = 100f;
