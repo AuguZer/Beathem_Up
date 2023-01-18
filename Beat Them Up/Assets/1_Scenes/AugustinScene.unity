@@ -593,6 +593,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929921717}
   m_CullTransparentMesh: 1
+--- !u!95 &1112152272 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1112152272, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+  m_PrefabInstance: {fileID: 7352570458448696109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1151367762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1600,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1972205232, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.027
+      objectReference: {fileID: 0}
     - target: {fileID: 7352570458218325122, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1655,6 +1664,10 @@ PrefabInstance:
       propertyPath: _pickUpPrefab
       value: 
       objectReference: {fileID: 1564128206}
+    - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+      propertyPath: shadowAnimator
+      value: 
+      objectReference: {fileID: 1112152272}
     - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: _pickUpGraphics
       value: 
