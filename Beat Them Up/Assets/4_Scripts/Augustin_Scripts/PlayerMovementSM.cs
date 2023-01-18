@@ -149,7 +149,11 @@ public class PlayerMovementSM : MonoBehaviour
     {
         playerCurrentHealth -= amout;
 
-        lifeSlider.value = playerCurrentHealth;
+        if(lifeSlider !=null)
+        {
+            lifeSlider.value = playerCurrentHealth;
+
+        }
 
         if (playerCurrentHealth <= 0)
         {

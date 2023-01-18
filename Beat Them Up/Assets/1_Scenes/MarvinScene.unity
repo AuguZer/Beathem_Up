@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 37585502}
   - component: {fileID: 37585504}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Player Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,6 +710,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2017746918, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7352570458218325122, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -771,7 +775,7 @@ GameObject:
   - component: {fileID: 980943217}
   - component: {fileID: 980943218}
   - component: {fileID: 980943219}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1002,7 +1006,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1141927661}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1126,7 @@ GameObject:
   - component: {fileID: 1307387621}
   - component: {fileID: 1307387623}
   - component: {fileID: 1307387624}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Enemy_Regular
   m_TagString: Enemy
   m_Icon: {fileID: 0}

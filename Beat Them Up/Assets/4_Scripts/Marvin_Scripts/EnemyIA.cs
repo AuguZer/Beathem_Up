@@ -29,17 +29,18 @@ public class EnemyIA : MonoBehaviour
     float Enemycurrentspeed;
     Vector2 enemyDir;
 
-    
+    Collider2D playerCollider;
 
 
 
 
-    [Header("Bool Enemy")]
+
+   [Header("Bool Enemy")]
     bool target = false;
     
     bool IsDead;
     bool playerDetected = false;
-    bool IsWalking;
+   // bool IsWalking;
    
     
     bool right = true;
@@ -69,7 +70,6 @@ public class EnemyIA : MonoBehaviour
     {
         OnStateUpdate();
         Move();
-        Target();
 
 
     }
@@ -92,12 +92,13 @@ public class EnemyIA : MonoBehaviour
                 hitbox.SetActive(true);
                 animator.SetTrigger("IsAttacking");
 
-                Collider2D player = Physics2D.OverlapCircle(hitbox.transform.position, detectionRadius, detectorLayerMask);
+                 playerCollider = Physics2D.OverlapCircle(hitbox.transform.position, detectionRadius, detectorLayerMask);
 
                 
-                if (player != null)
+                
+                if (playerCollider != null)
                 {
-                    player.GetComponent<PlayerHealth>().TakeDamage(EnemyDamage);
+                    playerCollider.GetComponent<PlayerMovementSM>().TakeDamage(EnemyDamage);
                 
                     // CREATE PARTICLE
                     //GameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
@@ -154,10 +155,7 @@ public class EnemyIA : MonoBehaviour
                 {
                     TransitionToState(EnemyState.Attack);
                 }
-                else
-                {
-                    TransitionToState(EnemyState.Idle);
-                }
+                
 
                 if (IsDead)
                 {
@@ -166,11 +164,7 @@ public class EnemyIA : MonoBehaviour
 
                 break;
             case EnemyState.Attack:
-                if (playerDetected)
-                {
-                    TransitionToState(EnemyState.Walk);
-                    
-                }
+                
 
 
                 if (IsDead)
@@ -219,7 +213,9 @@ public class EnemyIA : MonoBehaviour
     private void TransitionToState(EnemyState nextstate)
     {
         OnStateExit();
+        Debug.Log("From" + currentState);
         currentState = nextstate;
+        Debug.Log("To" + currentState);
         OnStateEnter();
     }
 
@@ -237,28 +233,7 @@ public class EnemyIA : MonoBehaviour
     }
 
 
-    public void Target()
-    {
-
-
-        if (playerDetected)
-        {
-            target = true;
-
-        }
-
-
-
-       if (target)
-       {
-            TransitionToState(EnemyState.Walk);
-                          
-        }
-
-
-
-
-    }
+    
 
     void Move()
 
@@ -323,7 +298,7 @@ public class EnemyIA : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        TransitionToState(EnemyState.Attack);
+        TransitionToState(EnemyState.Idle);
 
 
 
