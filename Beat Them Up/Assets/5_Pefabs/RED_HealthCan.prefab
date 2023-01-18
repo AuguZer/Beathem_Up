@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6476009130877315944}
   - component: {fileID: 6476009130877315947}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SHADOW_CAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6476009131172662197}
   - component: {fileID: 6476009131172662196}
   - component: {fileID: 6476009131172662199}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RED_HealthCan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 6476009131206530079}
   - component: {fileID: 6476009131206530078}
   - component: {fileID: 6476009131206530073}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RED_CAN_GRAPHICS
   m_TagString: Untagged
   m_Icon: {fileID: 0}

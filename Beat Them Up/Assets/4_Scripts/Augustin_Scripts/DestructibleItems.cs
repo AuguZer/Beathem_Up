@@ -32,6 +32,7 @@ public class DestructibleItems : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerHitBox")
         {
+            Debug.Log("cc");
             destAnimator.SetTrigger("HIT");
             itemCurrentHealth -= damageTaken;
 

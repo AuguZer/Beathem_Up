@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5518959432889218030}
   - component: {fileID: 5518959432889218029}
   - component: {fileID: 594866996}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PLANT_PICKUP
   m_TagString: Items
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5518959433518695358}
   - component: {fileID: 5518959433518695359}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PLANT_GRAPHICS
   m_TagString: Untagged
   m_Icon: {fileID: 0}

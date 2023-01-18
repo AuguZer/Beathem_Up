@@ -9869,7 +9869,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972205231}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.17, y: 1.19, z: 0}
+  m_LocalPosition: {x: 0.027, y: 1.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9981,7 +9981,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.3}
@@ -10007,7 +10007,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7352570458218325151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10066,7 +10066,7 @@ MonoBehaviour:
   jumpDuration: 1
   psJump: {fileID: 1467823862}
   psLand: {fileID: 1233814264}
-  shadowAnimator: {fileID: 0}
+  shadowAnimator: {fileID: 1112152272}
   playerCurrentPoints: 0
   attackSpeed: 2.5
   hitBox: {fileID: 2017746918}
