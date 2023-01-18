@@ -143,8 +143,6 @@ public class PlayerMovementSM : MonoBehaviour
         }
 
     }
-
-
     public void TakeDamage(float amout)
     {
         playerCurrentHealth -= amout;
