@@ -272,12 +272,17 @@ public class EnemyIA : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+
+
         EnemyCurrentHealth -= amount;
 
         if (EnemyCurrentHealth <= 0)
         {
             IsDead = true;
         }
+
+
+
 
         if (IsDead)
         {
