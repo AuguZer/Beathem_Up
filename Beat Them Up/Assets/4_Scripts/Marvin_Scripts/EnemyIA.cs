@@ -302,9 +302,10 @@ public class EnemyIA : MonoBehaviour
 
 
 
-        if (playerCollider != null ) 
-                {
+        if (playerCollider != null)
+        {
             playerCollider.GetComponent<PlayerMovementSM>().TakeDamage(EnemyDamage);
+        
 
             // CREATE PARTICLE
             //GameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
