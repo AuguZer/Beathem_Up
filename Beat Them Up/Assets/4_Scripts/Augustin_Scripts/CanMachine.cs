@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CanMachine : MonoBehaviour
 {
-    [SerializeField] float itemCurrentHealth;
-    [SerializeField] float itemMaxHealth = 100f;
+    [SerializeField] float machineCurrentHealth;
+    [SerializeField] float machineMaxHealth = 100f;
     [SerializeField] float damageTaken = 50;
 
     [SerializeField] Animator destAnimator;
@@ -18,7 +18,7 @@ public class CanMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemCurrentHealth = itemMaxHealth;
+        machineCurrentHealth = machineMaxHealth;
 
     }
 
@@ -28,26 +28,51 @@ public class CanMachine : MonoBehaviour
        
     }
 
+    private void DistribCan()
+    {
+        int i = Random.Range(0, _cans.Length);
+        int s = Random.Range(0, spawnPoint.Length);
+        GameObject go = Instantiate(_cans[i], spawnPoint[s].transform.position, transform.rotation);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "PlayerHitBox")
         {
             Debug.Log("cc");
             destAnimator.SetTrigger("HIT");
-            itemCurrentHealth -= damageTaken;
+            machineCurrentHealth -= damageTaken;
 
             if (distrib)
             {
-            int i = Random.Range(0, _cans.Length);
-            int s = Random.Range(0, spawnPoint.Length);
-            GameObject go = Instantiate(_cans[i], spawnPoint[s].transform.position, transform.rotation);
+                DistribCan();
             }
         }
 
-        if (itemCurrentHealth <= 0)
+        if (machineCurrentHealth <= 0)
         {
             distrib = false;
             destAnimator.SetBool("BROKEN", true);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Items")
+        {
+            destAnimator.SetTrigger("HIT");
+            machineCurrentHealth -= damageTaken;
+
+            if (distrib)
+            {
+                DistribCan();
+            }
+
+            if (machineCurrentHealth <= 0)
+            {
+                distrib = false;
+                destAnimator.SetBool("BROKEN", true);
+            }
         }
     }
 }

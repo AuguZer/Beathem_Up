@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7364908670650136715}
   - component: {fileID: 7364908670650136713}
   - component: {fileID: 7364908670650136712}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PAPER_BOX_GRAPHICS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 601628655
-  m_SortingLayer: -1
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: -258849058, guid: ba3dbee439265f24cbd6d67a6a85ad69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -116,9 +116,9 @@ GameObject:
   - component: {fileID: 7364908671725427219}
   - component: {fileID: 7364908671725427217}
   - component: {fileID: 7364908671725427216}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PAPER_BOX
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

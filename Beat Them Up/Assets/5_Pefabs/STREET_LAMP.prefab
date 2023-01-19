@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7842106312589425788}
   m_Layer: 10
   m_Name: STREET_LAMP
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,8 +147,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 601628655
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1273657732, guid: aa0e7ef7f874cb548b7fdb0abb1f2788, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

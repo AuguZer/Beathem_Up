@@ -38,4 +38,19 @@ public class DestructiblesObjects : MonoBehaviour
             bx2d.enabled = false;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Items")
+        {
+            destAnimator.SetTrigger("HIT");
+            objectCurrentHealth -= damageTaken;
+        }
+
+        if (objectCurrentHealth <= 0)
+        {
+            destAnimator.SetTrigger("BROKEN");
+            bx2d.enabled = false;
+        }
+    }
 }

@@ -8,8 +8,9 @@ public class PickUpItems : MonoBehaviour
     [SerializeField] GameObject graphics;
     [SerializeField] GameObject player;
 
-   
     SpriteRenderer sprite;
+
+    BoxCollider2D bx2d;
 
     public bool canBeHold;
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class PickUpItems : MonoBehaviour
         sprite = graphics.GetComponent<SpriteRenderer>();
         sprite.sortingOrder = 0;
 
-        
+        bx2d = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -34,6 +35,13 @@ public class PickUpItems : MonoBehaviour
         sprite.sortingOrder = 1;
         transform.SetParent(holdPoint.transform);
         transform.position = holdPoint.transform.position;
+        bx2d.enabled = false;
+
+        if (bx2d.enabled == false)
+        {
+            StartCoroutine(BoxCR());
+        }
+        
     }
 
     private void IsHolded()
@@ -47,7 +55,7 @@ public class PickUpItems : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -55,11 +63,17 @@ public class PickUpItems : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             canBeHold = false;
         }
+    }
+
+    IEnumerator BoxCR()
+    {
+        yield return new WaitForSeconds(1f);
+        bx2d.enabled = true;
     }
 }

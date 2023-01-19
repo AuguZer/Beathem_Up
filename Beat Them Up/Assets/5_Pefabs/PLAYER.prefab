@@ -4942,7 +4942,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2007542113
-  m_SortingLayer: -3
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aa219def7cf2d2542bdc5dfd4c4ac41d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14819,6 +14819,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   psHit: {fileID: 728119675}
+  enemyPrefab: {fileID: 0}
+  hitDamage: 10
 --- !u!1 &7352570458218325123
 GameObject:
   m_ObjectHideFlags: 0
@@ -14884,7 +14886,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -15036,7 +15038,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2007542113
-  m_SortingLayer: -3
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 1992518752, guid: 66ac39c0a236a654b9a32b8713b3cc08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
