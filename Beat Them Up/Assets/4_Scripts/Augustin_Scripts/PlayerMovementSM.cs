@@ -227,6 +227,7 @@ public class PlayerMovementSM : MonoBehaviour
             rb2dPickUp.constraints = RigidbodyConstraints2D.None;
             holdCount++;
             playerAnimator.SetLayerWeight(1, 1f);
+            _sprite.sortingOrder = 1;
 
         }
         if (!_canBeHold & Input.GetButtonDown("Hold") & holdCount == 1)
@@ -522,7 +523,9 @@ public class PlayerMovementSM : MonoBehaviour
 
             case PlayerState.HURT_Player:
                 rb2d.velocity = dirInput.normalized * attackSpeed;
+                holdCount = 0;
                 _pickUpPrefab.transform.SetParent(null);
+                playerAnimator.SetLayerWeight(1, 0f);
                 break;
             default:
                 break;
