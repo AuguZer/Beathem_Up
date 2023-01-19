@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 1619065773}
   - component: {fileID: 1619065772}
   - component: {fileID: 1619065771}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -910,7 +910,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -954,9 +954,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 881043657
+  m_SortingLayer: -6
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -976,7 +976,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619065770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.55, y: -2.79, z: 0}
+  m_LocalPosition: {x: 3.02, y: -0.95, z: 0}
   m_LocalScale: {x: 3.4908, y: 3.4908, z: 3.4908}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1799,6 +1799,10 @@ PrefabInstance:
       propertyPath: _pickUpGraphics
       value: 
       objectReference: {fileID: 398719850}
+    - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+      propertyPath: playerMaxHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
 --- !u!1001 &7364908671490399170
