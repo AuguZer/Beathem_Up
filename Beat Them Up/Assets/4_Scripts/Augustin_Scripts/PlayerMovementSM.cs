@@ -15,6 +15,7 @@ public class PlayerMovementSM : MonoBehaviour
         ATTACK_Player,
         DEATH_Player,
         JUMP_Player,
+        HURT_Player
 
     }
 
@@ -30,6 +31,7 @@ public class PlayerMovementSM : MonoBehaviour
     [Header("LIFE")]
     [SerializeField] public float playerMaxHealth = 100f;
     [SerializeField] public float playerCurrentHealth;
+    bool isHurt;
     bool isDead;
 
     [Header("POWER")]
@@ -147,6 +149,7 @@ public class PlayerMovementSM : MonoBehaviour
     }
     public void TakeDamage(float amout)
     {
+        isHurt = true;
         playerCurrentHealth -= amout;
 
 
@@ -157,6 +160,7 @@ public class PlayerMovementSM : MonoBehaviour
             if (playerCurrentHealth <= 0)
             {
                 isDead = true;
+                playerAnimator.SetBool("Dead", true);
             }
 
             if (isDead)
@@ -167,7 +171,6 @@ public class PlayerMovementSM : MonoBehaviour
             }
         }
     }
-
     public void TakeHealth(float amount)
     {
 
@@ -183,12 +186,10 @@ public class PlayerMovementSM : MonoBehaviour
             }
         }
     }
-
     public void TakePoints(float amount)
     {
         playerCurrentPoints += amount;
     }
-
     public void TakePower(float amount)
     {
         playerCurrentPower += amount;
@@ -205,7 +206,6 @@ public class PlayerMovementSM : MonoBehaviour
 
 
     }
-
     private void Attack()
     {
         isAttacking = true;
@@ -219,7 +219,6 @@ public class PlayerMovementSM : MonoBehaviour
 
         playerAnimator.SetTrigger("Attack");
     }
-
     public void Hold()
     {
         if (_canBeHold & Input.GetButtonDown("Hold") & holdCount == 0)
@@ -260,8 +259,6 @@ public class PlayerMovementSM : MonoBehaviour
         rb2dPickUp.gravityScale = rb2dPickUp.isKinematic ? rb2dPickUp.gravityScale = 0f : rb2dPickUp.gravityScale = 2f;
 
     }
-
-
     private void GetInput()
     {
         dirInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -322,7 +319,6 @@ public class PlayerMovementSM : MonoBehaviour
     }
 
 
-
     void OnStateEnter()
     {
         switch (currentState)
@@ -353,6 +349,11 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.JUMP_Player:
                 isJumping = true;
                 isAttacking = false;
+                break;
+            case PlayerState.HURT_Player:
+                isHurt = true;
+                playerAnimator.SetTrigger("IsHit");
+                StartCoroutine(Hurt());
                 break;
 
             default:
@@ -393,6 +394,12 @@ public class PlayerMovementSM : MonoBehaviour
                 {
                     TransitionToState(PlayerState.DEATH_Player);
                 }
+
+                //TO HURT
+                if (isHurt)
+                {
+                    TransitionToState(PlayerState.HURT_Player);
+                }
                 break;
 
 
@@ -428,6 +435,12 @@ public class PlayerMovementSM : MonoBehaviour
 
                     TransitionToState(PlayerState.DEATH_Player);
                 }
+
+                //TO HURT
+                if (isHurt)
+                {
+                    TransitionToState(PlayerState.HURT_Player);
+                }
                 break;
 
             case PlayerState.SPRINT_Player:
@@ -455,6 +468,12 @@ public class PlayerMovementSM : MonoBehaviour
                 if (isDead)
                 {
                     TransitionToState(PlayerState.DEATH_Player);
+                }
+
+                //TO HURT
+                if (isHurt)
+                {
+                    TransitionToState(PlayerState.HURT_Player);
                 }
                 break;
 
@@ -493,6 +512,17 @@ public class PlayerMovementSM : MonoBehaviour
                 {
                     TransitionToState(PlayerState.SPRINT_Player);
                 }
+
+                //TO HURT
+                if (!isJumping && isHurt)
+                {
+                    TransitionToState(PlayerState.HURT_Player);
+                }
+                break;
+
+            case PlayerState.HURT_Player:
+                rb2d.velocity = dirInput.normalized * attackSpeed;
+                _pickUpPrefab.transform.SetParent(null);
                 break;
             default:
                 break;
@@ -519,6 +549,9 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
             case PlayerState.JUMP_Player:
                 isJumping = false;
+                break;
+            case PlayerState.HURT_Player:
+                isHurt = false;
                 break;
             default:
                 break;
@@ -572,6 +605,45 @@ public class PlayerMovementSM : MonoBehaviour
         if (sprintInput)
         {
             TransitionToState(PlayerState.SPRINT_Player);
+        }
+    }
+    IEnumerator Hurt()
+    {
+        yield return new WaitForSeconds(.3f);
+
+        //TO IDLE
+        if (dirInput == Vector2.zero)
+        {
+            TransitionToState(PlayerState.IDLE_Player);
+        }
+        //TO WALK
+        if (dirInput != Vector2.zero && !sprintInput)
+        {
+            TransitionToState(PlayerState.WALK_Player);
+        }
+
+        //TO SPRINT
+        if (dirInput != Vector2.zero && sprintInput)
+        {
+            TransitionToState(PlayerState.SPRINT_Player);
+        }
+
+        //TO ATTACK
+        if (isAttacking)
+        {
+            TransitionToState(PlayerState.ATTACK_Player);
+        }
+
+        //TO JUMP
+        if (isJumping)
+        {
+
+            TransitionToState(PlayerState.JUMP_Player);
+        }
+        //TO DEATH
+        if (isDead)
+        {
+            TransitionToState(PlayerState.DEATH_Player);
         }
     }
     IEnumerator ThrowReset()

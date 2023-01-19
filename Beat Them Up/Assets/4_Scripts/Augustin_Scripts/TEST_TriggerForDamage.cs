@@ -28,6 +28,11 @@ public class TEST_TriggerForDamage : MonoBehaviour
         {
            collision.gameObject.GetComponent<EnemyIA>().TakeDamage(damage);
        }
+
+        if (collision.gameObject.tag =="Player")
+        {
+            collision.gameObject.GetComponent<PlayerMovementSM>().TakeDamage(damage);
+        }
     }
 
    // private void OnTriggerEnter2D(Collider2D collision)

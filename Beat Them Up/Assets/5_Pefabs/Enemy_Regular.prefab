@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd43655215cdd64aa88a6a2943dbceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7352570458218325123, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+  player: {fileID: 0}
 --- !u!114 &932652162733719605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
     m_Bits: 64
   graphics: {fileID: 932652161969121186}
   hitbox: {fileID: 932652162608203838}
-  player: {fileID: 7352570458218325123, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+  player: {fileID: 0}
   enemySpeed: 3
   EnemyHealth: 100
   EnemyCurrentHealth: 100
