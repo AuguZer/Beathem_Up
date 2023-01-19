@@ -128,6 +128,7 @@ public class PlayerMovementSM : MonoBehaviour
 
             _graphics.localPosition = new Vector3(_graphics.transform.localPosition.x, y * jumpHeight, _graphics.transform.localPosition.z);
             rb2d.constraints = RigidbodyConstraints2D.FreezePositionY;
+            rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
             psJump.SetActive(true);
             psLand.SetActive(false);
 
@@ -138,6 +139,7 @@ public class PlayerMovementSM : MonoBehaviour
             isJumping = false;
             jumpTimer = 0f;
             rb2d.constraints = RigidbodyConstraints2D.None;
+            rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
             psJump.SetActive(false);
             psLand.SetActive(true);
         }
