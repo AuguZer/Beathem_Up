@@ -10,6 +10,7 @@ TagManager:
   - HitPoint
   - AttackPoint
   - Machine
+  - TakeDamage
   layers:
   - Default
   - TransparentFX
@@ -47,20 +48,20 @@ TagManager:
   - name: Background
     uniqueID: 881043657
     locked: 0
+  - name: Destructibles
+    uniqueID: 601628655
+    locked: 0
   - name: Carryable
     uniqueID: 1149685679
+    locked: 0
+  - name: Machine
+    uniqueID: 4280818251
     locked: 0
   - name: Collectibles
     uniqueID: 3402527163
     locked: 0
   - name: Player
     uniqueID: 2287425183
-    locked: 0
-  - name: Destructibles
-    uniqueID: 601628655
-    locked: 0
-  - name: Machine
-    uniqueID: 4280818251
     locked: 0
   - name: Default
     uniqueID: 0
@@ -71,6 +72,6 @@ TagManager:
   - name: Instruction
     uniqueID: 2416674597
     locked: 0
-  - name: Ennemy
+  - name: Enemy
     uniqueID: 818439819
     locked: 0

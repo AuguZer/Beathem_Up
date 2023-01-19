@@ -5,6 +5,8 @@ using UnityEngine;
 public class HitPS : MonoBehaviour
 {
     [SerializeField] GameObject psHit;
+    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] float hitDamage = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,11 @@ public class HitPS : MonoBehaviour
         else
         {
             psHit.SetActive(true);
+        }
+
+        if (collision.gameObject.tag == "TakeDamage")
+        {
+            enemyPrefab.GetComponent<EnemyIA>().TakeDamage(hitDamage);
         }
     }
 }
