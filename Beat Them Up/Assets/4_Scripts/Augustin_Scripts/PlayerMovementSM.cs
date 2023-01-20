@@ -32,6 +32,8 @@ public class PlayerMovementSM : MonoBehaviour
     [Header("LIFE")]
     [SerializeField] public float playerMaxHealth = 100f;
     [SerializeField] public float playerCurrentHealth;
+    [SerializeField] public int playerMaxLife = 3;
+    [SerializeField] public int playerCurrentLife;
     bool isHurt;
     bool isDead;
     bool invincible;
@@ -75,10 +77,12 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] GameObject healthSlider;
     [SerializeField] GameObject pwSlider;
     [SerializeField] GameObject pointsText;
+    [SerializeField] GameObject lifeText;
     Slider lifeSlider;
     Slider powerSlider;
     TextMeshProUGUI ptsText;
-    AddPoints _addpoints;
+    TextMeshProUGUI lifeCount;
+  
 
 
     private void Awake()
@@ -110,7 +114,9 @@ public class PlayerMovementSM : MonoBehaviour
         lifeSlider = healthSlider.GetComponent<Slider>();
         lifeSlider.maxValue = playerMaxHealth;
         lifeSlider.value = playerCurrentHealth;
-
+        lifeCount = lifeText.GetComponent<TextMeshProUGUI>();
+        playerCurrentLife = playerMaxLife;
+        lifeCount.text = playerCurrentLife.ToString();
         //---- POWER BAR ----
         powerSlider = pwSlider.GetComponent<Slider>();
         powerSlider.maxValue = playerMaxPower;
@@ -118,7 +124,7 @@ public class PlayerMovementSM : MonoBehaviour
 
         //---- SCORE ----
         ptsText = pointsText.GetComponent<TextMeshProUGUI>();
-        ptsText.text = "Score : ";
+        ptsText.text = "Score : " + playerCurrentPoints.ToString();
     }
 
     // Update is called once per frame
@@ -181,6 +187,8 @@ public class PlayerMovementSM : MonoBehaviour
 
             if (isDead)
             {
+                playerCurrentLife -= 1;
+                lifeCount.text = playerCurrentLife.ToString();
                 rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
 
                 playerAnimator.SetTrigger("IsDead");
