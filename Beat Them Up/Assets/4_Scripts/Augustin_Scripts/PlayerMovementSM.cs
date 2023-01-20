@@ -33,6 +33,7 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] public float playerCurrentHealth;
     bool isHurt;
     bool isDead;
+    bool invincible;
 
     [Header("POWER")]
     [SerializeField] public float playerMaxPower = 100f;
@@ -150,6 +151,12 @@ public class PlayerMovementSM : MonoBehaviour
     public void TakeDamage(float amout)
     {
         isHurt = true;
+
+        if (invincible)
+        {
+            return;
+        }
+
         playerCurrentHealth -= amout;
 
 
@@ -352,6 +359,11 @@ public class PlayerMovementSM : MonoBehaviour
                 isAttacking = false;
                 break;
             case PlayerState.HURT_Player:
+                invincible = true;
+                if (isHurt)
+                {
+                    StartCoroutine(Invincible());
+                }
                 isHurt = true;
                 playerAnimator.SetTrigger("IsHit");
                 StartCoroutine(Hurt());
@@ -566,7 +578,6 @@ public class PlayerMovementSM : MonoBehaviour
         currentState = nextState;
         OnStateEnter();
     }
-
     IEnumerator AttackReset()
     {
         float t = 0;
@@ -648,6 +659,11 @@ public class PlayerMovementSM : MonoBehaviour
         {
             TransitionToState(PlayerState.DEATH_Player);
         }
+    }
+    IEnumerator Invincible()
+    {
+        yield return new WaitForSeconds(2f);
+        invincible = false;
     }
     IEnumerator ThrowReset()
     {

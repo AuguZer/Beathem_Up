@@ -23,10 +23,12 @@ public class HitPS : MonoBehaviour
     {
         if (collision.gameObject.tag == "Untagged")
         {
+            Debug.Log("no");
             psHit.SetActive(false);
         }
         else
         {
+            Debug.Log("ok");
             psHit.SetActive(true);
         }
 
