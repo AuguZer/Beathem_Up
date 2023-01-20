@@ -11,6 +11,7 @@ TagManager:
   - AttackPoint
   - Machine
   - TakeDamage
+  - Destructibles
   layers:
   - Default
   - TransparentFX
@@ -74,4 +75,7 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 818439819
+    locked: 0
+  - name: ParticuleSysteme
+    uniqueID: 658127309
     locked: 0
