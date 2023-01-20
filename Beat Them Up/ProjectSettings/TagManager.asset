@@ -61,9 +61,6 @@ TagManager:
   - name: Collectibles
     uniqueID: 3402527163
     locked: 0
-  - name: Player
-    uniqueID: 2287425183
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -75,6 +72,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 818439819
+    locked: 0
+  - name: Player
+    uniqueID: 2287425183
     locked: 0
   - name: ParticuleSysteme
     uniqueID: 658127309

@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectCurrentHealth: 0
   objectMaxHealth: 100
-  damageTaken: 50
+  damageTaken: 20
   destAnimator: {fileID: 398719853}
 --- !u!1 &5518959433518695357
 GameObject:
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1149685679
-  m_SortingLayer: -4
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1146993907, guid: b7df6118dc1112249ac6c72f1f1cb5bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

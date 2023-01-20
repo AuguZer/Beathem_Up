@@ -7,11 +7,15 @@ public class CanMachine : MonoBehaviour
     [SerializeField] float machineCurrentHealth;
     [SerializeField] float machineMaxHealth = 100f;
     [SerializeField] float damageTaken = 50;
+    [SerializeField] float spawnRadius = .5f;
 
     [SerializeField] Animator destAnimator;
 
-    [SerializeField] GameObject [] spawnPoint;
+    //[SerializeField] GameObject [] spawnPoint;
     [SerializeField] GameObject [] _cans;
+    [SerializeField] GameObject spawnCircle;
+
+    Vector2 circlepos;
 
     bool distrib = true;
 
@@ -19,20 +23,28 @@ public class CanMachine : MonoBehaviour
     void Start()
     {
         machineCurrentHealth = machineMaxHealth;
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+
+
+
     }
 
     private void DistribCan()
     {
+      
+        
+        circlepos = new Vector2(transform.position.x, -.5f);
+        spawnCircle.transform.position = circlepos - Random.insideUnitCircle * spawnRadius;
         int i = Random.Range(0, _cans.Length);
-        int s = Random.Range(0, spawnPoint.Length);
-        GameObject go = Instantiate(_cans[i], spawnPoint[s].transform.position, transform.rotation);
+        //int s = Random.Range(0, spawnPoint.Length);
+        //GameObject go = Instantiate(_cans[i], spawnPoint[s].transform.position, transform.rotation);
+        GameObject go = Instantiate(_cans[i], spawnCircle.transform.position, transform.rotation);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
