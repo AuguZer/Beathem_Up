@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5518959432889218030}
   - component: {fileID: 5518959432889218029}
   - component: {fileID: 594866996}
+  - component: {fileID: 1564128211}
   m_Layer: 11
   m_Name: PLANT_PICKUP
   m_TagString: Items
@@ -98,6 +99,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1564128211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5518959432889218028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce19f8944852b04aadd12fe986dd8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectCurrentHealth: 0
+  objectMaxHealth: 100
+  damageTaken: 50
+  destAnimator: {fileID: 398719853}
 --- !u!1 &5518959433518695357
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,9 +125,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5518959433518695358}
   - component: {fileID: 5518959433518695359}
+  - component: {fileID: 398719853}
   m_Layer: 11
   m_Name: PLANT_GRAPHICS
-  m_TagString: Untagged
+  m_TagString: Items
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,3 +200,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &398719853
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5518959433518695357}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0efcb0f162099994581b32a54ee1adf7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

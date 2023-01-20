@@ -4837,8 +4837,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 658127309
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14912,7 +14912,7 @@ MonoBehaviour:
   currentState: 0
   walkSpeed: 5
   sprintSpeed: 10
-  playerMaxHealth: 100
+  playerMaxHealth: 1000000
   playerCurrentHealth: 0
   playerMaxPower: 100
   playerCurrentPower: 100

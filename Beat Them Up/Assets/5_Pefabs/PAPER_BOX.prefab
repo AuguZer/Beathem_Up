@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7364908670650136712}
   m_Layer: 10
   m_Name: PAPER_BOX_GRAPHICS
-  m_TagString: Untagged
+  m_TagString: Destructibles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 7364908671725427216}
   m_Layer: 10
   m_Name: PAPER_BOX
-  m_TagString: Finish
+  m_TagString: Destructibles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

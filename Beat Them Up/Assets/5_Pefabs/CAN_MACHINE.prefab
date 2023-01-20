@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2967322388568169086}
   m_Layer: 10
   m_Name: CAN_MACHINE_GRAPHICS
-  m_TagString: Untagged
+  m_TagString: Machine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -14149045
-  m_SortingLayer: -1
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 690652790, guid: f8b490828e30a3d4da1f4667e401938a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fd5b613faa6264d89cba419974e448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCurrentHealth: 0
-  itemMaxHealth: 100
+  machineCurrentHealth: 0
+  machineMaxHealth: 100
   damageTaken: 40
   destAnimator: {fileID: 2967322388568169086}
   spawnPoint:

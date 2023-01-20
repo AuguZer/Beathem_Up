@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7842106312589425788}
   m_Layer: 10
   m_Name: STREET_LAMP
-  m_TagString: Finish
+  m_TagString: Destructibles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 7842106312989962638}
   m_Layer: 10
   m_Name: STREET_LAMP_GRAPHICS
-  m_TagString: Untagged
+  m_TagString: Destructibles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
