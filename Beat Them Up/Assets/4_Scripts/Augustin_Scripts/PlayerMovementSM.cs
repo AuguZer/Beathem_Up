@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMovementSM : MonoBehaviour
 {
@@ -73,8 +74,12 @@ public class PlayerMovementSM : MonoBehaviour
     [Header("UI")]
     [SerializeField] GameObject healthSlider;
     [SerializeField] GameObject pwSlider;
+    [SerializeField] GameObject pointsText;
     Slider lifeSlider;
     Slider powerSlider;
+    TextMeshProUGUI ptsText;
+    AddPoints _addpoints;
+
 
     private void Awake()
     {
@@ -110,6 +115,10 @@ public class PlayerMovementSM : MonoBehaviour
         powerSlider = pwSlider.GetComponent<Slider>();
         powerSlider.maxValue = playerMaxPower;
         powerSlider.value = playerCurrentPower;
+
+        //---- SCORE ----
+        ptsText = pointsText.GetComponent<TextMeshProUGUI>();
+        ptsText.text = "Score : ";
     }
 
     // Update is called once per frame
@@ -196,6 +205,7 @@ public class PlayerMovementSM : MonoBehaviour
     public void TakePoints(float amount)
     {
         playerCurrentPoints += amount;
+        ptsText.text = "Score : " + playerCurrentPoints.ToString();
     }
     public void TakePower(float amount)
     {
