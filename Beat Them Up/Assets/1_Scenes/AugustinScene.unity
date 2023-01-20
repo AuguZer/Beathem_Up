@@ -2277,6 +2277,10 @@ PrefabInstance:
       propertyPath: enemyPrefab
       value: 
       objectReference: {fileID: 1729678557}
+    - target: {fileID: 2011281305, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+      propertyPath: detectorLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 7352570458218325122, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: m_RootOrder
       value: 6
