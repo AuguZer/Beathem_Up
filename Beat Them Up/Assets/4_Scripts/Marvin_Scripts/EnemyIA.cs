@@ -43,7 +43,9 @@ public class EnemyIA : MonoBehaviour
 
 
     bool right = true;
-    float deathTimer = 2f;
+    bool Hurt = true;
+
+    
 
 
 
@@ -184,13 +186,18 @@ public class EnemyIA : MonoBehaviour
                     TransitionToState(EnemyState.Dead);
                 }
                 break;
+
+
+            case EnemyState.Hurt:
+
+                break;
             case EnemyState.Dead:
 
 
                 if (IsDead)
                 {
                     TransitionToState(EnemyState.Dead);
-                    Destroy(gameObject, deathTimer);
+                    Destroy(gameObject);
                 }
 
                 break;
@@ -293,6 +300,8 @@ public class EnemyIA : MonoBehaviour
         
 
         EnemyCurrentHealth -= amount;
+
+        Hurt = true;
 
         if (EnemyCurrentHealth <= 0)
         {
