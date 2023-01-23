@@ -6,7 +6,7 @@ public class EnemyIA : MonoBehaviour
 {
     [Header("OverlapCircle Parameters")]
 
-    public float detectionRadius = .7f;
+    public float detectionRadius = 1f;
     public LayerMask detectorLayerMask;
 
 
@@ -31,8 +31,7 @@ public class EnemyIA : MonoBehaviour
 
     Collider2D playerCollider;
 
-
-
+    float attackNumber = 0;
 
 
     [Header("Bool Enemy")]
@@ -63,6 +62,8 @@ public class EnemyIA : MonoBehaviour
 
         currentState = EnemyState.Idle;
         OnStateEnter();
+
+       
     }
 
     // Update is called once per frame
@@ -71,6 +72,7 @@ public class EnemyIA : MonoBehaviour
         OnStateUpdate();
         Move();
 
+        
 
     }
 
@@ -110,12 +112,19 @@ public class EnemyIA : MonoBehaviour
                     TransitionToState(EnemyState.Walk);
                 }
 
+                
                 // TO ATTACK
 
                 if (playerDetected && Vector2.Distance(transform.position, player.transform.position) <= AttackZone)
                 {
                     TransitionToState(EnemyState.Attack);
+
+                    animator.SetFloat("AttackNumber", attackNumber);
+
+                    attackNumber = attackNumber >= 1 ? 0 : attackNumber + 1;
+
                 }
+                
 
                 if (IsDead)
                 {
@@ -308,7 +317,7 @@ public class EnemyIA : MonoBehaviour
         
 
             // CREATE PARTICLE
-            //GameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
+            //G*ameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
 
         }
 

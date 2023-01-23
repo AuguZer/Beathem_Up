@@ -25,18 +25,7 @@ public class EnemyDetector : MonoBehaviour
 
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-
-
-
-
-        //if (collision.gameObject.tag == "Player")
-
-        //{
-        //}
-       
-    }
+   
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
