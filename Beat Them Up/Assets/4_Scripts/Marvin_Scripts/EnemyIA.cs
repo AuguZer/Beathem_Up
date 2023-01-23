@@ -81,10 +81,7 @@ public class EnemyIA : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Idle:
-                if (!playerCollider)
-                {
-                    TransitionToState(EnemyState.Idle);
-                }
+               
                 break;
             case EnemyState.Walk:
                 Enemycurrentspeed = enemySpeed;
@@ -217,9 +214,7 @@ public class EnemyIA : MonoBehaviour
     private void TransitionToState(EnemyState nextstate)
     {
         OnStateExit();
-        Debug.Log("From" + currentState);
         currentState = nextstate;
-        Debug.Log("To" + currentState);
         OnStateEnter();
     }
 

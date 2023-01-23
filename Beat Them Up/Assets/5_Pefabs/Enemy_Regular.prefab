@@ -293,7 +293,7 @@ MonoBehaviour:
   graphics: {fileID: 932652161969121186}
   hitbox: {fileID: 932652162608203838}
   player: {fileID: 0}
-  enemySpeed: 3
+  enemySpeed: 2.5
   EnemyHealth: 100
   EnemyCurrentHealth: 100
   EnemyDamage: 5
