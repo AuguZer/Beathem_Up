@@ -58,6 +58,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.782042, y: 0.5949843}
   m_EdgeRadius: 0
+--- !u!1 &1744420392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744420393}
+  m_Layer: 7
+  m_Name: PointsCircle
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1744420393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744420392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 932652162733719603}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &932652161570890888
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +307,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 932652161969121187}
+  - {fileID: 1744420393}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -349,6 +381,11 @@ MonoBehaviour:
   detectorLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _pointsItems:
+  - {fileID: 5685102032809231103, guid: b874e0bc012e30a429b7b755cf128f67, type: 3}
+  - {fileID: 5949690672953940660, guid: 1fe93899e0c601448b626b2fa17c8619, type: 3}
+  _pointCircle: {fileID: 0}
+  radiusSpawn: 0.5
   graphics: {fileID: 932652161969121186}
   hitbox: {fileID: 932652162608203838}
   player: {fileID: 0}
@@ -359,7 +396,7 @@ MonoBehaviour:
   AttackZone: 1
   animator: {fileID: 932652161969121185}
   rb2d: {fileID: 932652162733719601}
-  currentState: 4
+  currentState: 0
 --- !u!58 &932652162733719610
 CircleCollider2D:
   m_ObjectHideFlags: 0
