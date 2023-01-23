@@ -8,6 +8,7 @@ public class HealthCan : MonoBehaviour
     [SerializeField] float healthPoint = 5f;
     
     [SerializeField] Animator canAnimator;
+    AudioSource audiosource;
 
     [SerializeField] float canDuration = 5f;
     [SerializeField] float canDestroy = 10f;
@@ -16,6 +17,7 @@ public class HealthCan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,7 @@ public class HealthCan : MonoBehaviour
         if (collision.gameObject.tag == ("Player"))
         {
             collision.gameObject.GetComponent<PlayerMovementSM>().TakeHealth(healthPoint);
+            AudioSource.PlayClipAtPoint(audiosource.clip, transform.position);
             Destroy(gameObject);
         }
     }

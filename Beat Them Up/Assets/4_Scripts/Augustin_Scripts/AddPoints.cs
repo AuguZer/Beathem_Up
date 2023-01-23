@@ -12,10 +12,12 @@ public class AddPoints : MonoBehaviour
     [SerializeField] float collectDestroy = 10f;
     float t;
 
+    AudioSource audioSource;
   
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,7 @@ public class AddPoints : MonoBehaviour
         if (collision.gameObject.tag=="Player")
         {
             collision.gameObject.GetComponent<PlayerMovementSM>().TakePoints(points);
+            AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
             Destroy(gameObject);
         }
     }

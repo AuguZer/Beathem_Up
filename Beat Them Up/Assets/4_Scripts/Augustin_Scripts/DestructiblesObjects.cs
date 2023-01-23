@@ -9,6 +9,7 @@ public class DestructiblesObjects : MonoBehaviour
     [SerializeField] float damageTaken = 50;
 
     [SerializeField] Animator destAnimator;
+    AudioSource audioDest;
 
     BoxCollider2D bx2d;
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class DestructiblesObjects : MonoBehaviour
     {
         bx2d = GetComponent<BoxCollider2D>();
         objectCurrentHealth = objectMaxHealth;
+        audioDest = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class DestructiblesObjects : MonoBehaviour
 
         if (objectCurrentHealth <= 0)
         {
+            AudioSource.PlayClipAtPoint(audioDest.clip, transform.position);
             destAnimator.SetTrigger("BROKEN");
             bx2d.enabled = false;
         }
@@ -49,6 +52,7 @@ public class DestructiblesObjects : MonoBehaviour
 
         if (objectCurrentHealth <= 0)
         {
+            AudioSource.PlayClipAtPoint(audioDest.clip, transform.position);
             destAnimator.SetTrigger("BROKEN");
             bx2d.enabled = false;
         }

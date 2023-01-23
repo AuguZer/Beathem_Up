@@ -23,24 +23,20 @@ public class HitPS : MonoBehaviour
     {
         if (collision.gameObject.tag == "Untagged")
         {
-            Debug.Log("no");
             psHit.SetActive(false);
         }
 
         if (collision.gameObject.tag == "Destructibles")
         {
-            Debug.Log("ok");
             psHit.SetActive(true);
         } 
         if (collision.gameObject.tag == "Items")
         {
-            Debug.Log("ok");
             psHit.SetActive(true);
         } 
 
         if (collision.gameObject.tag == "Machine")
         {
-            Debug.Log("ok");
             psHit.SetActive(true);
         }
 
@@ -52,7 +48,6 @@ public class HitPS : MonoBehaviour
 
         if (collision.gameObject.tag == "TakeDamage")
         {
-            Debug.Log("damage");
             enemyPrefab.GetComponent<EnemyIA>().TakeDamage(hitDamage);
             psHit.SetActive(true);
         }

@@ -75,6 +75,7 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] float throwSpeed = 5f;
     Rigidbody2D rb2dPickUp;
     SpriteRenderer _sprite;
+    AudioSource audioThrow;
 
     [Header("UI")]
     [SerializeField] GameObject healthSlider;
@@ -112,6 +113,7 @@ public class PlayerMovementSM : MonoBehaviour
         //HOLD
         rb2dPickUp = _pickUpPrefab.GetComponent<Rigidbody2D>();
         holdCount = 0;
+        audioThrow = _pickUpPrefab.GetComponent<AudioSource>();
 
 
         //UI
@@ -274,7 +276,7 @@ public class PlayerMovementSM : MonoBehaviour
             rb2dPickUp.isKinematic = false;
             playerAnimator.SetTrigger("Throw");
             //_sprite.sortingOrder = 0;
-
+            AudioSource.PlayClipAtPoint(audioThrow.clip, transform.position);
             StartCoroutine(ThrowTime());
 
             if (!right)

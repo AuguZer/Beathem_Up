@@ -11,6 +11,8 @@ public class CanMachine : MonoBehaviour
 
     [SerializeField] Animator destAnimator;
 
+    AudioSource audioMachine;
+
     //[SerializeField] GameObject [] spawnPoint;
     [SerializeField] GameObject [] _cans;
     [SerializeField] GameObject spawnCircle;
@@ -23,14 +25,13 @@ public class CanMachine : MonoBehaviour
     void Start()
     {
         machineCurrentHealth = machineMaxHealth;
-        
+        audioMachine = GetComponent<AudioSource>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
 
 
     }
@@ -51,7 +52,6 @@ public class CanMachine : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerHitBox")
         {
-            Debug.Log("cc");
             destAnimator.SetTrigger("HIT");
             machineCurrentHealth -= damageTaken;
 
@@ -63,6 +63,7 @@ public class CanMachine : MonoBehaviour
 
         if (machineCurrentHealth <= 0)
         {
+            AudioSource.PlayClipAtPoint(audioMachine.clip, transform.position);
             distrib = false;
             destAnimator.SetBool("BROKEN", true);
         }
@@ -82,6 +83,7 @@ public class CanMachine : MonoBehaviour
 
             if (machineCurrentHealth <= 0)
             {
+                AudioSource.PlayClipAtPoint(audioMachine.clip, transform.position);
                 distrib = false;
                 destAnimator.SetBool("BROKEN", true);
             }
