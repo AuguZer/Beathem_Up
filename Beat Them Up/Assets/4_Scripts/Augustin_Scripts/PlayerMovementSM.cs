@@ -52,6 +52,7 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] GameObject psJump;
     [SerializeField] GameObject psLand;
     [SerializeField] Animator shadowAnimator;
+    AudioSource audioPlayer;
     Transform _graphics;
     float jumpTimer;
     bool isJumping;
@@ -103,6 +104,8 @@ public class PlayerMovementSM : MonoBehaviour
         currentState = PlayerState.IDLE_Player;
         _sprite = _pickUpGraphics.GetComponent<SpriteRenderer>();
         OnStateEnter();
+
+        audioPlayer = GetComponent<AudioSource>();
 
         hitBox.SetActive(false);
         psJump.SetActive(false);
@@ -338,6 +341,7 @@ public class PlayerMovementSM : MonoBehaviour
         //JUMP
         if (Input.GetButtonDown("Jump") && !isJumping)
         {
+            AudioSource.PlayClipAtPoint(audioPlayer.clip, transform.position);
             isJumping = true;
             playerAnimator.SetTrigger("IsJumping");
             shadowAnimator.SetTrigger("JUMP");
