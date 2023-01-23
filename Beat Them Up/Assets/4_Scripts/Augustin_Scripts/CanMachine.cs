@@ -51,7 +51,6 @@ public class CanMachine : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerHitBox")
         {
-            Debug.Log("cc");
             destAnimator.SetTrigger("HIT");
             machineCurrentHealth -= damageTaken;
 
