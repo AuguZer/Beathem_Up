@@ -401,7 +401,7 @@ public class PlayerMovementSM : MonoBehaviour
             case PlayerState.DEATH_Player:
                 isDead = true;
                 invincible = true;
-                Scene_Loader.instance.GameOver();
+                StartCoroutine(GameOver());
                 break;
             case PlayerState.JUMP_Player:
                 isJumping = true;
@@ -728,5 +728,12 @@ public class PlayerMovementSM : MonoBehaviour
 
         rb2dPickUp.isKinematic = true;
         rb2dPickUp.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(2f);
+
+        Scene_Loader.instance.GameOver();
+
     }
 }

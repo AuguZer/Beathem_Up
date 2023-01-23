@@ -41,4 +41,9 @@ public class Scene_Loader : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
