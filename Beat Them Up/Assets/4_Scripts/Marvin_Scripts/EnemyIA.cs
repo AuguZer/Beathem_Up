@@ -21,7 +21,7 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] float EnemyHealth = 100f;
     [SerializeField] float EnemyCurrentHealth = 100f;
     [SerializeField] float EnemyDamage = 5f;
-    [SerializeField] float AttackZone = .5f;
+    [SerializeField] float AttackZone = 1f;
 
     [SerializeField] Animator animator;
     [SerializeField] Rigidbody2D rb2d;
@@ -81,7 +81,10 @@ public class EnemyIA : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Idle:
-
+                if (!playerCollider)
+                {
+                    TransitionToState(EnemyState.Idle);
+                }
                 break;
             case EnemyState.Walk:
                 Enemycurrentspeed = enemySpeed;
@@ -107,7 +110,7 @@ public class EnemyIA : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Idle:
-                if (playerDetected && Vector2.Distance(transform.position, player.transform.position) > AttackZone)
+                if (playerDetected)
                 {
                     TransitionToState(EnemyState.Walk);
                 }
@@ -135,14 +138,19 @@ public class EnemyIA : MonoBehaviour
             case EnemyState.Walk:
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
 
-                // TO IDLE
-                if (!playerDetected)
-                {
 
+
+
+
+
+                // TO IDLE
+                if (!playerDetected && !playerCollider)
+                {
                     TransitionToState(EnemyState.Idle);
                 }
+                
 
-
+                
 
                 // TO ATTACK
                 if (Vector2.Distance(transform.position, player.transform.position) <= AttackZone)
@@ -160,11 +168,7 @@ public class EnemyIA : MonoBehaviour
             case EnemyState.Attack:
                 
 
-                if (playerDetected && Vector2.Distance(transform.position, player.transform.position) > AttackZone)
-                {
-                    
-                    TransitionToState(EnemyState.Walk);
-                }
+               
 
                 if (IsDead)
                 {
