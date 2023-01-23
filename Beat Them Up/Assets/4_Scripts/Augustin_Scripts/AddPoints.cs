@@ -11,10 +11,11 @@ public class AddPoints : MonoBehaviour
     [SerializeField] float collectDuration = 5f;
     [SerializeField] float collectDestroy = 10f;
     float t;
+
+  
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
