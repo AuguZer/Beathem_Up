@@ -199,6 +199,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: Hurt
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -285,17 +291,17 @@ AnimatorStateMachine:
     m_Position: {x: 420, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4055116576254837577}
-    m_Position: {x: -320, y: 260, z: 0}
+    m_Position: {x: -340, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6600058206161498267}
-    m_Position: {x: 400, y: 500, z: 0}
+    m_Position: {x: 410, y: 520, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -7251989650712823281}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 420, y: 410, z: 0}
+  m_AnyStatePosition: {x: 420, y: 630, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

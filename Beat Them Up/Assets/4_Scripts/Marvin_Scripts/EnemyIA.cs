@@ -32,7 +32,7 @@ public class EnemyIA : MonoBehaviour
     Collider2D playerCollider;
 
     float attackNumber = 0;
-
+    bool AttackSet;
 
     [Header("Bool Enemy")]
     bool target = false;
@@ -43,6 +43,7 @@ public class EnemyIA : MonoBehaviour
 
 
     bool right = true;
+    float deathTimer = 2f;
 
 
 
@@ -54,6 +55,7 @@ public class EnemyIA : MonoBehaviour
         Walk,
         Attack,
         Dead,
+        Hurt,
     }
     // Start is called before the first frame update
     void Start()
@@ -94,8 +96,14 @@ public class EnemyIA : MonoBehaviour
                 StartCoroutine(ReloadAttack());
 
                 break;
+            case EnemyState.Hurt:
+                animator.SetTrigger("HURT");
+
+                break;
+
             case EnemyState.Dead:
                 IsDead = true;
+                playerCollider.enabled = true;
                 break;
             default:
                 break;
@@ -119,11 +127,16 @@ public class EnemyIA : MonoBehaviour
                 {
                     TransitionToState(EnemyState.Attack);
 
+                    
                     animator.SetFloat("AttackNumber", attackNumber);
 
                     attackNumber = attackNumber >= 1 ? 0 : attackNumber + 1;
 
+                    AttackSet = true;
+
                 }
+
+             
                 
 
                 if (IsDead)
@@ -134,8 +147,6 @@ public class EnemyIA : MonoBehaviour
                 break;
             case EnemyState.Walk:
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
-
-
 
 
 
@@ -178,6 +189,7 @@ public class EnemyIA : MonoBehaviour
                 if (IsDead)
                 {
                     TransitionToState(EnemyState.Dead);
+                    Destroy(gameObject, deathTimer);
                 }
 
                 break;
@@ -202,6 +214,11 @@ public class EnemyIA : MonoBehaviour
                 animator.SetBool("IsAttacking", false);
 
                 break;
+
+            case EnemyState.Hurt:
+                //animator.SetBool("Hurt", false);
+                break;
+
             case EnemyState.Dead:
                 break;
             default:
@@ -316,7 +333,7 @@ public class EnemyIA : MonoBehaviour
         
 
             // CREATE PARTICLE
-            //G*ameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
+            //GameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
 
         }
 
