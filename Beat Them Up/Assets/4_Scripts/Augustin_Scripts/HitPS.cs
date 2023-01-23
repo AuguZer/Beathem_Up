@@ -16,7 +16,7 @@ public class HitPS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,15 +26,35 @@ public class HitPS : MonoBehaviour
             Debug.Log("no");
             psHit.SetActive(false);
         }
-        else
+
+        if (collision.gameObject.tag == "Destructibles")
+        {
+            Debug.Log("ok");
+            psHit.SetActive(true);
+        } 
+        if (collision.gameObject.tag == "Items")
+        {
+            Debug.Log("ok");
+            psHit.SetActive(true);
+        } 
+
+        if (collision.gameObject.tag == "Machine")
         {
             Debug.Log("ok");
             psHit.SetActive(true);
         }
 
+        //if (collision.gameObject.tag == "Enemy")
+        //{
+        //    Debug.Log("no");
+        //    psHit.SetActive(false);
+        //}
+
         if (collision.gameObject.tag == "TakeDamage")
         {
+            Debug.Log("damage");
             enemyPrefab.GetComponent<EnemyIA>().TakeDamage(hitDamage);
+            psHit.SetActive(true);
         }
     }
 }
