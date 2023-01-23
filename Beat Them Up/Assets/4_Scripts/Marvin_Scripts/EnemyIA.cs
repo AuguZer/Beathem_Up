@@ -98,6 +98,7 @@ public class EnemyIA : MonoBehaviour
                 break;
             case EnemyState.Hurt:
                 animator.SetTrigger("HURT");
+                animator.SetLayerWeight(1, 1f);
 
                 break;
 
@@ -216,6 +217,7 @@ public class EnemyIA : MonoBehaviour
                 break;
 
             case EnemyState.Hurt:
+                animator.SetLayerWeight(0, 0f);
                 //animator.SetBool("Hurt", false);
                 break;
 
@@ -288,7 +290,7 @@ public class EnemyIA : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-
+        
 
         EnemyCurrentHealth -= amount;
 

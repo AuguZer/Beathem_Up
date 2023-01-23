@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -232185428, guid: 1b85d9e27772f084980aeaa04976d5ac, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   AttackZone: 1
   animator: {fileID: 932652161969121185}
   rb2d: {fileID: 932652162733719601}
-  currentState: 0
+  currentState: 4
 --- !u!58 &932652162733719610
 CircleCollider2D:
   m_ObjectHideFlags: 0
