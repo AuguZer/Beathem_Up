@@ -4896,7 +4896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822239168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: 0.36, z: 0}
+  m_LocalPosition: {x: -0.2, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24652,7 +24652,8 @@ MonoBehaviour:
   currentState: 0
   walkSpeed: 5
   sprintSpeed: 10
-  psSprint: {fileID: 2113993422}
+  psSprintR: {fileID: 2113993422}
+  psSprintL: {fileID: 822239168}
   playerMaxHealth: 100
   playerCurrentHealth: 0
   playerMaxLife: 3
