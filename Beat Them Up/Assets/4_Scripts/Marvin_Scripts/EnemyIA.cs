@@ -43,9 +43,9 @@ public class EnemyIA : MonoBehaviour
 
 
     bool right = true;
-    bool Hurt = true;
+    bool isHurt;
 
-    
+
 
 
 
@@ -67,7 +67,7 @@ public class EnemyIA : MonoBehaviour
         currentState = EnemyState.Idle;
         OnStateEnter();
 
-       
+
     }
 
     // Update is called once per frame
@@ -76,7 +76,7 @@ public class EnemyIA : MonoBehaviour
         OnStateUpdate();
         Move();
 
-        
+
 
     }
 
@@ -85,7 +85,8 @@ public class EnemyIA : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Idle:
-               
+                //isHurt = false;
+
                 break;
             case EnemyState.Walk:
                 Enemycurrentspeed = enemySpeed;
@@ -99,14 +100,16 @@ public class EnemyIA : MonoBehaviour
 
                 break;
             case EnemyState.Hurt:
+                isHurt = true;
                 animator.SetTrigger("HURT");
-                animator.SetLayerWeight(1, 1f);
+                StartCoroutine(Hurt());
+
 
                 break;
 
             case EnemyState.Dead:
+                StartCoroutine(Death());
                 IsDead = true;
-                playerCollider.enabled = true;
                 break;
             default:
                 break;
@@ -123,14 +126,14 @@ public class EnemyIA : MonoBehaviour
                     TransitionToState(EnemyState.Walk);
                 }
 
-                
+
                 // TO ATTACK
 
                 if (playerDetected && Vector2.Distance(transform.position, player.transform.position) <= AttackZone)
                 {
                     TransitionToState(EnemyState.Attack);
 
-                    
+
                     animator.SetFloat("AttackNumber", attackNumber);
 
                     attackNumber = attackNumber >= 1 ? 0 : attackNumber + 1;
@@ -139,29 +142,30 @@ public class EnemyIA : MonoBehaviour
 
                 }
 
-             
-                
 
+
+                //TO DEATH
                 if (IsDead)
                 {
                     TransitionToState(EnemyState.Dead);
                 }
 
+                //TO HURT
+                if (isHurt)
+                {
+                    TransitionToState(EnemyState.Hurt);
+                }
+
                 break;
+
             case EnemyState.Walk:
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
-
-
-
 
                 // TO IDLE
                 if (!playerDetected && !playerCollider)
                 {
                     TransitionToState(EnemyState.Idle);
                 }
-                
-
-                
 
                 // TO ATTACK
                 if (Vector2.Distance(transform.position, player.transform.position) <= AttackZone)
@@ -175,30 +179,35 @@ public class EnemyIA : MonoBehaviour
                     TransitionToState(EnemyState.Dead);
                 }
 
+                //TO HURT
+                if (isHurt)
+                {
+                    TransitionToState(EnemyState.Hurt);
+                }
+
                 break;
             case EnemyState.Attack:
-                
-
-               
 
                 if (IsDead)
                 {
                     TransitionToState(EnemyState.Dead);
                 }
+
+                //TO HURT
+                if (isHurt)
+                {
+                    TransitionToState(EnemyState.Hurt);
+                }
+
                 break;
 
 
             case EnemyState.Hurt:
+                animator.SetLayerWeight(1, 1f);
 
                 break;
             case EnemyState.Dead:
-
-
-                if (IsDead)
-                {
-                    TransitionToState(EnemyState.Dead);
-                    Destroy(gameObject);
-                }
+                rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
 
                 break;
             default:
@@ -225,6 +234,7 @@ public class EnemyIA : MonoBehaviour
 
             case EnemyState.Hurt:
                 animator.SetLayerWeight(0, 1f);
+                isHurt = false;
                 //animator.SetBool("Hurt", false);
                 break;
 
@@ -297,32 +307,73 @@ public class EnemyIA : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        
 
-        EnemyCurrentHealth -= amount;
-
-        Hurt = true;
-
-        if (EnemyCurrentHealth <= 0)
-        {
-            IsDead = true;
-        }
-
-
+        isHurt = true;
 
 
         if (IsDead)
         {
             animator.SetTrigger("IsDead");
+        }
 
-            rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        if (EnemyCurrentHealth <= 0)
+        {
+            IsDead = true;
+            return;
+        }
+
+
+        EnemyCurrentHealth -= amount;
+    }
+
+    IEnumerator Death()
+    {
+        yield return new WaitForSeconds(3f);
+
+        Destroy(gameObject);
+    }
+    IEnumerator Hurt()
+    {
+        yield return new WaitForSeconds(.3f);
+
+        // TO IDLE
+        if (!playerDetected && !playerCollider)
+        {
+            TransitionToState(EnemyState.Idle);
+        }
+
+        //TO WALK
+        if (playerDetected)
+        {
+            TransitionToState(EnemyState.Walk);
+        }
+
+
+        // TO ATTACK
+
+        if (playerDetected && Vector2.Distance(transform.position, player.transform.position) <= AttackZone)
+        {
+            TransitionToState(EnemyState.Attack);
+
+
+            animator.SetFloat("AttackNumber", attackNumber);
+
+            attackNumber = attackNumber >= 1 ? 0 : attackNumber + 1;
+
+            AttackSet = true;
 
         }
 
 
+
+        //TO DEATH
+        if (IsDead)
+        {
+            TransitionToState(EnemyState.Dead);
+        }
+
+
     }
-
-
 
     IEnumerator ReloadAttack()
     {
@@ -341,16 +392,18 @@ public class EnemyIA : MonoBehaviour
         if (playerCollider != null)
         {
             playerCollider.GetComponent<PlayerMovementSM>().TakeDamage(EnemyDamage);
-        
-
             // CREATE PARTICLE
             //GameObject go = Instantiate(hitbox, hitbox.transform.position, hitbox.transform.rotation);
+        }
+
+        if (playerCollider == null)
+        {
+            yield return new WaitForSeconds(1f);
+
+            TransitionToState(EnemyState.Idle);
 
         }
 
-        yield return new WaitForSeconds(1f);
-
-        TransitionToState(EnemyState.Idle);
 
 
 
