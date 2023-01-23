@@ -75,7 +75,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b22e9f8e21c834085e874264dffd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holdPoint: {fileID: 0}
   graphics: {fileID: 5518959433518695357}
+  player: {fileID: 0}
   _enemyPrefabs: {fileID: 0}
   damage: 10
   canBeHold: 0
