@@ -55,7 +55,7 @@ public class EnemyIA : MonoBehaviour
         Walk,
         Attack,
         Dead,
-        Hurt,
+        Hurt
     }
     // Start is called before the first frame update
     void Start()
@@ -217,7 +217,7 @@ public class EnemyIA : MonoBehaviour
                 break;
 
             case EnemyState.Hurt:
-                animator.SetLayerWeight(0, 0f);
+                animator.SetLayerWeight(0, 1f);
                 //animator.SetBool("Hurt", false);
                 break;
 
