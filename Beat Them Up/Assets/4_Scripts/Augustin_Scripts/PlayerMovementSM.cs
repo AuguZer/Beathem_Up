@@ -24,6 +24,8 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] PlayerState currentState;
     [SerializeField] float walkSpeed = 5f;
     [SerializeField] float sprintSpeed = 10f;
+    [SerializeField] GameObject psSprintR;
+    [SerializeField] GameObject psSprintL;
     Vector2 dirInput;
     bool sprintInput;
     Rigidbody2D rb2d;
@@ -66,6 +68,7 @@ public class PlayerMovementSM : MonoBehaviour
 
     [Header("HOLD")]
     bool _canBeHold;
+    bool isHolding;
     [SerializeField] GameObject _pickUpPrefab;
     [SerializeField] GameObject _pickUpGraphics;
     [SerializeField] int holdCount;
@@ -82,7 +85,7 @@ public class PlayerMovementSM : MonoBehaviour
     Slider powerSlider;
     TextMeshProUGUI ptsText;
     TextMeshProUGUI lifeCount;
-  
+
 
 
     private void Awake()
@@ -103,6 +106,8 @@ public class PlayerMovementSM : MonoBehaviour
         hitBox.SetActive(false);
         psJump.SetActive(false);
         psLand.SetActive(false);
+        psSprintR.SetActive(false);
+        psSprintL.SetActive(false);
 
         //HOLD
         rb2dPickUp = _pickUpPrefab.GetComponent<Rigidbody2D>();
@@ -124,7 +129,7 @@ public class PlayerMovementSM : MonoBehaviour
 
         //---- SCORE ----
         ptsText = pointsText.GetComponent<TextMeshProUGUI>();
-        ptsText.text = "Score : " + playerCurrentPoints.ToString();
+        ptsText.text = "Score : 0000" + playerCurrentPoints.ToString();
     }
 
     // Update is called once per frame
@@ -165,12 +170,13 @@ public class PlayerMovementSM : MonoBehaviour
     }
     public void TakeDamage(float amout)
     {
-        isHurt = true;
-
         if (invincible)
         {
             return;
         }
+
+        isHurt = true;
+
 
         playerCurrentHealth -= amout;
 
@@ -183,11 +189,12 @@ public class PlayerMovementSM : MonoBehaviour
             {
                 isDead = true;
                 playerAnimator.SetBool("Dead", true);
+                playerCurrentLife -= 1;
+                invincible = true;
             }
 
             if (isDead)
             {
-                playerCurrentLife -= 1;
                 lifeCount.text = playerCurrentLife.ToString();
                 rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
 
@@ -233,6 +240,11 @@ public class PlayerMovementSM : MonoBehaviour
     }
     private void Attack()
     {
+        if (isHolding)
+        {
+            return;
+        }
+
         isAttacking = true;
         attackNumber += 1;
         playerAnimator.SetInteger("AttackNumber", attackNumber);
@@ -248,18 +260,20 @@ public class PlayerMovementSM : MonoBehaviour
     {
         if (_canBeHold & Input.GetButtonDown("Hold") & holdCount == 0)
         {
+            isHolding = true;
             rb2dPickUp.isKinematic = true;
             rb2dPickUp.constraints = RigidbodyConstraints2D.None;
+            rb2dPickUp.constraints = RigidbodyConstraints2D.FreezeRotation;
             holdCount++;
             playerAnimator.SetLayerWeight(1, 1f);
-            _sprite.sortingOrder = 1;
-
+            //_sprite.sortingOrder = 1;
         }
         if (!_canBeHold & Input.GetButtonDown("Hold") & holdCount == 1)
         {
+            isHolding = false;
             rb2dPickUp.isKinematic = false;
             playerAnimator.SetTrigger("Throw");
-            _sprite.sortingOrder = 0;
+            //_sprite.sortingOrder = 0;
 
             StartCoroutine(ThrowTime());
 
@@ -308,6 +322,7 @@ public class PlayerMovementSM : MonoBehaviour
         //SPRINT
         sprintInput = Input.GetButton("Sprint");
         playerAnimator.SetBool("IsSprinting", sprintInput);
+
         if (sprintInput && Input.GetButtonDown("Attack"))
         {
             isAttacking = false;
@@ -358,6 +373,14 @@ public class PlayerMovementSM : MonoBehaviour
 
             case PlayerState.SPRINT_Player:
                 rb2d.velocity = dirInput.normalized * sprintSpeed;
+                if (right)
+                {
+                    psSprintR.SetActive(true);
+                }
+                if (!right)
+                {
+                    psSprintL.SetActive(true);
+                }
                 break;
             case PlayerState.ATTACK_Player:
                 hitBox.SetActive(true);
@@ -371,6 +394,7 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
             case PlayerState.DEATH_Player:
                 isDead = true;
+                invincible = true;
                 break;
             case PlayerState.JUMP_Player:
                 isJumping = true;
@@ -378,11 +402,11 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
             case PlayerState.HURT_Player:
                 invincible = true;
-                if (isHurt)
+                isHurt = true;
+                if (!isDead)
                 {
                     StartCoroutine(Invincible());
                 }
-                isHurt = true;
                 playerAnimator.SetTrigger("IsHit");
                 StartCoroutine(Hurt());
                 break;
@@ -572,6 +596,8 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
             case PlayerState.SPRINT_Player:
                 isAttacking = false;
+                psSprintR.SetActive(false);
+                psSprintL.SetActive(false);
                 break;
             case PlayerState.ATTACK_Player:
                 isAttacking = false;
