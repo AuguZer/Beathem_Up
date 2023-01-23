@@ -19,7 +19,7 @@ public class EnemyIA : MonoBehaviour
     [Header("Info Enemy")]
     [SerializeField] GameObject graphics;
     [SerializeField] GameObject hitbox;
-    [SerializeField] GameObject player;
+    GameObject player;
 
     [SerializeField] float enemySpeed = 3f;
     [SerializeField] float EnemyHealth = 100f;
@@ -66,7 +66,7 @@ public class EnemyIA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        player = PlayerMovementSM.instance.gameObject;
 
         currentState = EnemyState.Idle;
         OnStateEnter();

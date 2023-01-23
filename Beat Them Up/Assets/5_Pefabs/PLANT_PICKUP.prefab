@@ -75,9 +75,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b22e9f8e21c834085e874264dffd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdPoint: {fileID: 0}
   graphics: {fileID: 5518959433518695357}
-  player: {fileID: 7352570458218325123, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+  _enemyPrefabs: {fileID: 0}
+  damage: 10
   canBeHold: 0
 --- !u!50 &594866996
 Rigidbody2D:
@@ -134,7 +134,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 195
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

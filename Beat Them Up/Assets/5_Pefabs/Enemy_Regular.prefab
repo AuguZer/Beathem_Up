@@ -133,7 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd43655215cdd64aa88a6a2943dbceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &932652161969121186
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd43655215cdd64aa88a6a2943dbceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &932652162733719605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,11 +382,10 @@ MonoBehaviour:
   _pointsItems:
   - {fileID: 5685102032809231103, guid: b874e0bc012e30a429b7b755cf128f67, type: 3}
   - {fileID: 5949690672953940660, guid: 1fe93899e0c601448b626b2fa17c8619, type: 3}
-  _pointCircle: {fileID: 0}
+  _pointCircle: {fileID: 1744420392}
   radiusSpawn: 0.5
   graphics: {fileID: 932652161969121186}
   hitbox: {fileID: 932652162608203838}
-  player: {fileID: 0}
   enemySpeed: 2.5
   EnemyHealth: 100
   EnemyCurrentHealth: 100

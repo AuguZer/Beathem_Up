@@ -6,6 +6,9 @@ using TMPro;
 
 public class PlayerMovementSM : MonoBehaviour
 {
+    public static PlayerMovementSM instance;
+
+
     [SerializeField] Animator playerAnimator;
     [SerializeField] GameObject graphics;
     public enum PlayerState
@@ -92,6 +95,12 @@ public class PlayerMovementSM : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogError("c'est la d");
+        }
+
+        instance = this;
         _graphics = transform.Find("GRAPHICS");
     }
     // Start is called before the first frame update

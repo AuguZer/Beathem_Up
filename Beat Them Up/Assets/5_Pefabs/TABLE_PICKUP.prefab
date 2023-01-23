@@ -45,7 +45,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.15563433, y: 0.15678176}
@@ -73,9 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b22e9f8e21c834085e874264dffd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdPoint: {fileID: 0}
   graphics: {fileID: 5518959433518695357}
-  player: {fileID: 7352570458218325123, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
+  _enemyPrefabs: {fileID: 0}
+  damage: 10
   canBeHold: 0
 --- !u!50 &594866996
 Rigidbody2D:

@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class EnemyDetector : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    GameObject player;
     
     EnemyIA enemyIA;
 
     private void Start()
     {
+        player = PlayerMovementSM.instance.gameObject;
         enemyIA = GetComponent<EnemyIA>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
