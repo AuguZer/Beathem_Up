@@ -24,6 +24,8 @@ public class PlayerMovementSM : MonoBehaviour
     [SerializeField] PlayerState currentState;
     [SerializeField] float walkSpeed = 5f;
     [SerializeField] float sprintSpeed = 10f;
+    [SerializeField] GameObject psSprintR;
+    [SerializeField] GameObject psSprintL;
     Vector2 dirInput;
     bool sprintInput;
     Rigidbody2D rb2d;
@@ -104,6 +106,8 @@ public class PlayerMovementSM : MonoBehaviour
         hitBox.SetActive(false);
         psJump.SetActive(false);
         psLand.SetActive(false);
+        psSprintR.SetActive(false);
+        psSprintL.SetActive(false);
 
         //HOLD
         rb2dPickUp = _pickUpPrefab.GetComponent<Rigidbody2D>();
@@ -125,7 +129,7 @@ public class PlayerMovementSM : MonoBehaviour
 
         //---- SCORE ----
         ptsText = pointsText.GetComponent<TextMeshProUGUI>();
-        ptsText.text = "Score : " + playerCurrentPoints.ToString();
+        ptsText.text = "Score : 0000" + playerCurrentPoints.ToString();
     }
 
     // Update is called once per frame
@@ -318,6 +322,7 @@ public class PlayerMovementSM : MonoBehaviour
         //SPRINT
         sprintInput = Input.GetButton("Sprint");
         playerAnimator.SetBool("IsSprinting", sprintInput);
+
         if (sprintInput && Input.GetButtonDown("Attack"))
         {
             isAttacking = false;
@@ -368,6 +373,14 @@ public class PlayerMovementSM : MonoBehaviour
 
             case PlayerState.SPRINT_Player:
                 rb2d.velocity = dirInput.normalized * sprintSpeed;
+                if (right)
+                {
+                    psSprintR.SetActive(true);
+                }
+                if (!right)
+                {
+                    psSprintL.SetActive(true);
+                }
                 break;
             case PlayerState.ATTACK_Player:
                 hitBox.SetActive(true);
@@ -583,6 +596,8 @@ public class PlayerMovementSM : MonoBehaviour
                 break;
             case PlayerState.SPRINT_Player:
                 isAttacking = false;
+                psSprintR.SetActive(false);
+                psSprintL.SetActive(false);
                 break;
             case PlayerState.ATTACK_Player:
                 isAttacking = false;
