@@ -192,11 +192,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5344693c696e115478821c10695ccfe9, type: 3}
---- !u!1 &231981498 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7538892553588170446, guid: 5344693c696e115478821c10695ccfe9, type: 3}
-  m_PrefabInstance: {fileID: 65958845}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &269022957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -322,9 +317,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1301100064}
     - target: {fileID: 932652162733719605, guid: fd03ac39710cdd54eb3343f973c2366d, type: 3}
+      propertyPath: _pointCircle
+      value: 
+      objectReference: {fileID: 1744420392}
+    - target: {fileID: 932652162733719605, guid: fd03ac39710cdd54eb3343f973c2366d, type: 3}
       propertyPath: currentState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 932652162733719605, guid: fd03ac39710cdd54eb3343f973c2366d, type: 3}
+      propertyPath: _pointsItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 932652162733719605, guid: fd03ac39710cdd54eb3343f973c2366d, type: 3}
+      propertyPath: _pointsItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 5685102032809231103, guid: b874e0bc012e30a429b7b755cf128f67, type: 3}
+    - target: {fileID: 932652162733719605, guid: fd03ac39710cdd54eb3343f973c2366d, type: 3}
+      propertyPath: _pointsItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 5949690672953940660, guid: 1fe93899e0c601448b626b2fa17c8619, type: 3}
     - target: {fileID: 932652162733719607, guid: fd03ac39710cdd54eb3343f973c2366d, type: 3}
       propertyPath: player
       value: 
@@ -994,6 +1005,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1744420392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744420393}
+  m_Layer: 7
+  m_Name: PointsCircle
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1744420393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744420392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1918473576}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1787129028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4400480511411827328, guid: 9e75ede161ce45442bb20d7115761bf1, type: 3}
@@ -1198,6 +1240,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1918473570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 932652162733719565, guid: fd03ac39710cdd54eb3343f973c2366d, type: 3}
+  m_PrefabInstance: {fileID: 343878449}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1918473576 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 932652162733719603, guid: fd03ac39710cdd54eb3343f973c2366d, type: 3}
+  m_PrefabInstance: {fileID: 343878449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1972205231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1972205231, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
@@ -1393,7 +1445,7 @@ PrefabInstance:
     - target: {fileID: 2011281305, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 231981498}
+      objectReference: {fileID: 1918473570}
     - target: {fileID: 7352570458218325122, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: m_RootOrder
       value: 5

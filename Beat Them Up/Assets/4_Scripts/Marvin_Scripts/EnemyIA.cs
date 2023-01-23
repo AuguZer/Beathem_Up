@@ -10,7 +10,11 @@ public class EnemyIA : MonoBehaviour
     public LayerMask detectorLayerMask;
 
 
-
+    [Header("GIVE POINTS")]
+    [SerializeField] GameObject[] _pointsItems;
+    [SerializeField] GameObject _pointCircle;
+    [SerializeField] float radiusSpawn = .5f;
+    Vector2 posCircle;
 
     [Header("Info Enemy")]
     [SerializeField] GameObject graphics;
@@ -75,9 +79,6 @@ public class EnemyIA : MonoBehaviour
     {
         OnStateUpdate();
         Move();
-
-
-
     }
 
     private void OnStateEnter()
@@ -110,6 +111,7 @@ public class EnemyIA : MonoBehaviour
             case EnemyState.Dead:
                 StartCoroutine(Death());
                 IsDead = true;
+                GivePoints();
                 break;
             default:
                 break;
@@ -267,7 +269,15 @@ public class EnemyIA : MonoBehaviour
         target = false;
     }
 
+    private void GivePoints()
+    {
+        posCircle = new Vector2(transform.position.x, transform.position.y);
+        _pointCircle.transform.position = posCircle - Random.insideUnitCircle * radiusSpawn;
+        int i;
 
+        i = Random.Range(0, _pointsItems.Length);
+        GameObject go = Instantiate(_pointsItems[i], _pointCircle.transform.position, transform.rotation);
+    }
 
 
     void Move()
@@ -308,22 +318,21 @@ public class EnemyIA : MonoBehaviour
     public void TakeDamage(float amount)
     {
 
+        EnemyCurrentHealth -= amount;
+
         isHurt = true;
 
+
+        if (EnemyCurrentHealth <= 0)
+        {
+            IsDead = true;
+        }
 
         if (IsDead)
         {
             animator.SetTrigger("IsDead");
         }
 
-        if (EnemyCurrentHealth <= 0)
-        {
-            IsDead = true;
-            return;
-        }
-
-
-        EnemyCurrentHealth -= amount;
     }
 
     IEnumerator Death()
@@ -374,7 +383,6 @@ public class EnemyIA : MonoBehaviour
 
 
     }
-
     IEnumerator ReloadAttack()
     {
 
