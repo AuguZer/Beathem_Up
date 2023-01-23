@@ -546,7 +546,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.81067085, y: -6.2151794}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -557,7 +557,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 25, y: 15}
+  m_Size: {x: 107.688934, y: 111.74065}
   m_EdgeRadius: 0
 --- !u!4 &549324334
 Transform:
@@ -574,11 +574,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &822239168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 822239168, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
-  m_PrefabInstance: {fileID: 7352570458448696109}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &840505200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,11 +2197,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077774639}
   m_CullTransparentMesh: 1
---- !u!1 &2113993422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2113993422, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
-  m_PrefabInstance: {fileID: 7352570458448696109}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2967322389498959821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2283,10 +2273,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 822239169, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.27
-      objectReference: {fileID: 0}
     - target: {fileID: 2011281305, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: enemyPrefab
       value: 
@@ -2347,14 +2333,6 @@ PrefabInstance:
       propertyPath: pwSlider
       value: 
       objectReference: {fileID: 2074838644}
-    - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
-      propertyPath: psSprintL
-      value: 
-      objectReference: {fileID: 822239168}
-    - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
-      propertyPath: psSprintR
-      value: 
-      objectReference: {fileID: 2113993422}
     - target: {fileID: 7352570458218325151, guid: ac4632f96f5100344b3386ff7a90b93f, type: 3}
       propertyPath: pointsText
       value: 

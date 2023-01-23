@@ -334,7 +334,7 @@ public class PlayerMovementSM : MonoBehaviour
         }
 
         //JUMP
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !isJumping)
         {
             isJumping = true;
             playerAnimator.SetTrigger("IsJumping");
