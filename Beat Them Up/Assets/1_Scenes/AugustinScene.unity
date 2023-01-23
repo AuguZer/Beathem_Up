@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: holdPoint
       value: 
       objectReference: {fileID: 1972205231}
+    - target: {fileID: 5518959432889218029, guid: f0d57a982a733f54d93db689977f0ebc, type: 3}
+      propertyPath: _enemyPrefabs
+      value: 
+      objectReference: {fileID: 899299881}
     - target: {fileID: 5518959432889218031, guid: f0d57a982a733f54d93db689977f0ebc, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -913,7 +917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1619065771
 MonoBehaviour:
   m_ObjectHideFlags: 0
