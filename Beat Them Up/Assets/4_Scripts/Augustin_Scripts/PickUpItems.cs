@@ -7,10 +7,14 @@ public class PickUpItems : MonoBehaviour
     [SerializeField] GameObject holdPoint;
     [SerializeField] GameObject graphics;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject _enemyPrefabs;
+    [SerializeField] float damage = 10f;
 
+    EnemyIA enemyIA;
     SpriteRenderer sprite;
 
     BoxCollider2D bx2d;
+    Rigidbody2D rb2d;
 
     public bool canBeHold;
     // Start is called before the first frame update
@@ -19,7 +23,10 @@ public class PickUpItems : MonoBehaviour
         sprite = graphics.GetComponent<SpriteRenderer>();
         sprite.sortingOrder = 0;
 
+        rb2d = GetComponent<Rigidbody2D>();
+
         bx2d = GetComponent<BoxCollider2D>();
+        enemyIA = _enemyPrefabs.GetComponent<EnemyIA>();
     }
 
     // Update is called once per frame
@@ -55,6 +62,13 @@ public class PickUpItems : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "TakeDamage" && !rb2d.isKinematic)
+        {
+            enemyIA.TakeDamage(damage);
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
