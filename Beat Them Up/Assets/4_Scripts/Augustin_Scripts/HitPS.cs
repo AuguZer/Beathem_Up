@@ -7,6 +7,7 @@ public class HitPS : MonoBehaviour
     [SerializeField] GameObject psHit;
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] float hitDamage = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +30,11 @@ public class HitPS : MonoBehaviour
         if (collision.gameObject.tag == "Destructibles")
         {
             psHit.SetActive(true);
-        } 
+        }
         if (collision.gameObject.tag == "Items")
         {
             psHit.SetActive(true);
-        } 
+        }
 
         if (collision.gameObject.tag == "Machine")
         {
